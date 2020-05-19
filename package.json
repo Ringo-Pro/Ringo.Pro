@@ -1,0 +1,34 @@
+{
+  "name": "ringo.pro",
+  "version": "1.0.0",
+  "description": "Team repository for the meesterproef at CMDA",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CountNick/Ringo.Pro.git"
+  },
+  "keywords": [
+    "Ringo",
+    "Music",
+    "supervision"
+  ],
+  "author": "Marten de Bruijn & Nick Meijer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CountNick/Ringo.Pro/issues"
+  },
+  "homepage": "https://github.com/CountNick/Ringo.Pro#readme"
+}
