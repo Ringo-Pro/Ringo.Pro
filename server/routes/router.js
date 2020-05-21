@@ -9,19 +9,25 @@ const homeRoute = (req, res) => {
 function geniusRedirect(req, res) {
   const code = req.query.code;
   genius.getAccesToken(code);
+  let results = '';
   res.render('search', {
     title: 'search',
+    results: results,
   });
 }
-function search(req, res) {
+async function search(req, res) {
   const searchQuery = req.query.search;
+  let results = '';
   if (searchQuery) {
     const regex = /\s/g;
     const queryWithoutSpaces = searchQuery.replace(regex, '+');
-    genius.search(queryWithoutSpaces);
+    results = await genius.search(queryWithoutSpaces);
+    console.log(results);
   }
+
   res.render('search', {
     title: 'search',
+    results: results,
   });
 }
 

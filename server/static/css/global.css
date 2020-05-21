@@ -1,0 +1,20 @@
+.results-wrapper {
+  height: 80vh;
+  width: 100%;
+  border: 2px solid green;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  grid-template-rows: repeat(10, 1fr);
+}
+.results-wrapper .grid-item:nth-child(odd) {
+  background-color: lightblue;
+}
+.results-wrapper .grid-item:nth-child(even) {
+  background-color: coral;
+}
+.grid-item {
+  padding: 0.5em;
+}
+h3 {
+  font-weight: bold;
+}

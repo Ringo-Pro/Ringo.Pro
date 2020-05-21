@@ -1,5 +1,11 @@
 # Ringo.Pro
 
+<!-- <% results.map(item => { %>
+      <div class="grid-item"><p>Cover art</p></div>
+      <div class="grid-item"><p><%= item.title %></p></div>
+      <div class="grid-item"><p><%= item.artist %></p></div>
+      <div class="grid-item"><p>Lyrics</p></div>
+      <% });%> <% } %> -->
 <!-- ![Screenshot van de applicatie]() -->
 
 ## APIs tested in this branch
@@ -112,6 +118,10 @@ async function getAccesToken(code) {
 ## Whishlist
 
 ## Credits
+
+- Jo
+- Marcel
+- [CSS Reset by Meyerweb](http://meyerweb.com/eric/tools/css/reset/)
 
 ## Sources
 
