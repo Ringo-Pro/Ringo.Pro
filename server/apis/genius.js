@@ -5,21 +5,12 @@ const client_id = process.env.GENIUS_CLIENT_ID,
   redirect_uri = 'http://localhost:8363/genius-auth',
   scope = 'me',
   state = process.env.GENIUS_STATE;
+
+var access_token;
 function getCode() {
   return (url = `https://api.genius.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`);
 }
 // output: http://localhost:4000/?code=0E8bX2IxJBlkWsmchqLV8BiipwbHW404YVE-skDm5-xUPStJgQwZuJLZzetccvld&state=7698
-
-// const url = ''
-// const response = await fetch(url, {method: 'post'}, body: JSON.stringify({
-//     "code": "CODE_FROM_REDIRECT",
-//     "client_id": "YOUR_CLIENT_ID",
-//     "client_secret": "YOUR_CLIENT_SECRET",
-//     "redirect_uri": "YOUR_REDIRECT_URI",
-//     "response_type": "code",
-//     "grant_type": "authorization_code"
-//   }))
-// const jsonData = await response.json();
 
 async function getAccesToken(code) {
   const url = 'https://api.genius.com/oauth/token',
@@ -31,14 +22,37 @@ async function getAccesToken(code) {
       response_type: 'code',
       grant_type: 'authorization_code',
     };
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  };
   const response = await fetch(url, {
     method: 'POST',
-    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+    headers: headers,
     body: JSON.stringify(bodyData),
   });
   const jsonData = await response.json();
   console.log(jsonData);
-  return jsonData.access_token;
+  access_token = jsonData.access_token;
 }
 
-module.exports = { getCode, getAccesToken };
+async function search(query) {
+  const baseURL = 'https://api.genius.com/search?q=';
+  const testQuery = 'Kendrick%20Lamar';
+  const url = baseURL + testQuery;
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    'User-Agent': 'CompuServe Classic/1.22',
+    Host: 'api.genius.com',
+    Authorization: `Bearer ${access_token}`,
+  };
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: headers,
+  });
+  const jsonData = await response.json();
+  console.log(jsonData);
+}
+
+module.exports = { getCode, getAccesToken, search };

@@ -13,7 +13,8 @@ app
   .set('views', __dirname + '/views/')
   .set('view engine', 'ejs')
   .get('/', router.homeRoute)
-  .get('/genius-auth', router.geniusRedirect);
+  .get('/genius-auth', router.geniusRedirect)
+  .get('/search', router.search);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);

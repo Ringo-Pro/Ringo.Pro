@@ -30,8 +30,40 @@ cd Ringo.Pro
 
 ## APIs
 
-- Spotify API
-- Genuis API
+### Spotify API
+
+### Genius API
+
+- Request a client ID and Secret key on [#](#);
+  Authenticate
+
+```js
+`https://api.genius.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`;
+```
+
+Request Acces Token
+
+```js
+async function getAccesToken(code) {
+  const url = 'https://api.genius.com/oauth/token',
+    bodyData = {
+      code: code,
+      client_id: client_id,
+      client_secret: secret,
+      redirect_uri: redirect_uri,
+      response_type: 'code',
+      grant_type: 'authorization_code',
+    };
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(bodyData),
+  });
+  const jsonData = await response.json();
+  console.log(jsonData);
+  access_token = jsonData.access_token;
+}
+```
 
 - [ ] Add restrictions
 - [ ] Add access mode (like key/oAUTH etc.)

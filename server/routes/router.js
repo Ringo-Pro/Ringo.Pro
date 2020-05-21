@@ -9,12 +9,15 @@ const homeRoute = (req, res) => {
 function geniusRedirect(req, res) {
   const code = req.query.code;
   genius.getAccesToken(code);
-  res.send('Hello');
-  //   res.render('home', {
-  //     title: 'home',
-  //     //   genius: genius.getCode(),
-  //   });
+  res.render('redirect', {
+    title: 'redirect',
+  });
 }
-// https://api.genius.com/oauth/token
+function search(req, res) {
+  genius.search();
+  res.render('redirect', {
+    title: 'redirect',
+  });
+}
 
-module.exports = { homeRoute, geniusRedirect };
+module.exports = { homeRoute, geniusRedirect, search };
