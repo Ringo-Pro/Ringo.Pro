@@ -9,14 +9,19 @@ const homeRoute = (req, res) => {
 function geniusRedirect(req, res) {
   const code = req.query.code;
   genius.getAccesToken(code);
-  res.render('redirect', {
-    title: 'redirect',
+  res.render('search', {
+    title: 'search',
   });
 }
 function search(req, res) {
-  genius.search();
-  res.render('redirect', {
-    title: 'redirect',
+  const searchQuery = req.query.search;
+  if (searchQuery) {
+    const regex = /\s/g;
+    const queryWithoutSpaces = searchQuery.replace(regex, '+');
+    genius.search(queryWithoutSpaces);
+  }
+  res.render('search', {
+    title: 'search',
   });
 }
 

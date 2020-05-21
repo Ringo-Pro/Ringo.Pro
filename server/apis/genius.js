@@ -1,19 +1,24 @@
 require('dotenv').config();
 const fetch = require('node-fetch');
+const util = require('util');
 const client_id = process.env.GENIUS_CLIENT_ID,
   secret = process.env.GENIUS_SECRET,
   redirect_uri = 'http://localhost:8363/genius-auth',
   scope = 'me',
   state = process.env.GENIUS_STATE;
 
+/* DOCUMENTATION:
+  https://docs.genius.com/
+*/
 var access_token;
 function getCode() {
   return (url = `https://api.genius.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`);
 }
 // output: http://localhost:4000/?code=0E8bX2IxJBlkWsmchqLV8BiipwbHW404YVE-skDm5-xUPStJgQwZuJLZzetccvld&state=7698
 
+const baseURL = 'https://api.genius.com/';
 async function getAccesToken(code) {
-  const url = 'https://api.genius.com/oauth/token',
+  const extendedURL = 'oauth/token',
     bodyData = {
       code: code,
       client_id: client_id,
@@ -22,6 +27,7 @@ async function getAccesToken(code) {
       response_type: 'code',
       grant_type: 'authorization_code',
     };
+  const url = baseURL + extendedURL;
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -37,9 +43,9 @@ async function getAccesToken(code) {
 }
 
 async function search(query) {
-  const baseURL = 'https://api.genius.com/search?q=';
-  const testQuery = 'Kendrick%20Lamar';
-  const url = baseURL + testQuery;
+  const extendedURL = 'search?q=';
+  //   const testQuery = 'Kendrick+Lamar';
+  const url = baseURL + extendedURL + query;
   const headers = {
     Accept: 'application/json',
     'Content-Type': 'application/json',
@@ -53,6 +59,8 @@ async function search(query) {
   });
   const jsonData = await response.json();
   console.log(jsonData);
+  const myObject = jsonData.response.hits;
+  console.log(util.inspect(myObject, { showHidden: false, depth: null }));
 }
 
 module.exports = { getCode, getAccesToken, search };

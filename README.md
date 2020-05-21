@@ -6,9 +6,9 @@
 
 - Tivo / AllMusic.com needs a full company name to register for the api
 - Echo Nest can't find this one
+- Genius
 
-https://stackoverflow.com/questions/39842013/fetch-post-with-body-data-not-working-params-empty
-https://docs.genius.com/
+https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/XRay.html
 
 ## Introduction
 
@@ -41,7 +41,7 @@ cd Ringo.Pro
 `https://api.genius.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`;
 ```
 
-Request Acces Token
+<details><summary>Request Acces Token</summary>
 
 ```js
 async function getAccesToken(code) {
@@ -65,6 +65,46 @@ async function getAccesToken(code) {
 }
 ```
 
+</details>
+
+<details><summary>Data</summary>
+
+```js
+{
+    highlights: [],
+    index: 'song',
+    type: 'song',
+    result: {
+      annotation_count: 7,
+      api_path: '/songs/2288547',
+      full_title: 'Manon by De Jeugd van Tegenwoordig',
+      header_image_thumbnail_url: 'https://images.rapgenius.com/631233c9655a46e40e7a671fba27460c.300x170x1.jpg',
+      header_image_url: 'https://images.rapgenius.com/631233c9655a46e40e7a671fba27460c.599x339x1.jpg',
+      id: 2288547,
+      lyrics_owner_id: 255445,
+      lyrics_state: 'complete',
+      path: '/De-jeugd-van-tegenwoordig-manon-lyrics',
+      pyongs_count: 8,
+      song_art_image_thumbnail_url: 'https://images.genius.com/a5f3dea785513a06e01a7753a2d6d59d.300x300x1.jpg',
+      song_art_image_url: 'https://images.genius.com/a5f3dea785513a06e01a7753a2d6d59d.605x605x1.jpg',
+      stats: { unreviewed_annotations: 1, hot: false, pageviews: 79651 },
+      title: 'Manon',
+      title_with_featured: 'Manon',
+      url: 'https://genius.com/De-jeugd-van-tegenwoordig-manon-lyrics',
+      primary_artist: {
+        api_path: '/artists/18140',
+        header_image_url: 'https://images.genius.com/f3c5b09c410385f4f19e52ee4b45baf3.1000x563x1.jpg',
+        id: 18140,
+        image_url: 'https://images.genius.com/51834e10506e8f674014396f8b46a114.500x500x1.jpg',
+        is_meme_verified: false,
+        is_verified: false,
+        name: 'De Jeugd van Tegenwoordig',
+        url: 'https://genius.com/artists/De-jeugd-van-tegenwoordig'
+      }
+```
+
+</details>
+
 - [ ] Add restrictions
 - [ ] Add access mode (like key/oAUTH etc.)
 - [ ] Add description
@@ -77,4 +117,5 @@ async function getAccesToken(code) {
 
 📖 Artikel / Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools
 
-- Placeholder
+- 📖 [Genius API Documentation](https://docs.genius.com/)
+- 🛠 [RegEx Tool](https://regexr.com/)
