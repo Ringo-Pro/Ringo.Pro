@@ -2,6 +2,10 @@
 
 <!-- ![Screenshot van de applicatie]() -->
 
+## APIs tested in this branch
+
+- placeholder
+
 ## Introduction
 
 Here comes a little introduction.
