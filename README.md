@@ -4,7 +4,11 @@
 
 ## APIs tested in this branch
 
-- placeholder
+- Tivo / AllMusic.com needs a full company name to register for the api
+- Echo Nest can't find this one
+
+https://stackoverflow.com/questions/39842013/fetch-post-with-body-data-not-working-params-empty
+https://docs.genius.com/
 
 ## Introduction
 
