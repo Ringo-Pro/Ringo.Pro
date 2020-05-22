@@ -18,7 +18,7 @@ https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/XRay.html
 
 ## Introduction
 
-Here comes a little introduction.
+Here comes a small introduction.
 
 ## Usage
 

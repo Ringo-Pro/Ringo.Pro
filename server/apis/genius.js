@@ -11,9 +11,7 @@ const client_id = process.env.GENIUS_CLIENT_ID,
   https://docs.genius.com/
 */
 var access_token;
-function getCode() {
-  return (url = `https://api.genius.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`);
-}
+const authURL = `https://api.genius.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope}&state=${state}&response_type=code`;
 
 const baseURL = 'https://api.genius.com/';
 async function getAccesToken(code) {
@@ -61,10 +59,10 @@ async function search(query) {
   const myObject = jsonData.response.hits;
   //   console.log(util.inspect(myObject, { showHidden: false, depth: null }));
   const result = myObject[0].result;
-  const title = result.title;
-  const cover = result.song_art_image_url;
-  const artist = result.primary_artist.name;
+  const title = result.title,
+    cover = result.song_art_image_url,
+    artist = result.primary_artist.name;
   return { title, cover, artist };
 }
 
-module.exports = { getCode, getAccesToken, search };
+module.exports = { authURL, getAccesToken, search };

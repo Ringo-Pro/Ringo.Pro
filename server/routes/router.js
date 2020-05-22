@@ -3,7 +3,7 @@ const genius = require('../apis/genius.js');
 const homeRoute = (req, res) => {
   res.render('home', {
     title: 'home',
-    genius: genius.getCode(),
+    genius: genius.authURL,
   });
 };
 function geniusRedirect(req, res) {
