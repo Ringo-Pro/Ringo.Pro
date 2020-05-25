@@ -1,4 +1,5 @@
 const genius = require('../apis/genius.js');
+const musixmatch = require('../apis/musixmatch.js');
 
 const homeRoute = (req, res) => {
   res.render('home', {
@@ -16,6 +17,7 @@ function geniusRedirect(req, res) {
   });
 }
 async function search(req, res) {
+  // const _test = await musixmatch.getLyrics();
   const searchQuery = req.query.search;
   let results = '';
   if (searchQuery) {

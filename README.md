@@ -123,8 +123,65 @@ Free plan
 - limited to 2000 daily API Calls
 - access to 30% of lyrics per song
 - **Free testing plan for evaluation only**
+- `track.search` requires commercial plan
 
 [api terms](https://about.musixmatch.com/apiterms)
+
+#### Data
+
+<details><summary>matcher.track.get</summary>
+
+```js
+{
+  message: {
+    header: {
+      status_code: 200,
+      execute_time: 0.15845417976379,
+      confidence: 1000,
+      mode: 'search',
+      cached: 1
+    },
+    body: {
+      track: {
+        track_id: 88236139,
+        track_name: 'A Te',
+        track_name_translation_list: [],
+        track_rating: 72,
+        commontrack_id: 1157401,
+        instrumental: 0,
+        explicit: 1,
+        has_lyrics: 1,
+        has_subtitles: 1,
+        has_richsync: 0,
+        num_favourite: 1037,
+        album_id: 21143794,
+        album_name: 'Safari',
+        artist_id: 8976,
+        artist_name: 'Jovanotti',
+        track_share_url: 'https://www.musixmatch.com/lyrics/Jovanotti/A-te?utm_source=application&utm_campaign=api&utm_medium=',
+        track_edit_url: 'https://www.musixmatch.com/lyrics/Jovanotti/A-te/edit?utm_source=application&utm_campaign=api&utm_medium=',
+        restricted: 0,
+        updated_time: '2019-04-17T12:55:49Z',
+        primary_genres: {
+          music_genre_list: [
+            {
+              music_genre: {
+                music_genre_id: 14,
+                music_genre_parent_id: 34,
+                music_genre_name: 'Pop',
+                music_genre_name_extended: 'Pop',
+                music_genre_vanity: 'Pop'
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+</details>
 
 - [ ] Add restrictions
 - [ ] Add access mode (like key/oAUTH etc.)
