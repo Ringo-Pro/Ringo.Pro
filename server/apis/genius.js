@@ -7,6 +7,10 @@ const client_id = process.env.GENIUS_CLIENT_ID,
   scope = 'me',
   state = process.env.GENIUS_STATE;
 
+/* ******* THE PORT IS CHANGED TO GET THE GENIUS 
+API WORKING AGAIN THE REDIRECT URL HAS TO BE 
+CHANGED HERE AND IN THE GENIUS API MANAGER ******* */
+
 /* DOCUMENTATION:
   https://docs.genius.com/
 */
