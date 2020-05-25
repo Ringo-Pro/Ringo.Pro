@@ -56,13 +56,17 @@ async function search(query) {
   });
   const jsonData = await response.json();
   //   console.log(jsonData);
-  const myObject = jsonData.response.hits;
-  //   console.log(util.inspect(myObject, { showHidden: false, depth: null }));
-  const result = myObject[0].result;
-  const title = result.title,
-    cover = result.song_art_image_url,
-    artist = result.primary_artist.name;
-  return { title, cover, artist };
+  const hits = jsonData.response.hits;
+  console.log(util.inspect(hits, { showHidden: false, depth: null }));
+  let songs = [];
+  hits.forEach(function (item) {
+    const title = item.result.title,
+      cover = item.result.song_art_image_url,
+      artist = item.result.primary_artist.name;
+    const obj = { title, cover, artist };
+    songs.push(obj);
+  });
+  return songs;
 }
 
 module.exports = { authURL, getAccesToken, search };
