@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+  <%- include( '../components/head.ejs') %>
 
-    <%- include( '../partials/head.ejs') %>
-
-<body> 
-
+  <body>
     <h1>Audio features of this track</h1>
 
     <ul>
-        <li>danceability: <%= data.danceability %></li>
-        <li>energy: <%= data.energy %></li>
-        <li>key: <%= data.key %></li>
-        <li>loudness: <%= data.loudness %></li>
-        <li>mode: <%= data.mode %></li>
-        <li>speechiness: <%= data.speechiness %></li>
-        <li>acousticness: <%= data.acousticness %></li>
-        <li>instrumentalness: <%= data.instrumentalness %></li>
-        <li>liveness: <%= data.liveness %></li>
-        <li>valence: <%= data.valence %></li>
-        <li>tempo: <%= data.tempo %></li>
-        <li>time signature: <%= data.time_signature %></li>
-        <li>href: <a href="<%= data.track_href %>">link</a></li>
-
+      <li>danceability: <%= data.danceability %></li>
+      <li>energy: <%= data.energy %></li>
+      <li>key: <%= data.key %></li>
+      <li>loudness: <%= data.loudness %></li>
+      <li>mode: <%= data.mode %></li>
+      <li>speechiness: <%= data.speechiness %></li>
+      <li>acousticness: <%= data.acousticness %></li>
+      <li>instrumentalness: <%= data.instrumentalness %></li>
+      <li>liveness: <%= data.liveness %></li>
+      <li>valence: <%= data.valence %></li>
+      <li>tempo: <%= data.tempo %></li>
+      <li>time signature: <%= data.time_signature %></li>
+      <li>href: <a href="<%= data.track_href %>">link</a></li>
     </ul>
-
-
-
-</body>
-
+  </body>
 </html>

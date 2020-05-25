@@ -1,59 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include( '../partials/head.ejs') %>
-<body>
+  <%- include( '../components/head.ejs') %>
+  <body>
+    <%- include( '../components/nav.ejs'), data, token %>
 
-
-
-<%- include( '../partials/nav.ejs'), data, token %>
-
-<a href="<%= genius %>">Authenticate with genius</a>
-
-<form class="inspire-me" action="/inspireme">
-    
-
-    <label for="valence">
+    <form class="inspire-me" action="/inspireme">
+      <label for="valence">
         Valence
-        <input type="text" name="valence" id="valence">
-    
-    </label>
+        <input type="text" name="valence" id="valence" />
+      </label>
 
-    <label for="">
+      <label for="">
         Energy
-        <input type="text" name="energy" id="valence">
-    
-    </label>
+        <input type="text" name="energy" id="valence" />
+      </label>
 
-    <label for="danceability">
+      <label for="danceability">
         Danceability
-        <input type="text" name="danceability" id="danceability">
-    
-    </label>
+        <input type="text" name="danceability" id="danceability" />
+      </label>
 
-    <label for="acousticness">
+      <label for="acousticness">
         acousticness
-        <input type="text" name="acousticness" id="acousticness">
-    
-    </label>
+        <input type="text" name="acousticness" id="acousticness" />
+      </label>
 
-    <input type="hidden" name="token" value="<%= token %>">
-    <input type="hidden" name="data" value="<%= JSON.stringify(data) %>">
+      <input type="hidden" name="token" value="<%= token %>" />
+      <input type="hidden" name="data" value="<%= JSON.stringify(data) %>" />
 
-    
+      <input type="checkbox" id="vehicle1" name="genre" value="country" />
+      <label for="vehicle1"> country</label>
+      <input type="checkbox" id="vehicle2" name="genre" value="classical" />
+      <label for="vehicle2"> classical</label>
+      <input type="checkbox" id="vehicle3" name="genre" value="rock" />
+      <label for="vehicle3"> rock</label>
+      <input type="checkbox" id="vehicle3" name="genre" value="metal" />
+      <label for="vehicle3"> metal</label>
 
-    <input type="checkbox" id="vehicle1" name="genre" value="country">
-    <label for="vehicle1"> country</label>
-    <input type="checkbox" id="vehicle2" name="genre" value="classical">
-    <label for="vehicle2"> classical</label>
-    <input type="checkbox" id="vehicle3" name="genre" value="rock">
-    <label for="vehicle3"> rock</label>
-    <input type="checkbox" id="vehicle3" name="genre" value="metal">
-    <label for="vehicle3"> metal</label>
-
-    <input type="submit" value="Inpire me">
-
-</form>
-
-
-</body>
+      <input type="submit" value="Inpire me" />
+    </form>
+  </body>
 </html>
