@@ -183,6 +183,50 @@ Free plan
 
 </details>
 
+<details><summary>track.lyrics.get</summary>
+
+```js
+{
+  message: {
+    header: { status_code: 200, execute_time: 0.05019998550415 },
+    body: {
+      lyrics: {
+        lyrics_id: 20730248,
+        explicit: 0,
+        lyrics_body: 'Now and then, I think of when we were together\n' +
+          'Like when you said, you felt so happy, you could die\n' +
+          'Told myself that you were right for me\n' +
+          'But felt so lonely in your company\n' +
+          "But that was love, and it's an ache I still remember\n" +
+          '\n' +
+          'You can get addicted to a certain kind of sadness\n' +
+          'Like resignation to the end, always the end\n' +
+          'So when we found that we could not make sense\n' +
+          'Well, you said that we would still be friends\n' +
+          "But I'll admit that I was glad that it was over\n" +
+          '\n' +
+          "But you didn't have to cut me off\n" +
+          'Make out like it never happened and that we were nothing\n' +
+          "And I don't even need your love\n" +
+          'But you treat me like a stranger, and that feels so rough\n' +
+          '\n' +
+          "No, you didn't have to stoop so low\n" +
+          'Have your friends collect your records, and then change your number\n' +
+          '...\n' +
+          '\n' +
+          '******* This Lyrics is NOT for Commercial use *******',
+        script_tracking_url: '***',
+        pixel_tracking_url: '***',
+        lyrics_copyright: 'Lyrics powered by www.musixmatch.com. This Lyrics is NOT for Commercial use and only 30% of the lyrics are returned.',
+        updated_time: '2020-02-07T12:15:23Z'
+      }
+    }
+  }
+}
+```
+
+</details>
+
 - [ ] Add restrictions
 - [ ] Add access mode (like key/oAUTH etc.)
 - [ ] Add description

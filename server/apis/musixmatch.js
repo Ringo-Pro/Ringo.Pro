@@ -8,19 +8,50 @@ const key = process.env.MUSIXMATCH_KEY;
 */
 
 const baseURL = 'https://api.musixmatch.com/ws/1.1/';
+const apiParam = '?apikey=';
 
-async function getLyrics() {
-  const testBase = 'matcher.track.get';
-  const extendedURL = '?apikey=';
-  const testURL = 'q_track=a%20te&q_artist=Jovanotti&f_has_lyrics=1';
-  const url = baseURL + testBase + extendedURL + key + '&' + testURL;
-  console.log(url);
+async function matchTrack(track, artist, album) {
+  const request = 'matcher.track.get',
+    trackParam = 'q_track=',
+    artistParam = 'q_artist=',
+    albumParam = 'q_album=';
 
-  const response = await fetch(url);
+  let url = baseURL + request + apiParam + key + '&';
+  if (track) {
+    // add track to url
+  }
+  if (artist) {
+    // add artist to url
+  }
+  if (album) {
+    // add album to url
+  }
+
+  //   const response = await fetch(url);
+  //   const jsonData = await response.json();
+  //   console.log(util.inspect(jsonData, { showHidden: false, depth: null }));
+}
+
+async function getLyrics(track, common) {
+  /* Include the url returned into the field script_tracking_url as a script:
+    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP">
+    every time a lyrics is present in a page the lyrics_copyright field must also be clearly visible */
+  const request = 'track.lyrics.get',
+    trackParam = 'track_id=',
+    commonParam = 'commontrack_id=',
+    testID = '15953433';
+  let url = baseURL + request + apiParam + key + '&';
+  const testURL =
+    baseURL + request + apiParam + key + '&' + trackParam + testID;
+  if (track) {
+    // add track
+  }
+  if (common) {
+    // add common param
+  }
+  const response = await fetch(testURL);
   const jsonData = await response.json();
   console.log(util.inspect(jsonData, { showHidden: false, depth: null }));
 }
-// ?apikey=
-// matcher.lyrics.get?q_track=sexy%20and%20i%20know%20it&q_artist=lmfao
 
-module.exports = { getLyrics };
+module.exports = { matchTrack, getLyrics };
