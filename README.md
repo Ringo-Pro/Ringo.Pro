@@ -13,6 +13,7 @@
 - Tivo / AllMusic.com needs a full company name to register for the api
 - Echo Nest can't find this one
 - Genius
+- musixmatch
 
 https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/XRay.html
 
@@ -110,6 +111,20 @@ async function getAccesToken(code) {
 ```
 
 </details>
+
+### Musixmatch
+
+[musixmatch](https://developer.musixmatch.com/)
+
+Free plan
+
+#### Restrictions
+
+- limited to 2000 daily API Calls
+- access to 30% of lyrics per song
+- **Free testing plan for evaluation only**
+
+[api terms](https://about.musixmatch.com/apiterms)
 
 - [ ] Add restrictions
 - [ ] Add access mode (like key/oAUTH etc.)
