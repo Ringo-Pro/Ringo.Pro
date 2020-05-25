@@ -1,11 +1,5 @@
 # Ringo.Pro
 
-<!-- <% results.map(item => { %>
-      <div class="grid-item"><p>Cover art</p></div>
-      <div class="grid-item"><p><%= item.title %></p></div>
-      <div class="grid-item"><p><%= item.artist %></p></div>
-      <div class="grid-item"><p>Lyrics</p></div>
-      <% });%> <% } %> -->
 <!-- ![Screenshot van de applicatie]() -->
 
 ## APIs tested in this branch
