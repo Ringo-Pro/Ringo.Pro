@@ -1,17 +1,53 @@
 .results-wrapper {
   height: 80vh;
   width: 100%;
-  border: 2px solid green;
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 1fr;
   grid-template-rows: repeat(10, 1fr);
 }
-.results-wrapper .grid-item:nth-child(odd) {
-  background-color: lightblue;
+.album-cover {
+  height: 100px;
+  width: 100px;
 }
-.results-wrapper .grid-item:nth-child(even) {
-  background-color: coral;
+.results-wrapper .grid-item:nth-child(-n + 4) {
+  background-color: #418ef2;
 }
+.results-wrapper .grid-item:nth-child(n + 5) {
+  background-color: #f2f2f2;
+}
+.results-wrapper .grid-item:nth-child(n + 9) {
+  background-color: white;
+}
+.results-wrapper .grid-item:nth-child(n + 13) {
+  background-color: #f2f2f2;
+}
+.results-wrapper .grid-item:nth-child(n + 17) {
+  background-color: white;
+}
+.results-wrapper .grid-item:nth-child(n + 21) {
+  background-color: #f2f2f2;
+}
+.results-wrapper .grid-item:nth-child(n + 25) {
+  background-color: white;
+}
+.results-wrapper .grid-item:nth-child(n + 29) {
+  background-color: #f2f2f2;
+}
+.results-wrapper .grid-item:nth-child(n + 33) {
+  background-color: white;
+}
+.results-wrapper .grid-item:nth-child(n + 37) {
+  background-color: #f2f2f2;
+}
+.results-wrapper .grid-item:nth-child(n + 41) {
+  background-color: white;
+}
+
+/* f2f2f2
+8e8d8a
+444444
+418ef2
+3df26a */
 .grid-item {
   padding: 0.5em;
 }
