@@ -53,3 +53,7 @@ header svg {
 header div > svg:hover {
   cursor: pointer;
 }
+.profile-pic {
+  height: 52px;
+  border-radius: 4px;
+}

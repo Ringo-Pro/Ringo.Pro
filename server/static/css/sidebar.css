@@ -72,6 +72,7 @@
   height: 45px;
   background: var(--accent-color);
   transition: all 2s ease-in-out;
+  cursor: default;
 }
 .sidebar.collapsed section.active a:first-of-type::after {
   left: 4.72em;

@@ -249,7 +249,6 @@ function homeRoute(req, res) {
 
   const scopes = 'user-read-private user-read-email';
   // const redirect_uri = process.env.REDIRECT_URI;
-
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
       querystring.stringify({
@@ -262,8 +261,5 @@ function homeRoute(req, res) {
   );
 }
 function navComp(req, res) {
-  const stylesheets = ['topbar.css', 'sidebar.css'];
-  res.render('skeleton', {
-    stylesheets: stylesheets,
-  });
+  res.render('skeleton', {});
 }

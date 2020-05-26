@@ -24,13 +24,21 @@ h3 {
 }
 
 /* img */
+img,
 svg {
   max-height: 100%;
   max-width: 100%;
+}
+svg {
   width: 1.5em;
   height: 1.5em;
   fill: var(--light-grey);
 }
+
+/* buttons */
+/* input[type='submit'], button {
+
+} */
 
 /* develop classes */
 .icon-placeholder {
