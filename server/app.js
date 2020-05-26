@@ -10,7 +10,7 @@ const router = require('./routes/router.js'),
   cors = require('cors')
   querystring = require('querystring')
   cookieParser = require('cookie-parser')
-  genius = require('./apis/genius.js')
+  genius = require('./apis/genius.js');
 const { URLSearchParams } = require('url');
 
 /**
