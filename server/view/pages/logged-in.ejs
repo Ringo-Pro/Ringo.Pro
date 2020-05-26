@@ -9,15 +9,25 @@
         <%- include('../components/filter-toggle.ejs') %>
 
       <form class="inspire-me" action="/inspireme">
-        <label for="valence">
-          Valence
-          <input type="text" name="valence" id="valence" />
-        </label>
 
-        <label for="">
-          Energy
-          <input type="text" name="energy" id="valence" />
-        </label>
+
+        <fieldset class="vibes-filter">
+
+            <legend>What's the vibe of the scene?</legend>
+            
+            <label for="valence">
+                Valence
+                <input type="text" name="valence" id="valence">
+            
+            </label>
+        
+            <label for="">
+                Energy
+                <input type="text" name="energy" id="valence">
+            
+            </label>
+        
+            </fieldset>
 
         <label for="danceability">
           Danceability
