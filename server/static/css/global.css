@@ -1,0 +1,41 @@
+* {
+  outline-color: var(--accent-color);
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark-gray);
+  background: var(--primary-color);
+}
+main {
+  background: var(--primary-color);
+  padding: 8px;
+  height: calc(100% - (4em + 8px));
+  width: calc(100% - (10em + 8px));
+  margin-left: calc(10em + 8px);
+  overflow: scroll;
+}
+
+/* headers */
+h3 {
+  font-weight: 500;
+}
+
+/* img */
+svg {
+  max-height: 100%;
+  max-width: 100%;
+  width: 1.5em;
+  height: 1.5em;
+  fill: var(--light-grey);
+}
+
+/* develop classes */
+.icon-placeholder {
+  height: 20px;
+  width: 20px;
+  background: green;
+  display: block;
+}

@@ -1,51 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/themes/light.css" />
-    <link rel="stylesheet" href="./css/global.css" />
-    <link rel="stylesheet" href="./css/skeleton.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <div>
-        <%- include('../components/icons/menu-icon'); %>
-        <h1 class="logo">Ringo</h1>
-        <form id="quickSearchForm" method="GET" autocomplete="off" action="">
-          <input type="text" name="quickSearch" placeholder="Search" />
-          <button type="submit">
-            <%- include('../components/icons/search-icon'); %>
-          </button>
-        </form>
-      </div>
-      <div class="user">
-        <h3>Marcel Wiebenga</h3>
-        <%- include('../components/icons/user-icon'); %>
-      </div>
-    </header>
-    <aside class="sidebar">
-      <section class="active">
-        <a href="#"><%- include('../components/icons/search-icon'); %> </a>
-        <a href="#">Explore</a>
-      </section>
-      <section>
-        <a href="#"><%- include('../components/icons/projects-icon'); %> </a>
-        <a href="#">Projects</a>
-      </section>
-      <section>
-        <a href="#"> <%- include('../components/icons/action-icon'); %> </a>
-        <a href="#">Actions</a>
-      </section>
-    </aside>
+<%- include('../components/head'); %> 
+<%- include('../components/topbar'); %> 
+<%- include('../components/sidebar'); %> 
     <main>
       <p>Placeholder text</p>
     </main>
+    <script src="./js/collapse-menu.js"></script>
   </body>
 </html>

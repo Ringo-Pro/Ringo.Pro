@@ -1,0 +1,55 @@
+header,
+header div {
+  display: flex;
+  align-items: center;
+}
+header {
+  padding: 4px 12px;
+  height: 4em;
+  background: var(--secondary-color);
+  justify-content: space-between;
+}
+header svg {
+  fill: var(--dark-gray);
+}
+.user svg {
+  margin-left: 1em;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.3em;
+  margin-right: 6em;
+  margin-left: 1em;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.user:hover {
+  cursor: pointer;
+}
+#quickSearchForm input {
+  width: 30em;
+  height: 3em;
+  border: none;
+  background: var(--primary-color);
+  padding: 4px;
+  border-radius: 4px;
+}
+#quickSearchForm button {
+  transform: translate(-4em, 0.5em);
+  background: none;
+  border: none;
+}
+/* States quick search input */
+#quickSearchForm input:focus,
+#quickSearchForm input:hover {
+  color: var(--dark-gray);
+}
+#quickSearchForm input:focus + button svg,
+#quickSearchForm input:hover + button svg,
+#quickSearchForm button:hover svg {
+  fill: var(--dark-gray);
+}
+header div > svg:hover {
+  cursor: pointer;
+}

@@ -262,5 +262,8 @@ function homeRoute(req, res) {
   );
 }
 function navComp(req, res) {
-  res.render('skeleton', {});
+  const stylesheets = ['topbar.css', 'sidebar.css'];
+  res.render('skeleton', {
+    stylesheets: stylesheets,
+  });
 }
