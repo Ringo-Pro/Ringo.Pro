@@ -1,3 +1,6 @@
+* {
+  outline-color: var(--accent-color);
+}
 .icon-placeholder {
   height: 20px;
   width: 20px;
@@ -10,6 +13,7 @@ body {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
   color: var(--dark-gray);
+  background: var(--primary-color);
 }
 header,
 header div {
@@ -25,9 +29,11 @@ header {
 h3 {
   font-weight: 500;
 }
+header svg {
+  fill: var(--dark-gray);
+}
 .user svg {
   margin-left: 1em;
-  fill: var(--dark-gray);
 }
 .sidebar {
   padding: 4px;
@@ -40,17 +46,44 @@ h3 {
   justify-content: center;
   align-items: center;
   border-right: 4px solid var(--light-grey);
+  transition: width 2s ease-in-out;
 }
 .sidebar section {
   margin-bottom: 1.5em;
   width: 7em;
+  display: flex;
+  align-items: center;
+  transition: width 2s ease-in-out;
+}
+.sidebar section a:last-of-type {
+  opacity: 1;
+  transition: opacity 5s ease-in-out;
+  margin-left: 3em;
+}
+.sidebar.collapsed section a:last-of-type {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.sidebar.collapsed section {
+  width: auto;
+}
+.sidebar.collapsed {
+  width: 3em;
+}
+.sidebar section a svg {
+  transition: margin 2s ease-in-out;
+}
+.sidebar.collapsed section a svg {
+  margin-left: 2em;
 }
 section a {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   color: var(--light-grey);
   text-decoration: none;
+}
+section a:first-of-type {
+  position: absolute;
 }
 main {
   background: var(--primary-color);
@@ -60,10 +93,22 @@ main {
   margin-left: calc(10em + 8px);
   overflow: scroll;
 }
+.sidebar.collapsed + main {
+  width: calc(100% - (3em + 8px));
+  margin-left: calc(3em + 8px);
+  transition: margin 2s ease-in-out;
+}
 .logo {
   font-weight: 700;
   font-size: 1.3em;
   margin-right: 6em;
+  margin-left: 1em;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.user:hover {
+  cursor: pointer;
 }
 svg {
   max-height: 100%;
@@ -90,7 +135,6 @@ button[type='submit'] {
 .sidebar section a:hover {
   color: var(--dark-gray);
   font-weight: 500;
-  transition: all 2s;
 }
 .active svg,
 .sidebar section a:hover svg {
@@ -100,19 +144,25 @@ button[type='submit'] {
 #quickSearchForm input:focus,
 #quickSearchForm input:hover {
   color: var(--dark-gray);
-  outline-color: var(--accent-color);
 }
 #quickSearchForm input:focus + button svg,
 #quickSearchForm input:hover + button svg,
 #quickSearchForm button:hover svg {
   fill: var(--dark-gray);
 }
-.active a::after {
+.active a:first-of-type::after {
   content: '';
   display: inline-block;
   position: absolute;
-  left: 10.34em;
+  left: 8.55em;
   width: 10px;
   height: 45px;
   background: var(--accent-color);
+  transition: all 2s ease-in-out;
+}
+.sidebar.collapsed section.active a:first-of-type::after {
+  left: 4.72em;
+}
+header div > svg:hover {
+  cursor: pointer;
 }
