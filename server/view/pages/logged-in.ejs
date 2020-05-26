@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include( '../components/head.ejs') %>
+  <body>    
+    <%- include( '../components/topbar.ejs'), data, token %>
+    <%- include( '../components/sidebar.ejs') %>
+    <main>
+      <form class="inspire-me" action="/inspireme">
+        <label for="valence">
+          Valence
+          <input type="text" name="valence" id="valence" />
+        </label>
+
+        <label for="">
+          Energy
+          <input type="text" name="energy" id="valence" />
+        </label>
+
+        <label for="danceability">
+          Danceability
+          <input type="text" name="danceability" id="danceability" />
+        </label>
+
+        <label for="acousticness">
+          Acousticness
+          <input type="text" name="acousticness" id="acousticness" />
+        </label>
+
+        <input type="hidden" name="token" value="<%= token %>" />
+        <input type="hidden" name="data" value="<%= JSON.stringify(data) %>" />
+
+        <div class="genres">
+          <input type="checkbox" id="vehicle1" name="genre" value="country" />
+          <label for="vehicle1"> country</label>
+          <input type="checkbox" id="vehicle2" name="genre" value="classical" />
+          <label for="vehicle2"> classical</label>
+          <input type="checkbox" id="vehicle3" name="genre" value="rock" />
+          <label for="vehicle3"> rock</label>
+          <input type="checkbox" id="vehicle3" name="genre" value="metal" />
+          <label for="vehicle3"> metal</label>
+        </div>
+        <input type="submit" value="Inspire me" />
+      </form>
+    </main>
+    <script src="../../js/collapse-menu.js"></script>
+  </body>
+</html>

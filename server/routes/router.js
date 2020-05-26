@@ -1,5 +1,7 @@
 const homeRoute = (req, res) => {
-    res.send('Hello world!')
-}
+  res.render('home', {
+    title: 'home',
+  });
+};
 
-module.exports = { homeRoute } 
+module.exports = { homeRoute };
