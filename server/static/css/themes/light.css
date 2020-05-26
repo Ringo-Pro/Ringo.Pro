@@ -1,0 +1,8 @@
+/* light theme */
+:root {
+  --primary-color: #eae7dc;
+  --secondary-color: #d8c3a5;
+  --accent-color: #e85a4f;
+  --dark-gray: #444444;
+  --light-gray: #8e8d8a;
+}

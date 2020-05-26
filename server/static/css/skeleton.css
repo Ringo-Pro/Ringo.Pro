@@ -1,0 +1,41 @@
+.icon-placeholder {
+  height: 20px;
+  width: 20px;
+  background: green;
+  display: block;
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+header,
+header div {
+  display: flex;
+  align-items: center;
+}
+header {
+  padding: 4px;
+  height: 4em;
+  background: var(--secondary-color);
+  justify-content: space-between;
+}
+.sidebar {
+  padding: 4px;
+  background: var(--light-gray);
+  height: calc(100% - (4em + 8px));
+  width: 10em;
+  position: absolute;
+}
+.sidebar section {
+  display: flex;
+}
+main {
+  background: var(--primary-color);
+  padding: 4px;
+  height: calc(100% - (4em + 8px));
+  width: calc(100% - (10em + 8px));
+  margin-left: calc(10em + 8px);
+  overflow: scroll;
+}

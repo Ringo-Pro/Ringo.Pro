@@ -4,11 +4,11 @@ const router = require('./routes/router.js'),
   express = require('express'),
   bodyParser = require('body-parser'),
   path = require('path'),
-  app = express();
-fetch = require('node-fetch');
-cors = require('cors');
-querystring = require('querystring');
-cookieParser = require('cookie-parser');
+  app = express(),
+  fetch = require('node-fetch'),
+  cors = require('cors'),
+  querystring = require('querystring'),
+  cookieParser = require('cookie-parser');
 const { URLSearchParams } = require('url');
 
 /**
@@ -34,13 +34,14 @@ app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(cors())
   .use(cookieParser())
-  .set('view', __dirname + '/view/pages')
+  .set('views', __dirname + '/view/pages')
   .set('view engine', 'ejs')
   .get('/', homeRoute)
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe);
+  .get('/inspireme', inspireMe)
+  .get('/nav', navComp);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -259,4 +260,7 @@ function homeRoute(req, res) {
         state: state,
       })
   );
+}
+function navComp(req, res) {
+  res.render('skeleton', {});
 }
