@@ -9,6 +9,7 @@ body {
   height: 100%;
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
+  color: var(--dark-gray);
 }
 header,
 header div {
@@ -16,26 +17,62 @@ header div {
   align-items: center;
 }
 header {
-  padding: 4px;
+  padding: 4px 12px;
   height: 4em;
   background: var(--secondary-color);
   justify-content: space-between;
 }
+.user .icon {
+  margin-left: 1em;
+}
 .sidebar {
   padding: 4px;
-  background: var(--light-gray);
+  background: var(--primary-color);
   height: calc(100% - (4em + 8px));
   width: 10em;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 4px solid var(--light-grey);
 }
 .sidebar section {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5em;
+}
+section a {
+  margin-left: 1em;
 }
 main {
   background: var(--primary-color);
-  padding: 4px;
+  padding: 8px;
   height: calc(100% - (4em + 8px));
   width: calc(100% - (10em + 8px));
   margin-left: calc(10em + 8px);
   overflow: scroll;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.3em;
+  margin-right: 6em;
+}
+.icon {
+  max-height: 100%;
+  max-width: 100%;
+  height: 1.5em;
+}
+#quickSearchForm input {
+  width: 30em;
+  height: 3em;
+  border: none;
+  background: var(--primary-color);
+  padding: 4px;
+  border-radius: 4px;
+}
+button[type='submit'] {
+  transform: translate(-4em, 0.5em);
+  background: none;
+  border: none;
 }
