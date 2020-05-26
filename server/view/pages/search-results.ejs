@@ -3,7 +3,10 @@
   <%- include( '../components/head.ejs') %>
 
   <body>
-    <%- include( '../components/nav.ejs'), data, token %> <%- include(
-    '../components/result-list.ejs'), trackData %>
+    <%- include( '../components/topbar.ejs'), data, token %> 
+    <%- include( '../components/sidebar.ejs') %>
+    <main>
+    <%- include('../components/result-list.ejs'), trackData %>
+  </main>
   </body>
 </html>
