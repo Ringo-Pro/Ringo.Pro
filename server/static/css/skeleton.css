@@ -22,8 +22,12 @@ header {
   background: var(--secondary-color);
   justify-content: space-between;
 }
-.user .icon {
+h3 {
+  font-weight: 500;
+}
+.user svg {
   margin-left: 1em;
+  fill: var(--dark-gray);
 }
 .sidebar {
   padding: 4px;
@@ -34,16 +38,19 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   border-right: 4px solid var(--light-grey);
 }
 .sidebar section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 1.5em;
+  width: 7em;
 }
 section a {
-  margin-left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--light-grey);
+  text-decoration: none;
 }
 main {
   background: var(--primary-color);
@@ -58,10 +65,12 @@ main {
   font-size: 1.3em;
   margin-right: 6em;
 }
-.icon {
+svg {
   max-height: 100%;
   max-width: 100%;
+  width: 1.5em;
   height: 1.5em;
+  fill: var(--light-grey);
 }
 #quickSearchForm input {
   width: 30em;
@@ -75,4 +84,35 @@ button[type='submit'] {
   transform: translate(-4em, 0.5em);
   background: none;
   border: none;
+}
+/* States workspace nav */
+.active a,
+.sidebar section a:hover {
+  color: var(--dark-gray);
+  font-weight: 500;
+  transition: all 2s;
+}
+.active svg,
+.sidebar section a:hover svg {
+  fill: var(--dark-gray);
+}
+/* States quick search input */
+#quickSearchForm input:focus,
+#quickSearchForm input:hover {
+  color: var(--dark-gray);
+  outline-color: var(--accent-color);
+}
+#quickSearchForm input:focus + button svg,
+#quickSearchForm input:hover + button svg,
+#quickSearchForm button:hover svg {
+  fill: var(--dark-gray);
+}
+.active a::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 10.34em;
+  width: 10px;
+  height: 45px;
+  background: var(--accent-color);
 }

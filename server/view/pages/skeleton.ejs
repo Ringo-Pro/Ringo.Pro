@@ -20,27 +20,30 @@
         <form id="quickSearchForm" method="GET" autocomplete="off" action="">
           <input type="text" name="quickSearch" placeholder="Search" />
           <button type="submit">
-            <img class="icon" src="./img/icons/search.svg" alt="Search Icon" />
+            <%- include('../components/icons/search-icon'); %>
           </button>
         </form>
       </div>
       <div class="user">
         <h3>Marcel Wiebenga</h3>
-        <img class="icon" src="./img/icons/user.svg" alt="User Icon" />
+        <%- include('../components/icons/user-icon'); %>
       </div>
     </header>
     <aside class="sidebar">
-      <section>
-        <img class="icon" src="./img/icons/search.svg" alt="Search Icon" />
-        <a href="#">Explore</a>
+      <section class="active">
+        <a href="#"
+          ><%- include('../components/icons/search-icon'); %> Explore</a
+        >
       </section>
       <section>
-        <img class="icon" src="./img/icons/projects.svg" alt="Projects Icon" />
-        <a href="#">Projects</a>
+        <a href="#"
+          ><%- include('../components/icons/projects-icon'); %> Projects</a
+        >
       </section>
       <section>
-        <img class="icon" src="./img/icons/actions.svg" alt="Actions Icon" />
-        <a href="#">Actions</a>
+        <a href="#">
+          <%- include('../components/icons/action-icon'); %> Actions</a
+        >
       </section>
     </aside>
     <main>
