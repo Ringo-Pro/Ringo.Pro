@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CountNick/Ringo.Pro.git"
+    "url": "git+https://github.com/Ringo-Pro/Ringo.Pro.git"
   },
   "keywords": [
     "Ringo",
@@ -33,7 +33,7 @@
   "author": "Marten de Bruijn & Nick Meijer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CountNick/Ringo.Pro/issues"
+    "url": "https://github.com/Ringo-Pro/Ringo.Pro/issues"
   },
-  "homepage": "https://github.com/CountNick/Ringo.Pro#readme"
+  "homepage": "https://github.com/Ringo-Pro/Ringo.Pro#readme"
 }
