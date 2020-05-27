@@ -1,0 +1,9 @@
+.filter-buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.filter-buttons button{
+    padding: 2rem;
+    border-radius: 10px;
+}

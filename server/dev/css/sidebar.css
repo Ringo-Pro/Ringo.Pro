@@ -1,0 +1,79 @@
+.sidebar {
+  padding: 4px;
+  background: var(--primary-color);
+  height: calc(100% - (4em + 8px));
+  width: 10em;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 4px solid var(--light-grey);
+  transition: width 2s ease-in-out;
+}
+.sidebar section {
+  margin-bottom: 1.5em;
+  width: 7em;
+  display: flex;
+  align-items: center;
+  transition: width 2s ease-in-out;
+}
+.sidebar section a:last-of-type {
+  opacity: 1;
+  transition: opacity 5s ease-in-out;
+  margin-left: 3em;
+}
+.sidebar.collapsed section a:last-of-type {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.sidebar.collapsed section {
+  width: auto;
+}
+.sidebar.collapsed {
+  width: 3em;
+}
+.sidebar section a svg {
+  transition: margin 2s ease-in-out;
+}
+.sidebar.collapsed section a svg {
+  margin-left: 2em;
+}
+.sidebar section a {
+  display: flex;
+  align-items: center;
+  color: var(--light-grey);
+  text-decoration: none;
+}
+.sidebar section a:first-of-type {
+  position: absolute;
+}
+.sidebar.collapsed + main {
+  width: calc(100% - (3em + 8px));
+  margin-left: calc(3em + 8px);
+  transition: margin 2s ease-in-out;
+}
+/* States workspace nav */
+.active a,
+.sidebar section a:hover {
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+.active svg,
+.sidebar section a:hover svg {
+  fill: var(--dark-gray);
+}
+.active a:first-of-type::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 8.55em;
+  width: 10px;
+  height: 45px;
+  background: var(--accent-color);
+  transition: all 2s ease-in-out;
+  cursor: default;
+}
+.sidebar.collapsed section.active a:first-of-type::after {
+  left: 4.72em;
+}
