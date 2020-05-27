@@ -10,6 +10,18 @@
 
       <form class="inspire-me" action="/inspireme">
 
+        <fieldset class="instrumentalness-filter">
+
+            <legend>What ratio are you looking for?</legend>
+            
+            <label for="instrumentalness">
+                Instrumentalness
+                <input type="range" name="instrumentalness" id="valence">
+            
+            </label>
+        
+        </fieldset>
+
 
         <fieldset class="vibes-filter">
 
@@ -29,15 +41,21 @@
         
             </fieldset>
 
-        <label for="danceability">
-          Danceability
-          <input type="text" name="danceability" id="danceability" />
-        </label>
+            <fieldset class="length-filter">
 
-        <label for="acousticness">
-          Acousticness
-          <input type="text" name="acousticness" id="acousticness" />
-        </label>
+                <label for="danceability">
+                    Danceability
+                    <input type="text" name="danceability" id="danceability" />
+                  </label>
+          
+                  <label for="acousticness">
+                    Acousticness
+                    <input type="text" name="acousticness" id="acousticness" />
+                  </label>
+
+            </fieldset>
+
+
 
         <input type="hidden" name="token" value="<%= token %>" />
         <input type="hidden" name="data" value="<%= JSON.stringify(data) %>" />
