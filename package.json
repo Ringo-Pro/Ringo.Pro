@@ -23,7 +23,8 @@
   },
   "scripts": {
     "start": "node server/app.js",
-    "start:dev": "nodemon server/app.js"
+    "start:dev": "nodemon server/app.js",
+    "build:css": "node server/scripts/build-css.js"
   },
   "repository": {
     "type": "git",

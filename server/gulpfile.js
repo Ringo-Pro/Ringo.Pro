@@ -24,4 +24,4 @@ return gulp.src([
 .pipe(gulp.dest('./static/dist/'))
 })
 
-// gulp.series(gulp, 'default')
+
