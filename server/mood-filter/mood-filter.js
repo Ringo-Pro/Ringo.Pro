@@ -6,47 +6,48 @@ const moods = ['relaxingCalm', 'dark', 'sadTense', 'happy', 'energetic'],
     danceability: Math.random(),
   };
 
-// calculate energy
+/* calculate energy
+ percentages * 10 */
 function energy(n) {
   if (n < 1 / 6) {
     return {
-      relaxingCalm: 100,
-      dark: 80,
-      sadTense: 60,
-      happy: 40,
-      energetic: 20,
+      relaxingCalm: 10,
+      dark: 8,
+      sadTense: 6,
+      happy: 4,
+      energetic: 2,
     };
   } else if (n < 1 / 3) {
     return {
-      dark: 100,
-      relaxingCalm: 80,
-      sadTense: 60,
-      happy: 40,
-      energetic: 20,
+      dark: 10,
+      relaxingCalm: 8,
+      sadTense: 6,
+      happy: 4,
+      energetic: 2,
     };
   } else if (n < 2 / 3) {
     return {
-      sadTense: 100,
-      dark: 80,
-      happy: 60,
-      relaxingCalm: 40,
-      energetic: 20,
+      sadTense: 10,
+      dark: 8,
+      happy: 6,
+      relaxingCalm: 4,
+      energetic: 2,
     };
   } else if (n < 5 / 6) {
     return {
-      happy: 100,
-      energetic: 80,
-      sadTense: 60,
-      dark: 40,
-      relaxingCalm: 20,
+      happy: 10,
+      energetic: 8,
+      sadTense: 6,
+      dark: 4,
+      relaxingCalm: 2,
     };
   } else {
     return {
-      energetic: 100,
-      happy: 80,
-      sadTense: 60,
-      dark: 40,
-      relaxingCalm: 20,
+      energetic: 10,
+      happy: 8,
+      sadTense: 6,
+      dark: 4,
+      relaxingCalm: 2,
     };
   }
 }
@@ -55,43 +56,43 @@ function energy(n) {
 function valence(n) {
   if (n < 1 / 6) {
     return {
-      dark: 100,
-      sadTense: 80,
-      relaxingCalm: 60,
-      energetic: 40,
-      happy: 20,
+      dark: 10,
+      sadTense: 8,
+      relaxingCalm: 6,
+      energetic: 4,
+      happy: 2,
     };
   } else if (n < 1 / 3) {
     return {
-      sadTense: 100,
-      dark: 80,
-      relaxingCalm: 60,
-      energetic: 40,
-      happy: 20,
+      sadTense: 10,
+      dark: 8,
+      relaxingCalm: 6,
+      energetic: 4,
+      happy: 2,
     };
   } else if (n < 2 / 3) {
     return {
-      relaxingCalm: 100,
-      sadTense: 80,
-      energetic: 60,
-      dark: 40,
-      happy: 20,
+      relaxingCalm: 10,
+      sadTense: 8,
+      energetic: 6,
+      dark: 4,
+      happy: 2,
     };
   } else if (n < 5 / 6) {
     return {
-      energetic: 100,
-      happy: 80,
-      relaxingCalm: 60,
-      sadTense: 40,
-      dark: 20,
+      energetic: 10,
+      happy: 8,
+      relaxingCalm: 6,
+      sadTense: 4,
+      dark: 2,
     };
   } else {
     return {
-      happy: 100,
-      energetic: 80,
-      relaxingCalm: 60,
-      sadTense: 40,
-      dark: 20,
+      happy: 10,
+      energetic: 8,
+      relaxingCalm: 6,
+      sadTense: 4,
+      dark: 2,
     };
   }
 }
@@ -100,43 +101,43 @@ function valence(n) {
 function danceability(n) {
   if (n < 1 / 6) {
     return {
-      relaxingCalm: 100,
-      dark: 80,
-      sadTense: 60,
-      happy: 40,
-      energetic: 20,
+      relaxingCalm: 10,
+      dark: 8,
+      sadTense: 6,
+      happy: 4,
+      energetic: 2,
     };
   } else if (n < 1 / 3) {
     return {
-      dark: 100,
-      relaxingCalm: 80,
-      sadTense: 60,
-      happy: 40,
-      energetic: 20,
+      dark: 10,
+      relaxingCalm: 8,
+      sadTense: 6,
+      happy: 4,
+      energetic: 2,
     };
   } else if (n < 2 / 3) {
     return {
-      sadTense: 100,
-      relaxingCalm: 40,
-      happy: 80,
-      dark: 60,
-      energetic: 20,
+      sadTense: 10,
+      relaxingCalm: 8,
+      happy: 6,
+      dark: 4,
+      energetic: 2,
     };
   } else if (n < 5 / 6) {
     return {
-      happy: 100,
-      energetic: 80,
-      relaxingCalm: 60,
-      sadTense: 40,
-      dark: 20,
+      happy: 10,
+      energetic: 8,
+      relaxingCalm: 6,
+      sadTense: 4,
+      dark: 2,
     };
   } else {
     return {
-      energetic: 100,
-      happy: 80,
-      sadTense: 60,
-      dark: 40,
-      relaxingCalm: 20,
+      energetic: 10,
+      happy: 8,
+      sadTense: 6,
+      dark: 4,
+      relaxingCalm: 2,
     };
   }
 }
