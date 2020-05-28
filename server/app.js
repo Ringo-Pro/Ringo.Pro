@@ -160,39 +160,26 @@ function searchResultsRoute(req, res) {
               danceability: body.danceability,
             };
             const _mood = moodFilter.addMood(song);
-            const energyMin = _mood.values.energyValues.min;
-            const energyMax = _mood.values.energyValues.max;
-            const _genre = 'punk';
+            const energyMin = _mood.values.energyValues.min,
+              energyMax = _mood.values.energyValues.max,
+              valenceMin = _mood.values.valenceValues.min,
+              valenceMax = _mood.values.valenceValues.max,
+              danceabilityMin = _mood.values.danceabilityValues.min,
+              danceabilityMax = _mood.values.danceabilityValues.max,
+              _trackID = _mood.id,
+              limit = 1;
             fetch(
-              `https://api.spotify.com/v1/recommendations?limit=20&market=US&min_energy=${energyMin}&max_energy=${energyMax}&seed_genres=${_genre}`,
+              `https://api.spotify.com/v1/recommendations?limit=${limit}&market=US&min_energy=${energyMin}&max_energy=${energyMax}&min_valence=${valenceMin}&max_valence=${valenceMax}&min_danceability=${danceabilityMin}&max_danceability=${danceabilityMax}&seed_tracks=${_trackID}`,
               options
             )
               .then((res) => res.json())
               .then((body) => {
-                console.log(body);
+                console.log(
+                  util.inspect(body, { showHidden: false, depth: null })
+                );
               });
           });
       });
-      /* outcome:
-            {
-                 id: '0q2vG0UVuy6ajjcpkQHdZM',
-                 energy: 0.752,
-                 valence: 0.389,
-                 danceability: 0.852,
-                 mood: [ 'energetic' ],
-                 values: {
-                   energyValues: { min: '0.67', max: '0.83' },
-                   valenceValues: { min: '0.33', max: '0.67' },
-                   danceabilityValues: { min: '0.83', max: 1 }
-                 }
-            }
------------------------------------------
-min_*
-max_*
-energy
-danceability
-valence
-            */
 
       res.render('search-results', {
         trackData: body.tracks.items,
