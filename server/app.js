@@ -161,6 +161,27 @@ function searchResultsRoute(req, res) {
             };
             const _mood = moodFilter.addMood(song);
             console.log(_mood);
+            /* outcome:
+            {
+                 id: '0q2vG0UVuy6ajjcpkQHdZM',
+                 energy: 0.752,
+                 valence: 0.389,
+                 danceability: 0.852,
+                 mood: [ 'energetic' ],
+                 values: {
+                   energyValues: { min: '0.67', max: '0.83' },
+                   valenceValues: { min: '0.33', max: '0.67' },
+                   danceabilityValues: { min: '0.83', max: 1 }
+                 }
+            }
+-----------------------------------------
+min_*
+max_*
+energy
+danceability
+valence
+
+            */
           });
       });
 
