@@ -11,6 +11,7 @@ const router = require('./routes/router.js'),
   cookieParser = require('cookie-parser');
 const { URLSearchParams } = require('url');
 
+const moodFilter = require('./mood-filter/mood-filter.js');
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -261,5 +262,6 @@ function homeRoute(req, res) {
   );
 }
 function navComp(req, res) {
+  console.log(moodFilter.itsmood);
   res.render('skeleton', {});
 }
