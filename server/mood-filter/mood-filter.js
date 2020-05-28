@@ -1,170 +1,171 @@
-const moods = ['Calm', 'Sad', 'Happy', 'Energetic'],
-  properties = ['energy', 'valence', 'danceability', 'timbre'],
+const moods = ['relaxingCalm', 'dark', 'sadTense', 'happy', 'energetic'],
   testSong = {
     title: 'test song',
     energy: Math.random(),
     valence: Math.random(),
     danceability: Math.random(),
   };
-let energyScore = {
-    relaxingCalm: 0,
-    dark: 0,
-    sadTense: 0,
-    happy: 0,
-    energetic: 0,
-  },
-  valenceScore = {
-    relaxingCalm: 0,
-    dark: 0,
-    sadTense: 0,
-    happy: 0,
-    energetic: 0,
-  },
-  danceabilityScore = {
-    relaxingCalm: 0,
-    dark: 0,
-    sadTense: 0,
-    happy: 0,
-    energetic: 0,
-  };
 
 // calculate energy
 function energy(n) {
   if (n < 1 / 6) {
-    energyScore.relaxingCalm = 100;
-    energyScore.dark = 80;
-    energyScore.sadTense = 60;
-    energyScore.happy = 40;
-    energyScore.energetic = 20;
+    return {
+      relaxingCalm: 100,
+      dark: 80,
+      sadTense: 60,
+      happy: 40,
+      energetic: 20,
+    };
   } else if (n < 1 / 3) {
-    energyScore.dark = 100;
-    energyScore.relaxingCalm = 80;
-    energyScore.sadTense = 60;
-    energyScore.happy = 40;
-    energyScore.energetic = 20;
+    return {
+      dark: 100,
+      relaxingCalm: 80,
+      sadTense: 60,
+      happy: 40,
+      energetic: 20,
+    };
   } else if (n < 2 / 3) {
-    energyScore.sadTense = 100;
-    energyScore.dark = 80;
-    energyScore.happy = 60;
-    energyScore.relaxingCalm = 40;
-    energyScore.energetic = 20;
+    return {
+      sadTense: 100,
+      dark: 80,
+      happy: 60,
+      relaxingCalm: 40,
+      energetic: 20,
+    };
   } else if (n < 5 / 6) {
-    energyScore.happy = 100;
-    energyScore.energetic = 80;
-    energyScore.sadTense = 60;
-    energyScore.dark = 40;
-    energyScore.relaxingCalm = 20;
+    return {
+      happy: 100,
+      energetic: 80,
+      sadTense: 60,
+      dark: 40,
+      relaxingCalm: 20,
+    };
   } else {
-    energyScore.energetic = 100;
-    energyScore.happy = 80;
-    energyScore.sadTense = 60;
-    energyScore.dark = 40;
-    energyScore.relaxingCalm = 20;
+    return {
+      energetic: 100,
+      happy: 80,
+      sadTense: 60,
+      dark: 40,
+      relaxingCalm: 20,
+    };
   }
 }
 
 // calculate valence
 function valence(n) {
   if (n < 1 / 6) {
-    valenceScore.dark = 100;
-    valenceScore.sadTense = 80;
-    valenceScore.relaxingCalm = 60;
-    valenceScore.energetic = 40;
-    valenceScore.happy = 20;
+    return {
+      dark: 100,
+      sadTense: 80,
+      relaxingCalm: 60,
+      energetic: 40,
+      happy: 20,
+    };
   } else if (n < 1 / 3) {
-    valenceScore.sadTense = 100;
-    valenceScore.dark = 80;
-    valenceScore.relaxingCalm = 60;
-    valenceScore.energetic = 40;
-    valenceScore.happy = 20;
+    return {
+      sadTense: 100,
+      dark: 80,
+      relaxingCalm: 60,
+      energetic: 40,
+      happy: 20,
+    };
   } else if (n < 2 / 3) {
-    valenceScore.relaxingCalm = 100;
-    valenceScore.sadTense = 80;
-    valenceScore.energetic = 60;
-    valenceScore.dark = 40;
-    valenceScore.happy = 20;
+    return {
+      relaxingCalm: 100,
+      sadTense: 80,
+      energetic: 60,
+      dark: 40,
+      happy: 20,
+    };
   } else if (n < 5 / 6) {
-    valenceScore.energetic = 100;
-    valenceScore.happy = 80;
-    valenceScore.relaxingCalm = 60;
-    valenceScore.sadTense = 40;
-    valenceScore.dark = 20;
+    return {
+      energetic: 100,
+      happy: 80,
+      relaxingCalm: 60,
+      sadTense: 40,
+      dark: 20,
+    };
   } else {
-    valenceScore.happy = 100;
-    valenceScore.energetic = 80;
-    valenceScore.relaxingCalm = 60;
-    valenceScore.sadTense = 40;
-    valenceScore.dark = 20;
+    return {
+      happy: 100,
+      energetic: 80,
+      relaxingCalm: 60,
+      sadTense: 40,
+      dark: 20,
+    };
   }
 }
 
 // calculate danceability
 function danceability(n) {
   if (n < 1 / 6) {
-    danceabilityScore.relaxingCalm = 100;
-    danceabilityScore.dark = 80;
-    danceabilityScore.sadTense = 60;
-    danceabilityScore.happy = 40;
-    danceabilityScore.energetic = 20;
+    return {
+      relaxingCalm: 100,
+      dark: 80,
+      sadTense: 60,
+      happy: 40,
+      energetic: 20,
+    };
   } else if (n < 1 / 3) {
-    danceabilityScore.dark = 100;
-    danceabilityScore.relaxingCalm = 80;
-    danceabilityScore.sadTense = 60;
-    danceabilityScore.happy = 40;
-    danceabilityScore.energetic = 20;
+    return {
+      dark: 100,
+      relaxingCalm: 80,
+      sadTense: 60,
+      happy: 40,
+      energetic: 20,
+    };
   } else if (n < 2 / 3) {
-    danceabilityScore.sadTense = 100;
-    danceabilityScore.relaxingCalm = 40;
-    danceabilityScore.happy = 80;
-    danceabilityScore.dark = 60;
-    danceabilityScore.energetic = 20;
+    return {
+      sadTense: 100,
+      relaxingCalm: 40,
+      happy: 80,
+      dark: 60,
+      energetic: 20,
+    };
   } else if (n < 5 / 6) {
-    danceabilityScore.happy = 100;
-    danceabilityScore.energetic = 80;
-    danceabilityScore.relaxingCalm = 60;
-    danceabilityScore.sadTense = 40;
-    danceabilityScore.dark = 20;
+    return {
+      happy: 100,
+      energetic: 80,
+      relaxingCalm: 60,
+      sadTense: 40,
+      dark: 20,
+    };
   } else {
-    danceabilityScore.energetic = 100;
-    danceabilityScore.happy = 80;
-    danceabilityScore.sadTense = 60;
-    danceabilityScore.dark = 40;
-    danceabilityScore.relaxingCalm = 20;
+    return {
+      energetic: 100,
+      happy: 80,
+      sadTense: 60,
+      dark: 40,
+      relaxingCalm: 20,
+    };
   }
 }
-// SUM above
-function moodScore() {
-  energy(testSong.energy);
-  valence(testSong.valence);
-  danceability(testSong.danceability);
-}
-moodScore();
-
-const energetic =
-  energyScore.energetic + valenceScore.energetic + danceabilityScore.energetic;
-const happy = energyScore.happy + valenceScore.happy + danceabilityScore.happy;
-const sadTense =
-  energyScore.sadTense + valenceScore.sadTense + danceabilityScore.sadTense;
-const dark = energyScore.dark + valenceScore.dark + danceabilityScore.dark;
-const relaxingCalm =
-  energyScore.relaxingCalm +
-  valenceScore.relaxingCalm +
-  danceabilityScore.relaxingCalm;
-
-const total = {
-  energetic: energetic,
-  happy: happy,
-  sadTense: sadTense,
-  dark: dark,
-  relaxingCalm: relaxingCalm,
-};
-console.log(total);
-const getMax = (object) => {
-  return Object.keys(object).filter((x) => {
-    return object[x] == Math.max.apply(null, Object.values(object));
+function moodScore(song) {
+  let total = {};
+  moods.forEach(function (mood) {
+    total[mood] = sumMood(song, mood);
   });
-};
-console.log(getMax(total));
-// This is your mood
+  return total;
+}
+function sumMood(song, mood) {
+  const _energy = energy(song.energy),
+    _valence = valence(song.valence),
+    _danceability = danceability(song.danceability);
+  return _energy[mood] + _valence[mood] + _danceability[mood];
+}
 
+/* Source: https://stackoverflow.com/questions/27376295/getting-key-with-the-highest-value-from-object/27376421 */
+function getMood() {
+  // hier gaat de audio details van een nr in ipv testSong
+  const total = moodScore(testSong);
+  const highest = Object.keys(total).filter((x) => {
+    return total[x] == Math.max.apply(null, Object.values(total));
+  });
+  if (highest.length > 1) {
+    console.log('No mood detected');
+  } else {
+    return highest;
+  }
+}
+console.log(getMood());
 module.exports = {};
