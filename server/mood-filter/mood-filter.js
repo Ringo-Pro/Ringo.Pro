@@ -155,17 +155,22 @@ function sumMood(song, mood) {
 }
 
 /* Source: https://stackoverflow.com/questions/27376295/getting-key-with-the-highest-value-from-object/27376421 */
-function getMood() {
+function getMood(song) {
   // hier gaat de audio details van een nr in ipv testSong
-  const total = moodScore(testSong);
+  const total = moodScore(song);
   const highest = Object.keys(total).filter((x) => {
     return total[x] == Math.max.apply(null, Object.values(total));
   });
   if (highest.length > 1) {
-    console.log('No mood detected');
+    return 'No mood detected...';
   } else {
     return highest;
   }
 }
-console.log(getMood());
-module.exports = {};
+function addMood(song) {
+  const mood = getMood(song);
+  song['mood'] = mood;
+  return song;
+}
+
+module.exports = { addMood };
