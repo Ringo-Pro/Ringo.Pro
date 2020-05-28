@@ -160,8 +160,20 @@ function searchResultsRoute(req, res) {
               danceability: body.danceability,
             };
             const _mood = moodFilter.addMood(song);
-            console.log(_mood);
-            /* outcome:
+            const energyMin = _mood.values.energyValues.min;
+            const energyMax = _mood.values.energyValues.max;
+            const _genre = 'punk';
+            fetch(
+              `https://api.spotify.com/v1/recommendations?limit=20&market=US&min_energy=${energyMin}&max_energy=${energyMax}&seed_genres=${_genre}`,
+              options
+            )
+              .then((res) => res.json())
+              .then((body) => {
+                console.log(body);
+              });
+          });
+      });
+      /* outcome:
             {
                  id: '0q2vG0UVuy6ajjcpkQHdZM',
                  energy: 0.752,
@@ -180,10 +192,7 @@ max_*
 energy
 danceability
 valence
-
             */
-          });
-      });
 
       res.render('search-results', {
         trackData: body.tracks.items,
