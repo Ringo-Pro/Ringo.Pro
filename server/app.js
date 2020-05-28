@@ -154,6 +154,7 @@ function searchResultsRoute(req, res) {
         trackData: body.tracks.items,
         data: userData,
         token: access_token,
+        userInput: artist
       });
     });
 }
@@ -192,6 +193,8 @@ function inspireMe(req, res) {
   const access_token = req.query.token;
   const genres = req.query.genre;
   let genreQuery;
+
+  console.log(req.query)
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
@@ -247,7 +250,7 @@ function homeRoute(req, res) {
 
   res.cookie(stateKey, state);
 
-  const scopes = 'user-read-private user-read-email';
+  const scopes = 'streaming user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
   // const redirect_uri = process.env.REDIRECT_URI;
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
