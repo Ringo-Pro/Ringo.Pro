@@ -6,7 +6,12 @@
     <%- include( '../components/topbar.ejs'), data, token %> 
     <%- include( '../components/sidebar.ejs') %>
     <main>
-    <%- include('../components/result-list.ejs'), trackData %>
+      <section id="left">
+        <%- include('../components/result-list.ejs'), trackData %>
+      </section>
+      <section id="right">
+        <!-- recommended data -->
+      </section>
   </main>
   </body>
 </html>

@@ -160,7 +160,24 @@ function searchResultsRoute(req, res) {
               danceability: body.danceability,
             };
             const _mood = moodFilter.addMood(song);
-            console.log(_mood);
+            const energyMin = _mood.values.energyValues.min,
+              energyMax = _mood.values.energyValues.max,
+              valenceMin = _mood.values.valenceValues.min,
+              valenceMax = _mood.values.valenceValues.max,
+              danceabilityMin = _mood.values.danceabilityValues.min,
+              danceabilityMax = _mood.values.danceabilityValues.max,
+              _trackID = _mood.id,
+              limit = 1;
+            fetch(
+              `https://api.spotify.com/v1/recommendations?limit=${limit}&market=US&min_energy=${energyMin}&max_energy=${energyMax}&min_valence=${valenceMin}&max_valence=${valenceMax}&min_danceability=${danceabilityMin}&max_danceability=${danceabilityMax}&seed_tracks=${_trackID}`,
+              options
+            )
+              .then((res) => res.json())
+              .then((body) => {
+                console.log(
+                  util.inspect(body, { showHidden: false, depth: null })
+                );
+              });
           });
       });
 
