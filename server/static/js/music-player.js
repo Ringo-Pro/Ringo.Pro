@@ -9,6 +9,8 @@ const pauseButton = document.querySelector('.pauseButton')
 const albumArt = document.querySelector('.album-art')
 const nowPlaying = document.querySelector('.nowPlaying')
 const trackProgression = document.querySelector('.progress')
+const volume = document.querySelector('.volume')
+console.log(volume.step)
 
 console.log(nowPlaying)
 
@@ -58,9 +60,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         console.log('Currently Playing', current_track);
         console.log('Playing Next', next_track);
 
-        
-
-        
 
     })
     
@@ -81,6 +80,22 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         trackProgression.value = position
 
     });
+
+
+
+    volume.addEventListener('mouseup', function(){
+
+        player.setVolume(this.value).then(() => {
+            console.log('volume updated to: ', this.value)
+        })
+    })
+    
+    pauseButton.addEventListener('click', () => {
+
+        player.togglePlay().then(() => {
+            
+        })
+    })
 
 
     
@@ -149,23 +164,23 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
         
 
-        const pause = ({
-            playerInstance: {
-                _options: {
-                    getOAuthToken
-                }
-            }
-        }) => {
-            getOAuthToken(access_token => {
-                fetch(`https://api.spotify.com/v1/me/player/pause`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${access_token}`
-                    }
-                })
-            })
-        }
+        // const pause = ({
+        //     playerInstance: {
+        //         _options: {
+        //             getOAuthToken
+        //         }
+        //     }
+        // }) => {
+        //     getOAuthToken(access_token => {
+        //         fetch(`https://api.spotify.com/v1/me/player/pause`, {
+        //             method: 'PUT',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'Authorization': `Bearer ${access_token}`
+        //             }
+        //         })
+        //     })
+        // }
 
     
         playButtonList.forEach((playButton) => {
@@ -183,11 +198,11 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
         
 
-            pauseButton.addEventListener('click', event => {
-                return pause({
-                    playerInstance: player
-                })
-            })
+            // pauseButton.addEventListener('click', event => {
+            //     return pause({
+            //         playerInstance: player
+            //     })
+            // })
         
 
 

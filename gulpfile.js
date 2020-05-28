@@ -15,6 +15,7 @@ return gulp.src([
     './server/dev/css/sidebar.css',
     './server/dev/css/topbar.css',
     './server/dev/css/vibes-filter.css',
+    './server/dev/css/music-player.css',
 ])
 .pipe(concat('index.css'))
 .pipe(cleanCSS())
