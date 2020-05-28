@@ -1,4 +1,5 @@
 require('dotenv').config();
+const util = require('util');
 const router = require('./routes/router.js'),
   port = process.env.PORT || 4000,
   express = require('express'),
@@ -11,6 +12,7 @@ const router = require('./routes/router.js'),
   cookieParser = require('cookie-parser');
 const { URLSearchParams } = require('url');
 
+const moodFilter = require('./mood-filter/mood-filter.js');
 /**
  * Generates a random string containing numbers and letters
  * @param  {number} length The length of the string
@@ -40,8 +42,7 @@ app
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe)
-  .get('/nav', navComp);
+  .get('/inspireme', inspireMe);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -148,7 +149,20 @@ function searchResultsRoute(req, res) {
   )
     .then((res) => res.json())
     .then((body) => {
-      console.log(body.tracks.items[0].album.images);
+      body.tracks.items.forEach(function (song) {
+        fetch(`https://api.spotify.com/v1/audio-features/${song.id}`, options)
+          .then((res) => res.json())
+          .then((body) => {
+            const song = {
+              id: body.id,
+              energy: body.energy,
+              valence: body.valence,
+              danceability: body.danceability,
+            };
+            const _mood = moodFilter.addMood(song);
+            console.log(_mood);
+          });
+      });
 
       res.render('search-results', {
         trackData: body.tracks.items,
@@ -259,7 +273,4 @@ function homeRoute(req, res) {
         state: state,
       })
   );
-}
-function navComp(req, res) {
-  res.render('skeleton', {});
 }
