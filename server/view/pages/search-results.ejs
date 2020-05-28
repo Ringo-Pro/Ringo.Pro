@@ -5,8 +5,31 @@
   <body>
     <%- include( '../components/topbar.ejs'), data, token %> 
     <%- include( '../components/sidebar.ejs') %>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+      const token = `<%= token %>`
+      const uriList = `<%= trackData.map(track => track.uri) %>`
+    </script>
     <main>
     <%- include('../components/result-list.ejs'), trackData %>
+
+    <section class ='controls' style="    background: black;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    position: fixed;
+    bottom: 0;
+    padding: .5rem">
+      <img class="album-art" src="" width="64px" height="64px" alt="">
+      <p class="nowPlaying"></p>
+      <button class="pauseButton">pause</button>
+      <button>play</button>
+      <progress class="progress"></progress>
+    </section>
+
+    <script src="/js/music-player.js"></script>
   </main>
   </body>
 </html>
