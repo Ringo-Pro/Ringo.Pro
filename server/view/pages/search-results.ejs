@@ -9,6 +9,7 @@
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>
       const token = `<%= token %>`
+      const uriList = `<%= trackData.map(track => track.uri) %>`
     </script>
     <main>
     <%- include('../components/result-list.ejs'), trackData %>
