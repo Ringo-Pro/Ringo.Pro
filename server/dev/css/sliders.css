@@ -86,3 +86,16 @@ input[type=range] {
   input[type=range]:focus::-ms-fill-upper {
     background: #D8C3A5;
   }
+
+main{
+      transition: background-color 0.5s ease;
+}
+
+.smiley-container{
+    font-size: 5rem;
+    text-align: center;
+}
+
+legend{
+    font-size: 2rem;
+}

@@ -16,7 +16,7 @@
             
             <label for="instrumentalness">
                 Instrumentalness
-                <input type="range" name="instrumentalness" id="valence">
+                <input type="range" name="instrumentalness" min="0" step="0.001" value="0.500" max="1" id="valence">
             
             </label>
         
@@ -30,10 +30,12 @@
             <label for="valence">
                 Emotion
                 <!-- <input type="text" name="valence" id="valence"> -->
-                <input class="emotion-slider" type="range" name="valence" min="0" step="0.001" max="1" id="valence">
+                <input class="emotion-slider" type="range" name="valence" min="0" step="0.001" value="0.500" max="1" id="valence">
             
             </label>
-        
+
+            <h1 class="smiley-container"></h1>
+
             <!-- <label for="">
                 Energy
                 <input type="text" name="energy" id="valence">
@@ -47,14 +49,12 @@
                 <legend>How long is your ideal track?</legend>
 
                 <label for="danceability">
-                    Danceability
-                    <input type="text" name="danceability" id="danceability" />
-                  </label>
+                    Danceability <input type="range" name="danceability"  min="0" step="0.001" value="0.500" max="1" id="danceability" />
+                </label>
           
-                  <label for="acousticness">
-                    Acousticness
-                    <input type="text" name="acousticness" id="acousticness" />
-                  </label>
+                <label for="acousticness">
+                    Acousticness <input type="range" name="acousticness"  min="0" step="0.001" value="0.500" max="1" id="acousticness" />
+                </label>
 
             </fieldset>
 
