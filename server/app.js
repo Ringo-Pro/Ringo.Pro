@@ -135,6 +135,7 @@ function searchResultsRoute(req, res) {
   let userData = JSON.parse(req.query.data);
   var _searchResults;
   let _recommended = [];
+  let __mood = [];
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
@@ -151,7 +152,7 @@ function searchResultsRoute(req, res) {
       _searchResults = body.tracks.items;
       console.log('SEARCH');
       console.log(_searchResults);
-      body.tracks.items.map(function (song) {
+      const __recommended = body.tracks.items.map(function (song) {
         return fetch(
           `https://api.spotify.com/v1/audio-features/${song.id}`,
           options
@@ -169,6 +170,7 @@ function searchResultsRoute(req, res) {
               danceabilityMax = _mood.values.danceabilityValues.max,
               _trackID = _mood.id,
               limit = 1;
+            __mood.push(_mood);
             return fetch(
               `https://api.spotify.com/v1/recommendations?limit=${limit}&market=US&min_energy=${energyMin}&max_energy=${energyMax}&min_valence=${valenceMin}&max_valence=${valenceMax}&min_danceability=${danceabilityMin}&max_danceability=${danceabilityMax}&seed_tracks=${_trackID}`,
               options
@@ -177,18 +179,35 @@ function searchResultsRoute(req, res) {
           .then(function (response) {
             return response.json();
           })
-          .then(function (data) {
-            _recommended.push(data);
-          })
           .catch(function (error) {
             console.log('Request failed', error);
           });
       });
-      res.render('search-results', {
-        trackData: _searchResults,
-        data: userData,
-        token: access_token,
-        recommended: _recommended,
+
+      Promise.all(__recommended).then((values) => {
+        let genMood = [];
+        __mood.forEach(function (item) {
+          genMood.push({ id: item.id, mood: item.mood });
+        });
+        let rec = [];
+        values.forEach(function (item) {
+          // console.log(item.tracks);
+          rec.push({
+            id: item.tracks[0].id,
+            name: item.tracks[0].name,
+            artist: item.tracks[0].artists[0].name,
+            duration: item.tracks[0].duration_ms,
+            popularity: item.tracks[0].popularity,
+          });
+        });
+        console.log(rec);
+        res.render('search-results', {
+          trackData: _searchResults,
+          mood: genMood,
+          data: userData,
+          token: access_token,
+          recommended: rec,
+        });
       });
     });
 }

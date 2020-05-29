@@ -7,9 +7,10 @@
     <%- include( '../components/sidebar.ejs') %>
     <main>
       <section id="left">
-        <%- include('../components/result-list.ejs'), trackData %>
+        <%- include('../components/result-list.ejs'), trackData, mood %>
       </section>
       <section id="right">
+        <h1>RECOMMENDED</h1>
         <%- include('../components/recommended-list.ejs'), recommended %>
       </section>
   </main>

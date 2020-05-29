@@ -10,6 +10,7 @@ body {
   background: var(--primary-color);
 }
 main {
+  display: flex;
   background: var(--primary-color);
   padding: 8px;
   height: calc(100% - (4em + 8px));
@@ -46,8 +47,4 @@ svg {
   width: 20px;
   background: green;
   display: block;
-}
-#left {
-  width: 30%;
-  overflow-x: hidden;
 }

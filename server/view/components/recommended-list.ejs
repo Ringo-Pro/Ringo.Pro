@@ -1,7 +1,36 @@
 
-
-<% if (recommended.length == 0) { %>
+<% if (!recommended) { %>
     <p>no results</p>
-<% }  else {%>
-    <p>results</p>
-    <% } %>
+<% } else {%>
+
+
+<% recommended.forEach(track => { %>
+
+
+    <a href=<%= `/track/:${track.id}/:${token}` %>>
+    <section class = "track-section">
+
+        <h3><%= track.name %> by <%= track.artist %></h3>
+        
+        <h4>popularity: <%= track.popularity %></h4>
+        <h4>runtime: <%= millisToMinutesAndSeconds(track.duration)  %> </h4>
+    
+        <iframe src= <%= `https://open.spotify.com/embed/track/${track.id}` %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+    </section>
+    </a>
+
+<% }) %>
+
+<% } %>
+
+<% function millisToMinutesAndSeconds(millis){ %>
+
+   <% var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    %>
+
+
+<% } %>
+
