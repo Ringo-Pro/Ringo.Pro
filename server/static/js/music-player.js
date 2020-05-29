@@ -6,6 +6,8 @@ let currentUri
 console.log('current uri to be played: ', currentUri)
 const playButtonList = document.querySelectorAll('.playButton')
 const pauseButton = document.querySelector('.pauseButton')
+const previousButton = document.querySelector('.previousButton')
+const nextButton = document.querySelector('.nextButton')
 const albumArt = document.querySelector('.album-art')
 const nowPlaying = document.querySelector('.nowPlaying')
 const trackProgression = document.querySelector('.progress')
@@ -47,8 +49,8 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     
     player.getCurrentState().then(state => {
         if(!state){
-            nowPlaying.textContent = 'User is not playing music through the Web Playback SDK'
-            console.error('User is not playing music through the Web Playback SDK')
+            nowPlaying.textContent = 'Click on a song!'
+            // console.error('User is not playing music through the Web Playback SDK')
             return
         }
 
@@ -97,6 +99,19 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         })
     })
 
+    previousButton.addEventListener('click', () => {
+        	
+        player.previousTrack().then(() => {
+            console.log('Set to previous track!');
+        });
+    })
+
+    nextButton.addEventListener('click', () => {
+        	
+        player.nextTrack().then(() => {
+            console.log('Set to next track!');
+        });
+    })
 
     
     
@@ -115,38 +130,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
                 }
             }
         }) => {
-            
-            // console.log(await getPlayer())
-
-
-
-            // const lastPlayed = await getPlayer()
-
-            // console.log('lastPlayed: ', lastPlayed.item.uri)
-
-            // if(lastPlayed.item.uri === spotify_uri){
-                
-            //     getOAuthToken(access_token => {
-            //         fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
-            //             method: 'PUT',
-            //             body: JSON.stringify({
-            //                 "context_uri": lastPlayed.item.album.uri,
-            //                 "offset": {
-            //                   "position": lastPlayed.item.track_number
-            //                 },
-            //                 "position_ms": lastPlayed.progress_ms
-            //             }),
-            //             headers: {
-            //                 'Content-Type': 'application/json',
-            //                 'Authorization': `Bearer ${access_token}`
-            //             }
-            //         })
-            //     })
-            // } else{
-                
-                            // if now playing uri is same as clicked uri continue playing
-
-            // else do this:
 
             getOAuthToken(access_token => {
                 fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
@@ -158,30 +141,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
                     }
                 })
             })
-            // } 
-
         }
-
-        
-
-        // const pause = ({
-        //     playerInstance: {
-        //         _options: {
-        //             getOAuthToken
-        //         }
-        //     }
-        // }) => {
-        //     getOAuthToken(access_token => {
-        //         fetch(`https://api.spotify.com/v1/me/player/pause`, {
-        //             method: 'PUT',
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //                 'Authorization': `Bearer ${access_token}`
-        //             }
-        //         })
-        //     })
-        // }
-
     
         playButtonList.forEach((playButton) => {
             // console.log(playButton)
@@ -195,16 +155,6 @@ window.onSpotifyWebPlaybackSDKReady = () => {
                 // console.log(event.target.id)
             })
         })
-
-        
-
-            // pauseButton.addEventListener('click', event => {
-            //     return pause({
-            //         playerInstance: player
-            //     })
-            // })
-        
-
 
     });
 

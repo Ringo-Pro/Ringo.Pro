@@ -14,13 +14,7 @@
     <main>
     <%- include('../components/result-list.ejs'), trackData %>
 
-    <section class ='controls'>
-      <img class="album-art" src="" width="64px" height="64px" alt="">
-      <p class="nowPlaying"></p>
-      <button class="pauseButton">play/pause</button>
-      <progress class="progress"></progress>
-      <input type="range" class="volume" name="volume" value="1" step="0.1" max="1">
-    </section>
+    <%- include('../components/music-player.ejs') %> 
 
     <script src="/js/music-player.js"></script>
   </main>
