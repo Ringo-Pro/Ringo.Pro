@@ -5,8 +5,18 @@
   <body>
     <%- include( '../components/topbar.ejs'), data, token %> 
     <%- include( '../components/sidebar.ejs') %>
+
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>
+      const token = `<%= token %>`
+      const uriList = `<%= trackData.map(track => track.uri) %>`
+    </script>
     <main>
     <%- include('../components/result-list.ejs'), trackData %>
+
+    <%- include('../components/music-player.ejs') %> 
+
+    <script src="/js/music-player.js"></script>
   </main>
   </body>
 </html>
