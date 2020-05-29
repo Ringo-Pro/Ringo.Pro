@@ -129,37 +129,38 @@ function callback(req, res) {
       });
   }
 }
-
 function searchResultsRoute(req, res) {
-  console.log(req.query);
-
   let artist = req.query.searchValue;
   let access_token = req.query.token;
   let userData = JSON.parse(req.query.data);
-
+  var _searchResults;
+  let _recommended = [];
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
     headers: { Authorization: 'Bearer ' + access_token },
   };
-
   fetch(
     `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     options
   )
-    .then((res) => res.json())
-    .then((body) => {
-      body.tracks.items.forEach(function (song) {
-        fetch(`https://api.spotify.com/v1/audio-features/${song.id}`, options)
-          .then((res) => res.json())
-          .then((body) => {
-            const song = {
-              id: body.id,
-              energy: body.energy,
-              valence: body.valence,
-              danceability: body.danceability,
-            };
-            const _mood = moodFilter.addMood(song);
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (body) {
+      _searchResults = body.tracks.items;
+      console.log('SEARCH');
+      console.log(_searchResults);
+      body.tracks.items.map(function (song) {
+        return fetch(
+          `https://api.spotify.com/v1/audio-features/${song.id}`,
+          options
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            const _mood = moodFilter.addMood(data);
             const energyMin = _mood.values.energyValues.min,
               energyMax = _mood.values.energyValues.max,
               valenceMin = _mood.values.valenceValues.min,
@@ -168,26 +169,95 @@ function searchResultsRoute(req, res) {
               danceabilityMax = _mood.values.danceabilityValues.max,
               _trackID = _mood.id,
               limit = 1;
-            fetch(
+            return fetch(
               `https://api.spotify.com/v1/recommendations?limit=${limit}&market=US&min_energy=${energyMin}&max_energy=${energyMax}&min_valence=${valenceMin}&max_valence=${valenceMax}&min_danceability=${danceabilityMin}&max_danceability=${danceabilityMax}&seed_tracks=${_trackID}`,
               options
-            )
-              .then((res) => res.json())
-              .then((body) => {
-                console.log(
-                  util.inspect(body, { showHidden: false, depth: null })
-                );
-              });
+            );
+          })
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            _recommended.push(data);
+          })
+          .catch(function (error) {
+            console.log('Request failed', error);
           });
       });
-
       res.render('search-results', {
-        trackData: body.tracks.items,
+        trackData: _searchResults,
         data: userData,
         token: access_token,
+        recommended: _recommended,
       });
     });
 }
+
+// ------
+// function searchResultsRoute(req, res) {
+//   console.log(req.query);
+
+//   let artist = req.query.searchValue;
+//   let access_token = req.query.token;
+//   let userData = JSON.parse(req.query.data);
+
+//   let options = {
+//     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
+//     method: 'GET',
+//     headers: { Authorization: 'Bearer ' + access_token },
+//   };
+
+//   fetch(
+//     `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
+//     options
+//   )
+//     .then((res) => res.json())
+//     .then((body) => {
+//       body.tracks.items.map(function (song) {
+//         return fetch(
+//           `https://api.spotify.com/v1/audio-features/${song.id}`,
+//           options
+//         )
+//           .then((res) => res.json())
+//           .then((body) => {
+//             const song = {
+//               id: body.id,
+//               energy: body.energy,
+//               valence: body.valence,
+//               danceability: body.danceability,
+//             };
+//             const _mood = moodFilter.addMood(song);
+//             const energyMin = _mood.values.energyValues.min,
+//               energyMax = _mood.values.energyValues.max,
+//               valenceMin = _mood.values.valenceValues.min,
+//               valenceMax = _mood.values.valenceValues.max,
+//               danceabilityMin = _mood.values.danceabilityValues.min,
+//               danceabilityMax = _mood.values.danceabilityValues.max,
+//               _trackID = _mood.id,
+//               limit = 1;
+//             return fetch(
+//               `https://api.spotify.com/v1/recommendations?limit=${limit}&market=US&min_energy=${energyMin}&max_energy=${energyMax}&min_valence=${valenceMin}&max_valence=${valenceMax}&min_danceability=${danceabilityMin}&max_danceability=${danceabilityMax}&seed_tracks=${_trackID}`,
+//               options
+//             )
+//               .then((res) => res.json())
+//               .then((body) => {
+//                 return recommendations.push({
+//                   name: body.tracks[0].name,
+//                   artist: body.tracks[0].artists[0].name,
+//                   popularity: body.tracks[0].popularity,
+//                   id: body.tracks[0].id,
+//                 });
+//               });
+//           });
+//       });
+//       console.log(recommendations);
+//       res.render('search-results', {
+//         trackData: body.tracks.items,
+//         data: userData,
+//         token: access_token,
+//       });
+//     });
+// }
 
 function detailRoute(req, res) {
   console.log(req.params);
