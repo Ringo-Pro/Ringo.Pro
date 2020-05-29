@@ -16,6 +16,7 @@ return gulp.src([
     './server/dev/css/topbar.css',
     './server/dev/css/vibes-filter.css',
     './server/dev/css/music-player.css',
+    './server/dev/css/emotion-slider.css',
 ])
 .pipe(concat('index.css'))
 .pipe(cleanCSS())
