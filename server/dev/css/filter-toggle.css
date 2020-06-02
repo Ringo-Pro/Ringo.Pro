@@ -1,10 +1,10 @@
-.filter-buttons{
-    display: flex;
-    justify-content: space-around;
+.filter-buttons {
+  display: flex;
+  justify-content: space-around;
 }
 
-.filter-buttons button{
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 25px;
+.filter-buttons button {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
 }

@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const { series, parallel } = require('gulp');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
@@ -15,6 +16,9 @@ return gulp.src([
     './server/dev/css/sidebar.css',
     './server/dev/css/topbar.css',
     './server/dev/css/vibes-filter.css',
+    './server/dev/css/music-player.css',
+    './server/dev/css/sliders.css',
+    './server/dev/css/volume.css',
 ])
 .pipe(concat('index.css'))
 .pipe(cleanCSS())
@@ -25,3 +29,9 @@ return gulp.src([
 })
 
 
+function watch() {
+  gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*/css'], css);
+}
+
+exports.css = css;
+exports.watch = watch;
