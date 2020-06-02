@@ -1,9 +1,13 @@
 <aside class="sidebar2">
 
-    <input type="radio" id="search" name="playList" value="search results">
-    <label for="search">search results</label>
+    <div class="switch-field">
+
+    <input type="radio" id="results" name="playList" value="search results" checked>
+    <label for="results">search results</label>
     <input type="radio" id="curated" name="playList" value="curated">
-    <label for="curated">curated</label><br>
+    <label for="curated">curated list</label>
+
+    </div>
 
 <% if (typeof trackData === 'undefined') { %>
     <ul>
