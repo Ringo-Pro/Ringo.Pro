@@ -42,7 +42,8 @@ app
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe);
+  .get('/inspireme', inspireMe)
+  .get('/left', leftAside);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -168,7 +169,7 @@ function searchResultsRoute(req, res) {
         trackData: body.tracks.items,
         data: userData,
         token: access_token,
-        userInput: artist
+        userInput: artist,
       });
     });
 }
@@ -208,7 +209,7 @@ function inspireMe(req, res) {
   const genres = req.query.genre;
   let genreQuery;
 
-  console.log(req.query)
+  console.log(req.query);
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
@@ -227,7 +228,9 @@ function inspireMe(req, res) {
 
     genreQuery = chainedArray.join('') + lastElement;
 
-    console.log(`https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_energy=${energy}&target_valence=${valence}&seed_genres=${genreQuery}`)
+    console.log(
+      `https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_energy=${energy}&target_valence=${valence}&seed_genres=${genreQuery}`
+    );
 
     fetch(
       `https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_valence=${valence}&seed_genres=${genreQuery}`,
@@ -266,7 +269,8 @@ function homeRoute(req, res) {
 
   res.cookie(stateKey, state);
 
-  const scopes = 'streaming user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
+  const scopes =
+    'streaming user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
   // const redirect_uri = process.env.REDIRECT_URI;
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
@@ -278,4 +282,7 @@ function homeRoute(req, res) {
         state: state,
       })
   );
+}
+function leftAside(req, res) {
+  res.render('skeleton', {});
 }

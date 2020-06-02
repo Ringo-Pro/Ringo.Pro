@@ -1,6 +1,57 @@
-<%- include('../components/head'); %> 
+
+  <%- include( '../components/head.ejs') %>
+
+  <body>
+    <%# include( '../components/topbar.ejs'), data, token %> 
+    <!-- previous projects -->
+    <aside class="aside-projects">
+      <ul>
+        <li>P1</li>
+        <li>P2</li>
+        <li>P3</li>
+        <li>P4</li>
+      </ul>
+    </aside>
+    <!-- filters -->
+    <aside class="aside-filters">
+      <section class="active-filters">
+        <ul>
+          <li>Rock</li>
+          <li>25 BPM</li>
+          <li>Live</li>
+        </ul>
+      </section>
+      <section><input type="text" name="" id="" placeholder="Search"></section>
+      <section class="find-filters">
+        <aside class="aside-find-filters">
+          <ul>
+            <li>Genre</li>
+            <li>Tempo</li>
+            <li>Mood</li>
+            <li>Theme</li>
+            <li>Other</li>
+          </ul>
+        </aside>
+        <section class="section-find-filters">
+          <ul>
+            <li>Rock</li>
+            <li>Pop</li>
+            <li>Hip-Hop</li>
+            <li>Jazz</li>
+          </ul>
+        </section>
+      </section>
+    </aside>
+    <!-- video -->
     <main>
-      <p>Placeholder text</p>
+      <section>Main window</section>
+      <section>time line</section>
     </main>
+    <!-- recommended playlist / search results -->
+    <aside class="aside-recommended"></aside>
+    <!-- curated playlist -->
+    <aside class="aside-curated"></aside>
+   
+   
   </body>
 </html>
