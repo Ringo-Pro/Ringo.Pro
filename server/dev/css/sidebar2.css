@@ -2,11 +2,25 @@
     padding: 4px;
     background: var(--primary-color);
     height: calc(100% - (4em + 8px));
-    width: 10em;
-    display: flex;
+    /* width: 10em; */
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; */
     align-items: center;
     border-left: 4px solid var(--light-grey);
     transition: width 2s ease-in-out;
+    overflow-y: scroll;
+    resize: horizontal;
+    overflow: auto;
+  }
+
+  .sidebar2 li{
+    background: black;
+    padding: .1rem;
+    margin-bottom: .1rem;
+    border-radius: .3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
   }
