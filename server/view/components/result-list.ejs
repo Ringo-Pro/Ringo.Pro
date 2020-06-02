@@ -7,7 +7,6 @@
 
 <% trackData.forEach(track => { %>
 
-<<<<<<< HEAD
 
     <a href=<%= `/track/:${track.id}/:${token}` %>>
     <section class = "track-section">
@@ -21,11 +20,6 @@
         <% }) %>
         <h4>popularity: <%= track.popularity %></h4>
         <h4>runtime: <%= millisToMinutesAndSeconds(track.duration_ms)  %> </h4>
-=======
-    <li> 
-        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt=""> <%= track.name %> - <%= track.artists[0].name %> popularity: <%= track.popularity %> <%= millisToMinutesAndSeconds(track.duration_ms) %> <a href=<%= `/track/:${track.id}/:${token}` %>>more info</a>
-    </li> 
->>>>>>> 3d2f2692e915a7ce568f0d13a1189cb2dda62266
     
 <% }) %>
 

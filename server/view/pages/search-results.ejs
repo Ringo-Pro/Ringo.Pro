@@ -12,7 +12,6 @@
       const uriList = `<%= trackData.map(track => track.uri) %>`
     </script>
     <main>
-<<<<<<< HEAD
       <section id="left">
         <%- include('../components/result-list.ejs'), trackData, mood %>
       </section>
@@ -20,13 +19,6 @@
         <h1>RECOMMENDED</h1>
         <%- include('../components/recommended-list.ejs'), recommended %>
       </section>
-=======
-    <%- include('../components/result-list.ejs'), trackData %>
-
-    <%- include('../components/music-player.ejs') %> 
-
-    <script src="/js/music-player.js"></script>
->>>>>>> 3d2f2692e915a7ce568f0d13a1189cb2dda62266
   </main>
   </body>
 </html>
