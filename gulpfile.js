@@ -3,6 +3,7 @@ const { series, parallel } = require('gulp');
 const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
+
 function css() {
   return gulp
     .src(['./server/dev/css/themes/*.css', './server/dev/css/*.css'])
@@ -15,6 +16,7 @@ function css() {
     )
     .pipe(gulp.dest('./server/static/dist/'));
 }
+
 function watch() {
   gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
 }
