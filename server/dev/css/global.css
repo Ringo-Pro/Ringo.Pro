@@ -14,7 +14,6 @@ main {
   padding: 8px;
   height: calc(100% - (4em + 8px));
   width: calc(100% - (10em + 8px));
-  margin-left: calc(10em + 8px);
   overflow: scroll;
 }
 

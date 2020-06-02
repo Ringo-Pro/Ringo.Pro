@@ -1,0 +1,36 @@
+<aside class="sidebar2">
+
+
+<% if (typeof trackData === 'undefined') { %>
+    <ul>
+        <li>No results yet</li>
+    </ul>
+<% } else if (typeof trackData !== 'undefined'){%>
+
+<ul>
+
+<% trackData.forEach(track => { %>
+
+    <li> 
+        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt=""> <%= track.name %> - <%= track.artists[0].name %> popularity: <%= track.popularity %> <%= millisToMinutesAndSeconds(track.duration_ms) %> <a href=<%= `/track/:${track.id}/:${token}` %>>more info</a>
+    </li> 
+    
+<% }) %>
+
+</ul>
+
+<% } %>
+
+<% function millisToMinutesAndSeconds(millis){ %>
+
+   <% var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    %>
+
+
+<% } %>
+
+
+
+</aside>

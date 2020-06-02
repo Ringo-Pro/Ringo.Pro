@@ -164,7 +164,7 @@ function searchResultsRoute(req, res) {
           });
       });
 
-      res.render('search-results', {
+      res.render('logged-in', {
         trackData: body.tracks.items,
         data: userData,
         token: access_token,

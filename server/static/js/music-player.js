@@ -1,9 +1,9 @@
 console.log('This is musicplayer speaking')
 console.log('token: ', token)
-console.log('uris: ', uriList)
+// console.log('uris: ', uriList)
 
-let currentUri
-console.log('current uri to be played: ', currentUri)
+// let currentUri
+// console.log('current uri to be played: ', currentUri)
 const playButtonList = document.querySelectorAll('.playButton')
 const pauseButton = document.querySelector('.pauseButton')
 const previousButton = document.querySelector('.previousButton')
@@ -147,6 +147,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
             // console.log(playButton)
         
             playButton.addEventListener('click', event => {
+                console.log(event.target.id)
 
                 return play({
                     playerInstance: player,
