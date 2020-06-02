@@ -20,6 +20,5 @@ function css() {
 function watch() {
   gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
 }
-
 exports.css = css;
 exports.watch = watch;
