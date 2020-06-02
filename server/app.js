@@ -227,13 +227,15 @@ function inspireMe(req, res) {
 
     genreQuery = chainedArray.join('') + lastElement;
 
+    console.log(`https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_energy=${energy}&target_valence=${valence}&seed_genres=${genreQuery}`)
+
     fetch(
-      `https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_energy=${energy}&target_valence=${valence}&seed_genres=${genreQuery}`,
+      `https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_valence=${valence}&seed_genres=${genreQuery}`,
       options
     )
       .then((res) => res.json())
       .then((body) => {
-        console.log(body.tracks);
+        console.log(body);
 
         res.render('search-results', {
           trackData: body.tracks,
