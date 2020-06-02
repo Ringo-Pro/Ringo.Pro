@@ -43,12 +43,10 @@ main {
 .find-filters {
   width: 100%;
   height: 75%;
-  display: flex;
 }
-.aside-find-filters {
-  height: 100%;
-  width: 20%;
-  border-right: 2px solid green;
+.find-filters form {
+  display: flex;
+  flex-direction: column;
 }
 .section-find-filters {
   height: 100%;
@@ -61,7 +59,15 @@ main {
   border-radius: 5px;
   margin-bottom: 8px;
 }
-.aside-find-filters ul li {
+.aside-filters ul li {
   border: 2px solid red;
   width: 100%;
+}
+input[name='genre'] ~ ul,
+input[name='mood'] ~ ul {
+  display: none;
+}
+.aside-filters input[name='genre']:checked ~ ul.genre-filters,
+.aside-filters input[name='mood']:checked ~ ul.mood-filters {
+  display: block;
 }

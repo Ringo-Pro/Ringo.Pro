@@ -23,23 +23,33 @@
       </section>
       <section><input type="text" name="" id="" placeholder="Search"></section>
       <section class="find-filters">
-        <aside class="aside-find-filters">
-          <ul>
-            <li>Genre</li>
-            <li>Tempo</li>
-            <li>Mood</li>
-            <li>Theme</li>
-            <li>Other</li>
-          </ul>
-        </aside>
-        <section class="section-find-filters">
-          <ul>
-            <li>Rock</li>
-            <li>Pop</li>
-            <li>Hip-Hop</li>
-            <li>Jazz</li>
-          </ul>
-        </section>
+        <form action="" method="get">
+          <input class="" type="checkbox" name="genre" />
+          <label class="" for="genre">Genre</label>  
+          <input class="" type="checkbox" name="mood" />
+          <label class="" for="mood">Mood</label>  
+            <ul class="genre-filters">
+              <li><input type="checkbox" name="genre1">
+              <label for="genre1">Genre 1</label></li>
+              <li><input type="checkbox" name="genre2">
+              <label for="genre2">Genre 2</label></li>
+              <li><input type="checkbox" name="genre3">
+              <label for="genre3">Genre 3</label></li>
+              <li><input type="checkbox" name="genre4">
+              <label for="genre4">Genre 4</label></li>
+            </ul> 
+              <ul class="mood-filters">
+                <li><input type="checkbox" name="mood1">
+                <label for="mood1">Mood 1</label></li>
+                <li><input type="checkbox" name="mood2">
+                <label for="mood2">Mood 2</label></li>
+                <li><input type="checkbox" name="mood3">
+                <label for="mood3">Mood 3</label></li>
+                <li><input type="checkbox" name="mood4">
+                <label for="mood4">Mood 4</label></li>
+              </ul> 
+              <input type="submit" value="submit">
+            </form>
       </section>
     </aside>
     <!-- video -->
@@ -52,6 +62,7 @@
     <!-- curated playlist -->
     <aside class="aside-curated"></aside>
    
+    <script src="/js/filter-menu.js"></script>
    
   </body>
 </html>
