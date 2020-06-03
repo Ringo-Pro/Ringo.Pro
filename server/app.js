@@ -284,20 +284,8 @@ function homeRoute(req, res) {
   );
 }
 function leftAside(req, res) {
-  const query = req.query;
-  const hasGenre = checkFilter('genre', query),
-    hasMood = checkFilter('mood', query);
-  var genre, mood;
-  console.log(hasGenre);
-  if (hasGenre) {
-    // genre =
-    Object.keys(query).map((item) => console.log(gotInt(item)));
-  }
-  res.render('skeleton', {});
+  const query = Object.keys(req.query);
+  res.render('skeleton', {
+    filters: query,
+  });
 }
-function checkFilter(name, query) {
-  const regex = new RegExp(name + '\\d');
-  return regex.test(Object.keys(query));
-}
-// prettier-ignore
-const gotInt = (value) => (String(value).matches('.*\\d.*') ? value : null);

@@ -63,11 +63,11 @@ main {
   border: 2px solid red;
   width: 100%;
 }
-input[name='genre'] ~ ul,
+/* input[name='genre'] ~ ul,
 input[name='mood'] ~ ul {
   display: none;
 }
 .aside-filters input[name='genre']:checked ~ ul.genre-filters,
 .aside-filters input[name='mood']:checked ~ ul.mood-filters {
   display: block;
-}
+} */
