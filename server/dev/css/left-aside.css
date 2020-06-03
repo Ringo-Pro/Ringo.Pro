@@ -53,21 +53,33 @@ main {
   width: 80%;
 }
 .aside-projects ul li {
-  border: 2px solid red;
   height: 100px;
   width: 100px;
   border-radius: 5px;
   margin-bottom: 8px;
+  background: var(--secondary-color);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }
 .aside-filters ul li {
-  border: 2px solid red;
   width: 100%;
 }
-/* input[name='genre'] ~ ul,
-input[name='mood'] ~ ul {
+
+summary {
+  width: 100%;
+  list-style-image: none;
+  background: var(--secondary-color);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 5em;
+}
+
+summary::-webkit-details-marker {
   display: none;
 }
-.aside-filters input[name='genre']:checked ~ ul.genre-filters,
-.aside-filters input[name='mood']:checked ~ ul.mood-filters {
-  display: block;
-} */
+
+details {
+}
