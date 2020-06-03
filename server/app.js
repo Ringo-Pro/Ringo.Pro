@@ -131,17 +131,32 @@ function callback(req, res) {
 }
 
 function searchResultsRoute(req, res) {
-  console.log(req.query);
+  console.log('AAAAA', req.query);
 
   let artist = req.query.searchValue;
   let access_token = req.query.token;
-  let userData = JSON.parse(req.query.data);
+//   let userData = JSON.parse(req.query.data);
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
     headers: { Authorization: 'Bearer ' + access_token },
   };
+
+  if(req.query.async){
+      fetch(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&market=US&limit=10&offset=5`,
+      options)
+        .then((res) => res.json())
+        .then((body) => {
+            console.log(body)
+
+            res.render(__dirname + '/view/components/result-list.ejs', {
+                trackData: body.tracks.items,
+                token: access_token
+            })
+        })
+
+  } else {
 
   fetch(
     `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
@@ -166,11 +181,13 @@ function searchResultsRoute(req, res) {
 
       res.render('logged-in', {
         trackData: body.tracks.items,
-        data: userData,
+        data: JSON.parse(req.query.data),
         token: access_token,
         userInput: artist
       });
     });
+
+    }
 }
 
 function detailRoute(req, res) {
