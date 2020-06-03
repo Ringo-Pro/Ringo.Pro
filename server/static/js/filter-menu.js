@@ -11,7 +11,7 @@ filterSearch.oninput = function input() {
 checkboxes.forEach((item) => {
   const name = item.name,
     mainFilter = item.getAttribute('data-main-filter');
-  allFilters.push({ name: name, main: mainFilter });
+  allFilters.push({ name: name, main: mainFilter, item: item });
 });
 console.log(allFilters);
 allFilters.forEach((item) => {
@@ -29,13 +29,23 @@ function checkDetails(i) {
   const check = details[i].getAttribute('open');
   return check ? true : false;
 }
+/*
+fix display none if your search is specific -> FE: search: rock , we dont want to see pop
+fix backspace issue
+*/
 checkDetails(0);
 function _testing() {
   const val = filterSearch.value.toUpperCase();
+  let toOpen = [];
   for (let i = 0, length = allFilters.length; i < length; i++) {
     let _el = allFilters[i];
     let textval = _el.name;
     const detailsIndex = allFilters[i].main;
+    console.log(textval);
+    console.log(_el);
+    console.log(val);
+    console.log(textval.toUpperCase().indexOf(val));
+
     if (val == '') {
       details.forEach(function (item) {
         if (item.classList.contains('d-none') && item.getAttribute('open')) {
@@ -49,16 +59,20 @@ function _testing() {
       });
     } else if (
       textval.toUpperCase().indexOf(val) > -1 &&
-      !checkDetails(detailsIndex)
+      !toOpen.includes(detailsIndex)
     ) {
-      if (details[detailsIndex].classList.contains('d-none')) {
-        details[detailsIndex].classList.remove('d-none');
-      }
-      openDetails(detailsIndex);
-    } else if (textval.toUpperCase().indexOf(val) == -1) {
-      console.log('yeah');
-      details[detailsIndex].classList.add('d-none');
+      toOpen.push(detailsIndex);
+    } else {
+      allFilters[i].item.classList.toggle('d-none');
+      //   add labels
+      //   make sure they come back
     }
+  }
+  for (let z = 0, length = 12; z < length; z++) {
+    console.log('has');
+    console.log(z);
+    console.log(toOpen);
+    toOpen.includes(`${z}`) ? openDetails(z) : closeDetails(z);
   }
 }
 filterSearch.addEventListener('keyup', _testing);

@@ -17,6 +17,7 @@
       <section class="active-filters">
         <ul>
         <% if (filters) { %>
+          <%# add a validator so that only the existing filters will be added %>
           <% filters.map(filter => { %>
             <li><%= filter %></li>
           <% }) %>
@@ -34,19 +35,19 @@
                 <% const check = filters.filter(item => item === name ? true : false) %>
                 <%  return check.length !== 0 ? true : false %>
                 <% } %>
-              <% if (amIchecked('genre1')) { %>
-                <input type="checkbox" name="genre1" data-main-filter="0" checked>
+              <% if (amIchecked('rock')) { %>
+                <input id="rock" type="checkbox" name="rock" data-main-filter="0" checked>
             <% } else { %>
-              <input type="checkbox" name="genre1" data-main-filter="0">
+              <input id="rock" type="checkbox" name="rock" data-main-filter="0">
               <% } %>
-            <label for="genre1">Genre 1</label></li>
+            <label for="rock">Rock</label></li>
             <li>
-              <% if (amIchecked('genre2')) { %>
-                <input type="checkbox" name="genre2" data-main-filter="0" checked>
+              <% if (amIchecked('pop')) { %>
+                <input id="pop" type="checkbox" name="pop" data-main-filter="0" checked>
             <% } else { %>
-              <input type="checkbox" name="genre2" data-main-filter="0">
+              <input id="pop" type="checkbox" name="pop" data-main-filter="0">
               <% } %>
-            <label for="genre2">Genre 2</label></li>
+            <label for="pop">Pop</label></li>
             <li>
               <% if (amIchecked('genre3')) { %>
                 <input type="checkbox" name="genre3" data-main-filter="0" checked>
