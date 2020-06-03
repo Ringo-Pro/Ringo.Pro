@@ -37,9 +37,6 @@ main {
   height: 18%;
   border: solid 2px black;
 }
-.aside-filters section:nth-child(2) {
-  height: calc(7% - 8px);
-}
 .find-filters {
   width: 100%;
   height: 75%;
@@ -62,24 +59,28 @@ main {
   text-decoration: none;
   display: inline-block;
 }
-.aside-filters ul li {
+.find-filters section form,
+.find-filters section form details {
   width: 100%;
 }
-
 summary {
-  width: 100%;
+  width: calc(100% - 64px);
   list-style-image: none;
   background: var(--secondary-color);
-  padding: 15px 32px;
+  padding: 14px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin-left: 5em;
 }
-
 summary::-webkit-details-marker {
   display: none;
 }
-
-details {
+.aside-filters input[type='text'] {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 2em;
+}
+.d-none {
+  display: none;
 }
