@@ -44,6 +44,14 @@ document.addEventListener("dragenter", function(event) {
   
   }, false);
 
+  document.addEventListener("dragleave", function(event) {
+    // reset background of potential drop target when the draggable element leaves it
+    if (event.target.className == "target-drop") {
+      event.target.style.background = "";
+    }
+  
+  }, false);
+  
   
 
 target.addEventListener("drop", function(event) {
@@ -55,6 +63,6 @@ target.addEventListener("drop", function(event) {
     if (event.target.parentNode.className == "target-drop") {
       event.target.style.background = "";
       dragged.parentNode.removeChild( dragged );
-      event.target.appendChild( dragged );
+      event.target.parentNode.appendChild( dragged );
     }
   }, false);
