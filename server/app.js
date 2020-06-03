@@ -285,6 +285,9 @@ function homeRoute(req, res) {
 }
 function leftAside(req, res) {
   const query = Object.keys(req.query);
+  query.filter((item) =>
+    item === 'genre1' ? console.log(true) : console.log(false)
+  );
   res.render('skeleton', {
     filters: query,
   });
