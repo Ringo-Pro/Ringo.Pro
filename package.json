@@ -22,6 +22,7 @@
     "gulp-concat": "^2.6.1"
   },
   "scripts": {
+    "heroku-postbuild": "gulp",
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
     "start:dev": "npm run watch:css & npm run dev",
