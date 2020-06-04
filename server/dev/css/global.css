@@ -11,10 +11,14 @@ body {
 }
 .page {
   height: calc(100% - (4em + 8px));
+  /* Might need some restructure after merging! */
+  width: calc(100% - (10em + 8px));
+  /* Might need some restructure after merging! */
   width: 100%;
   display: flex;
 }
 aside {
+  /* Might need some restructure after merging! */
   overflow: scroll;
   resize: horizontal;
   height: 100%;

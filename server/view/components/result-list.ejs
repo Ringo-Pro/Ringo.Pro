@@ -3,27 +3,17 @@
     <p>no results</p>
 <% } else {%>
 
-<ul>
+<!-- <ul> -->
 
 <% trackData.forEach(track => { %>
 
-
-    <a href=<%= `/track/:${track.id}/:${token}` %>>
-    <section class = "track-section">
-
-        <h3><%= track.name %> by <%= track.artists[0].name %></h3>
-        
-        <% mood.forEach(item => { %>
-            <% if (item.id == track.id) { %>
-                <h4 style="font-weight: 700;"><%= item.mood %></h4>
-<% } %>
-        <% }) %>
-        <h4>popularity: <%= track.popularity %></h4>
-        <h4>runtime: <%= millisToMinutesAndSeconds(track.duration_ms)  %> </h4>
+    <li class="draggableTrack" draggable="true"> 
+        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt=""> <%= track.name %> - <%= track.artists[0].name %> popularity: <%= track.popularity %> <%= millisToMinutesAndSeconds(track.duration_ms) %> <a href=<%= `/track/:${track.id}/:${token}` %>>more info</a>
+    </li> 
     
 <% }) %>
 
-</ul>
+<!-- </ul> -->
 
 <% } %>
 

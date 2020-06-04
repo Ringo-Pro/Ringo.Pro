@@ -3,7 +3,6 @@
   background: var(--primary-color);
   height: calc(100% - (4em + 8px));
   width: 10em;
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;

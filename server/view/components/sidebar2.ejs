@@ -1,0 +1,50 @@
+<aside class="sidebar2" class="coll">
+    <input id="collapsible" class="toggle" type="checkbox" checked>
+    <label for="collapsible" class="lbl-toggle"></label>
+    <!-- <div class="switch-field">
+    
+
+    <input type="radio" id="results" name="playList" value="search results" checked>
+    <label for="results">search results</label>
+    <input type="radio" id="curated" name="playList" value="curated">
+    <label for="curated">curated list</label>
+
+    </div> -->
+
+    <div class="collapsible-content">
+
+<% if (typeof trackData === 'undefined') { %>
+    <ul class="search-results">
+        <li>No results yet</li>
+    </ul>
+<% } else if (typeof trackData !== 'undefined'){%>
+<h2>Results for: <%= userInput %></h2>
+
+
+<% trackData.forEach(track => { %>
+    
+    <li class="draggableTrack" draggable="true"> 
+        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt=""> <%= track.name %> - <%= track.artists[0].name %> popularity: <%= track.popularity %> <%= millisToMinutesAndSeconds(track.duration_ms) %> <a href=<%= `/track/:${track.id}/:${token}` %>>Details</a>
+    </li> 
+    
+<% }) %>
+
+
+
+</div>
+
+<% } %>
+
+<% function millisToMinutesAndSeconds(millis){ %>
+
+   <% var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    %>
+
+
+<% } %>
+
+
+
+</aside>
