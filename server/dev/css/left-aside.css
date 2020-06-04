@@ -1,17 +1,12 @@
 .aside-projects {
-  width: 10%;
+  width: 5%;
   background: lightgray;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .aside-filters {
   width: 20%;
 }
 .active-filters {
   width: calc(100% - 4px);
-  height: 18%;
-  border: solid 2px black;
 }
 .find-filters {
   width: 100%;
@@ -25,11 +20,19 @@
   height: 100%;
   width: 80%;
 }
+.aside-projects ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1.5em;
+}
 .aside-projects ul li {
-  height: 100px;
-  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
   border-radius: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 1.5em;
   background: var(--secondary-color);
   text-align: center;
   text-decoration: none;
@@ -39,7 +42,11 @@
 .find-filters section form details {
   width: 100%;
 }
+details {
+  position: relative;
+}
 summary {
+  cursor: pointer;
   width: calc(100% - 64px);
   list-style-image: none;
   background: var(--secondary-color);

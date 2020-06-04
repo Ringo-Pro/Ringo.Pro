@@ -42,7 +42,8 @@ app
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe);
+  .get('/inspireme', inspireMe)
+  .get('/test', test);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -128,7 +129,7 @@ function callback(req, res) {
             res.render('logged-in', {
               data: body,
               token: access_token,
-              filters: listOfFilters
+              filters: listOfFilters,
             });
           })
           .catch((err) => {
@@ -143,7 +144,7 @@ function searchResultsRoute(req, res) {
 
   let artist = req.query.searchValue;
   let access_token = req.query.token;
-//   let userData = JSON.parse(req.query.data);
+  //   let userData = JSON.parse(req.query.data);
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
@@ -151,51 +152,50 @@ function searchResultsRoute(req, res) {
     headers: { Authorization: 'Bearer ' + access_token },
   };
 
-  if(req.query.async){
-      fetch(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&market=US&limit=10&offset=5`,
-      options)
-        .then((res) => res.json())
-        .then((body) => {
-            console.log(body)
+  if (req.query.async) {
+    fetch(
+      `https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&market=US&limit=10&offset=5`,
+      options
+    )
+      .then((res) => res.json())
+      .then((body) => {
+        console.log(body);
 
-            res.render(__dirname + '/view/components/result-list.ejs', {
-                trackData: body.tracks.items,
-                token: access_token
-            })
-        })
-
+        res.render(__dirname + '/view/components/result-list.ejs', {
+          trackData: body.tracks.items,
+          token: access_token,
+        });
+      });
   } else {
+    fetch(
+      `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
+      options
+    )
+      .then((res) => res.json())
+      .then((body) => {
+        body.tracks.items.forEach(function (song) {
+          fetch(`https://api.spotify.com/v1/audio-features/${song.id}`, options)
+            .then((res) => res.json())
+            .then((body) => {
+              const song = {
+                id: body.id,
+                energy: body.energy,
+                valence: body.valence,
+                danceability: body.danceability,
+              };
+              const _mood = moodFilter.addMood(song);
+              console.log(_mood);
+            });
+        });
 
-  fetch(
-    `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
-    options
-  )
-    .then((res) => res.json())
-    .then((body) => {
-      body.tracks.items.forEach(function (song) {
-        fetch(`https://api.spotify.com/v1/audio-features/${song.id}`, options)
-          .then((res) => res.json())
-          .then((body) => {
-            const song = {
-              id: body.id,
-              energy: body.energy,
-              valence: body.valence,
-              danceability: body.danceability,
-            };
-            const _mood = moodFilter.addMood(song);
-            console.log(_mood);
-          });
+        res.render('logged-in', {
+          trackData: body.tracks.items,
+          data: JSON.parse(req.query.data),
+          token: access_token,
+          userInput: artist,
+        });
       });
-
-      res.render('logged-in', {
-        trackData: body.tracks.items,
-        data: JSON.parse(req.query.data),
-        token: access_token,
-        userInput: artist
-      });
-    });
-
-    }
+  }
 }
 
 function detailRoute(req, res) {
@@ -233,7 +233,7 @@ function inspireMe(req, res) {
   const genres = req.query.genre;
   let genreQuery;
 
-  console.log(req.query)
+  console.log(req.query);
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
@@ -252,7 +252,9 @@ function inspireMe(req, res) {
 
     genreQuery = chainedArray.join('') + lastElement;
 
-    console.log(`https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_energy=${energy}&target_valence=${valence}&seed_genres=${genreQuery}`)
+    console.log(
+      `https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_energy=${energy}&target_valence=${valence}&seed_genres=${genreQuery}`
+    );
 
     fetch(
       `https://api.spotify.com/v1/recommendations?limit=20&market=US&target_acousticness=${acousticness}&target_danceability=${danceability}&target_valence=${valence}&seed_genres=${genreQuery}`,
@@ -291,7 +293,8 @@ function homeRoute(req, res) {
 
   res.cookie(stateKey, state);
 
-  const scopes = 'streaming user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
+  const scopes =
+    'streaming user-read-private user-read-email user-read-currently-playing user-read-playback-state user-modify-playback-state';
   // const redirect_uri = process.env.REDIRECT_URI;
   res.redirect(
     'https://accounts.spotify.com/authorize?' +
@@ -303,4 +306,7 @@ function homeRoute(req, res) {
         state: state,
       })
   );
+}
+function test(req, res) {
+  res.render('skeleton.ejs');
 }

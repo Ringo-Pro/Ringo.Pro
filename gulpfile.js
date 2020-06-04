@@ -22,7 +22,7 @@ function css() {
 }
 function es() {
   return gulp
-    .src(['./server/dev/js/*.js', './server/dev/js/modules/*.js'])
+    .src(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'])
     .pipe(terser())
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./server/static/dist/'));
@@ -35,7 +35,7 @@ function img() {
 }
 function watch() {
   gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
-  gulp.watch('./src/js/*.js', es);
+  gulp.watch('./server/dev/js/*.js', es);
 }
 const build = gulp.series(cssReset, css, es, img);
 

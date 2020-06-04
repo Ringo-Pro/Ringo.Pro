@@ -1,6 +1,9 @@
 * {
   outline-color: var(--accent-color);
 }
+html {
+  overflow-y: scroll;
+}
 html,
 body {
   height: 100%;
@@ -10,12 +13,9 @@ body {
   background: var(--primary-color);
 }
 
-
-
 aside {
   /* Might need some restructure after merging! */
   overflow: scroll;
-  resize: horizontal;
   height: 100%;
 }
 /* headers */
