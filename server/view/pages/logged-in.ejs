@@ -3,12 +3,15 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-    <%- include( '../components/sidebar.ejs') %>
+    <div class="page">
+    <%- include( '../components/project-aside.ejs') %>
+    <%- include( '../components/filters-aside.ejs', filters) %>
+
     <main>
 
-        <%- include('../components/filter-toggle.ejs') %>
+        
 
-      <form class="inspire-me" action="/inspireme">
+      <!-- <form class="inspire-me" action="/inspireme">
 
         <fieldset class="instrumentalness-filter">
 
@@ -29,18 +32,18 @@
             
             <label for="valence">
                 Emotion
-                <!-- <input type="text" name="valence" id="valence"> -->
+                <input type="text" name="valence" id="valence">
                 <input class="emotion-slider" type="range" name="valence" min="0" step="0.001" value="0.500" max="1" id="valence">
             
             </label>
 
             <h1 class="smiley-container"></h1>
 
-            <!-- <label for="">
+             <label for="">
                 Energy
                 <input type="text" name="energy" id="valence">
             
-            </label> -->
+            </label>
         
             </fieldset>
 
@@ -94,9 +97,10 @@
             </fieldset>
 
         <input type="submit" value="Inspire me" />
-      </form>
+      </form> -->
     </main>
-    <script src="/js/collapse-menu.js"></script>
+</div>
+    <script src="/js/filter-menu.js"></script>
     <script src="/js/filter-toggle.js"></script>
     <script src="/js/emotion-slider.js"></script>
   </body>

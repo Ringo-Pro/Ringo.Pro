@@ -9,15 +9,16 @@ body {
   color: var(--dark-gray);
   background: var(--primary-color);
 }
-/* main {
-  background: var(--primary-color);
-  padding: 8px;
+.page {
   height: calc(100% - (4em + 8px));
-  width: calc(100% - (10em + 8px));
-  margin-left: calc(10em + 8px);
+  width: 100%;
+  display: flex;
+}
+aside {
   overflow: scroll;
-} */
-
+  resize: horizontal;
+  height: 100%;
+}
 /* headers */
 h3 {
   font-weight: 500;
@@ -35,10 +36,10 @@ svg {
   fill: var(--light-grey);
 }
 
-/* buttons */
-/* input[type='submit'], button {
-
-} */
+/* utility classes */
+.d-none {
+  display: none;
+}
 
 /* develop classes */
 .icon-placeholder {

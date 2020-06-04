@@ -1,13 +1,3 @@
-body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-aside {
-  overflow: scroll;
-  resize: horizontal;
-  height: 100%;
-}
 .aside-projects {
   width: 10%;
   background: lightgray;
@@ -17,20 +7,6 @@ aside {
 }
 .aside-filters {
   width: 20%;
-}
-.aside-recommended {
-  width: 20%;
-  background: darkgray;
-}
-.aside-curated {
-  width: 10%;
-  background: lightgray;
-}
-main {
-  width: 40%;
-  overflow: scroll;
-  resize: horizontal;
-  background: lightgray;
 }
 .active-filters {
   width: calc(100% - 4px);
@@ -80,7 +56,4 @@ summary::-webkit-details-marker {
   padding: 0;
   width: 100%;
   height: 2em;
-}
-.d-none {
-  display: none;
 }

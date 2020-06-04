@@ -4,7 +4,7 @@ const details = document.querySelectorAll('details'),
 const checkboxes = filtersForm.querySelectorAll('input[type="checkbox"]'),
   labels = filtersForm.querySelectorAll('label');
 let allFilters = [];
-
+filterSearch.classList.remove('d-none');
 checkboxes.forEach((item) => {
   const name = item.name,
     mainFilter = item.dataset.mainFilter;

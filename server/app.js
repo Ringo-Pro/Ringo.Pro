@@ -42,8 +42,7 @@ app
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe)
-  .get('/left', leftAside);
+  .get('/inspireme', inspireMe);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -119,9 +118,17 @@ function callback(req, res) {
             }
           })
           .then((body) => {
+            let listOfFilters = [];
+            const entriesArr = Object.entries(req.query);
+            entriesArr.forEach(function (item) {
+              if (item[1] === 'on') {
+                listOfFilters.push(item[0]);
+              }
+            });
             res.render('logged-in', {
               data: body,
               token: access_token,
+              filters: listOfFilters,
             });
           })
           .catch((err) => {
@@ -282,10 +289,4 @@ function homeRoute(req, res) {
         state: state,
       })
   );
-}
-function leftAside(req, res) {
-  const query = Object.keys(req.query);
-  res.render('skeleton', {
-    filters: query,
-  });
 }
