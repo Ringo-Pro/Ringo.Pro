@@ -1,29 +1,26 @@
 
-<% if (!trackData) { %>
+<% if (!recommended) { %>
     <p>no results</p>
 <% } else {%>
 
-<ul>
 
-<% trackData.forEach(track => { %>
+<% recommended.forEach(track => { %>
 
 
     <a href=<%= `/track/:${track.id}/:${token}` %>>
     <section class = "track-section">
 
-        <h3><%= track.name %> by <%= track.artists[0].name %></h3>
+        <h3><%= track.name %> by <%= track.artist %></h3>
         
-        <% mood.forEach(item => { %>
-            <% if (item.id == track.id) { %>
-                <h4 style="font-weight: 700;"><%= item.mood %></h4>
-<% } %>
-        <% }) %>
         <h4>popularity: <%= track.popularity %></h4>
-        <h4>runtime: <%= millisToMinutesAndSeconds(track.duration_ms)  %> </h4>
+        <h4>runtime: <%= millisToMinutesAndSeconds(track.duration)  %> </h4>
     
-<% }) %>
+        <iframe src= <%= `https://open.spotify.com/embed/track/${track.id}` %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-</ul>
+    </section>
+    </a>
+
+<% }) %>
 
 <% } %>
 

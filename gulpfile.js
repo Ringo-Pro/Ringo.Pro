@@ -23,6 +23,7 @@ function css() {
     )
     .pipe(gulp.dest('./server/static/dist/'));
 }
+
 function watch() {
   gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
 }
