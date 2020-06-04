@@ -22,9 +22,9 @@
     "gulp-concat": "^2.6.1"
   },
   "scripts": {
-    "prestart": "npm run build:css",
     "start": "node server/app.js",
-    "start:dev": "nodemon server/app.js",
+    "dev": "nodemon server/app.js",
+    "start:dev": "npm run watch:css & npm run dev",
     "build:css": "gulp css",
     "watch:css": "gulp watch"
   },

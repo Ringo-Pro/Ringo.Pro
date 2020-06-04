@@ -3,14 +3,16 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-    
-    <div class="main-section">
-    <%- include( '../components/sidebar.ejs') %>
+
+    <div class="page">
+    <%- include( '../components/project-aside.ejs') %>
+    <%- include( '../components/filters-aside.ejs', filters) %>
+
     <main>
 
-        
 
-    </main>
+      
+
 
     <%- include('../components/sidebar2.ejs')%>
     <%- include('../components/sidebar3.ejs')%>
@@ -21,6 +23,9 @@
         const token = `<%= token %>`
     
     </script>
+        </main>
+</div>
+    <script src="/js/filter-menu.js"></script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script src="/js/collapse-menu.js"></script>
     <script src="/js/filter-toggle.js"></script>
@@ -28,12 +33,5 @@
     <script src="/js/drag-and-drop.js"></script>
     <script src="/js/search.js" type="module"></script>
     <%- include('../components/music-player.ejs') %>
-
-    
-
-
-
-    <script src="/js/music-player.js"></script>
-    
   </body>
 </html>
