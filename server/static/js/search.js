@@ -1,3 +1,5 @@
+// import { play } from "./modules/player.js";
+
 const searchBar = document.getElementById('search')
 
 
@@ -9,8 +11,8 @@ searchBar.addEventListener('input', debounce((event) => {
     
     history.replaceState({}, '','?searchValue=' + userInput + '&token=' + token)
 
-    console.log(url + '?query=' + userInput + '&async=true')
-    console.log(url + '?query=' + userInput + '&async=true' + '&token=' + token)
+    // console.log(url + '?query=' + userInput + '&async=true')
+    // console.log(url + '?query=' + userInput + '&async=true' + '&token=' + token)
     // console.log(data)
     
     
@@ -18,8 +20,18 @@ searchBar.addEventListener('input', debounce((event) => {
     fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token) 
         .then(res => res.text())
         .then(html => {
-            console.log(html)
             document.querySelector('.search-results').innerHTML = html
+
+            // const playButtonList = document.querySelectorAll('.playButton')
+            
+
+            // console.log(playButtonList)
+
+            // playButtonList.forEach(item => {
+            //     item.addEventListener('click', (event) => console.log(event.target.id))
+            //     // play(event.target.id)
+            // })
+
         })
     
     

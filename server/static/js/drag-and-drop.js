@@ -1,21 +1,17 @@
+if(window.MutationObserver){
+
+var observer = new MutationObserver(function(mutations) {
+
+    mutations.forEach(function(mutation) {
+      if(mutation){
+
 const tracks = document.querySelectorAll('.draggableTrack')
 const target = document.querySelector('.target-drop')
 let dragged
 
-console.log(tracks)
-console.log(target)
+// console.log(tracks)
+// console.log(target)
 
-function onDragStart(event) {
-
-    event
-      .dataTransfer
-      .setData('text/plain', event.target.id);
-  
-    event
-      .currentTarget
-      .style
-      .backgroundColor = 'yellow';
-}
 
 function onDragOver(event){
     event.preventDefault()
@@ -57,7 +53,7 @@ document.addEventListener("dragenter", function(event) {
 target.addEventListener("drop", function(event) {
     // prevent default action (open as link for some elements)
     event.preventDefault();
-
+    console.log(dragged)
     console.log(event.target.parentNode.className)
     // move dragged elem to the selected drop target
     if (event.target.parentNode.className == "target-drop") {
@@ -66,3 +62,21 @@ target.addEventListener("drop", function(event) {
       event.target.parentNode.appendChild( dragged );
     }
   }, false);
+
+
+
+      }
+    });
+  });
+
+const results = document.querySelectorAll('.search-results')
+
+// console.log(results)
+
+observer.observe(results[0], {
+    childList: true,
+    attributes: true,
+    characterData: true,
+
+})
+}

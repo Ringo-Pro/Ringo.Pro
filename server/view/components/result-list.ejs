@@ -3,17 +3,17 @@
     <p>no results</p>
 <% } else {%>
 
-<ul>
+<!-- <ul> -->
 
 <% trackData.forEach(track => { %>
 
-    <li> 
+    <li class="draggableTrack" draggable="true"> 
         <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt=""> <%= track.name %> - <%= track.artists[0].name %> popularity: <%= track.popularity %> <%= millisToMinutesAndSeconds(track.duration_ms) %> <a href=<%= `/track/:${track.id}/:${token}` %>>more info</a>
     </li> 
     
 <% }) %>
 
-</ul>
+<!-- </ul> -->
 
 <% } %>
 

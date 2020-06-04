@@ -35,7 +35,8 @@ console.log(playButtonList)
 
 // }
 
-window.onSpotifyWebPlaybackSDKReady = () => {
+export const play = window.onSpotifyWebPlaybackSDKReady = (uri) => {
+    console.log('play this uri now: ', uri)
     const player = new Spotify.Player({
         name: 'Ringo Pro player',
         getOAuthToken: cb => {cb(token)}
@@ -148,11 +149,11 @@ window.onSpotifyWebPlaybackSDKReady = () => {
             // console.log(playButton)
         
             playButton.addEventListener('click', event => {
-                console.log(event.target.id)
+                console.log(uri)
 
                 return play({
                     playerInstance: player,
-                    spotify_uri: event.target.id,
+                    spotify_uri: uri,
                 })
                 // console.log(event.target.id)
             })
