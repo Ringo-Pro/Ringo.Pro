@@ -3,7 +3,6 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-
     <div class="page">
     <%- include( '../components/project-aside.ejs') %>
     <%- include( '../components/filters-aside.ejs', filters) %>
@@ -11,27 +10,98 @@
     <main>
 
 
-      
+      <!-- <form class="inspire-me" action="/inspireme">
+
+        <fieldset class="instrumentalness-filter">
+
+            <legend>What ratio are you looking for?</legend>
+            
+            <label for="instrumentalness">
+                Instrumentalness
+                <input type="range" name="instrumentalness" min="0" step="0.001" value="0.500" max="1" id="valence">
+            
+            </label>
+        
+        </fieldset>
 
 
-    <%- include('../components/sidebar2.ejs')%>
-    <%- include('../components/sidebar3.ejs')%>
+        <fieldset class="vibes-filter">
 
-    </div>
+            <legend>What emotion should the audience experience?</legend>
+            
+            <label for="valence">
+                Emotion
+                <input type="text" name="valence" id="valence">
+                <input class="emotion-slider" type="range" name="valence" min="0" step="0.001" value="0.500" max="1" id="valence">
+            
+            </label>
 
-    <script>
-        const token = `<%= token %>`
+            <h1 class="smiley-container"></h1>
+
+             <label for="">
+                Energy
+                <input type="text" name="energy" id="valence">
+            
+            </label>
+        
+            </fieldset>
+
+            <fieldset class="length-filter">
+
+                <legend>How long is your ideal track?</legend>
+
+                <label for="danceability">
+                    Danceability <input type="range" name="danceability"  min="0" step="0.001" value="0.500" max="1" id="danceability" />
+                </label>
+          
+                <label for="acousticness">
+                    Acousticness <input type="range" name="acousticness"  min="0" step="0.001" value="0.500" max="1" id="acousticness" />
+                </label>
+
+            </fieldset>
+
+
+
+        <input type="hidden" name="token" value="<%= token %>" />
+        <input type="hidden" name="data" value="<%= JSON.stringify(data) %>" />
+
+        <fieldset class="genres-filter">
     
-    </script>
-        </main>
+            <legend>What genres would be fitting?</legend>
+        
+            <div class= "ck-button">
+            <label for="vehicle1"> 
+            <input type="checkbox" id="vehicle1" name="genre" value="country"><span>country</span>
+            </label>
+            </div>
+        
+            <div class= "ck-button">
+            <label for="vehicle2"> 
+            <input type="checkbox" id="vehicle2" name="genre" value="classical"><span>classical</span>
+            </label>
+            </div>
+        
+            <div class= "ck-button">
+            <label for="vehicle3">
+            <input type="checkbox" id="vehicle3" name="genre" value="rock"><span>rock</span>
+            </label>
+            </div>
+        
+            <div class= "ck-button">
+            <label for="vehicle4">
+            <input type="checkbox" id="vehicle4" name="genre" value="metal"><span>metal</span>
+            </label>
+            </div>
+        
+            </fieldset>
+
+        <input type="submit" value="Inspire me" />
+      </form> -->
+
+    </main>
 </div>
     <script src="/js/filter-menu.js"></script>
-    <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <script src="/js/collapse-menu.js"></script>
     <script src="/js/filter-toggle.js"></script>
     <script src="/js/emotion-slider.js"></script>
-    <script src="/js/drag-and-drop.js"></script>
-    <script src="/js/search.js" type="module"></script>
-    <%- include('../components/music-player.ejs') %>
   </body>
 </html>
