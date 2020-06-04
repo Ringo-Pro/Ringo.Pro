@@ -11,6 +11,7 @@ body {
 }
 .page {
   height: calc(100% - (4em + 8px));
+
   width: 100%;
   display: flex;
 }
