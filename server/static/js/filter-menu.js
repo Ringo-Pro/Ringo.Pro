@@ -23,18 +23,20 @@ allFilters.forEach((item) => {
 
 function openDetails(i) {
   details[i].setAttribute('open', true);
+  if (details[i].classList.contains('d-none')) {
+    details[i].classList.toggle('d-none');
+  }
 }
 function closeDetails(i) {
   details[i].removeAttribute('open');
+  if (!details[i].classList.contains('d-none')) {
+    details[i].classList.toggle('d-none');
+  }
 }
 function checkDetails(i) {
   const check = details[i].getAttribute('open');
   return check ? true : false;
 }
-/*
-fix display none if your search is specific -> FE: search: rock , we dont want to see pop
-fix backspace issue
-*/
 checkDetails(0);
 function _testing() {
   const val = filterSearch.value.toUpperCase();
@@ -46,16 +48,21 @@ function _testing() {
 
     if (val == '') {
       details.forEach(function (item) {
-        // item = details en niet de ul
-        // hierdoor blijven ze op d-none staan
-        if (item.classList.contains('d-none') && item.getAttribute('open')) {
-          item.classList.toggle('d-none');
-          item.removeAttribute('open');
-        } else if (item.classList.contains('d-none')) {
-          item.classList.toggle('d-none');
-        } else if (item.getAttribute('open')) {
+        const _checkboxes = item.querySelectorAll('input[type="checkbox"]');
+        const _labels = item.querySelectorAll('label');
+        if (item.getAttribute('open')) {
           item.removeAttribute('open');
         }
+        _checkboxes.forEach(function (item) {
+          if (item.classList.contains('d-none')) {
+            item.classList.toggle('d-none');
+          }
+        });
+        _labels.forEach(function (item) {
+          if (item.classList.contains('d-none')) {
+            item.classList.toggle('d-none');
+          }
+        });
       });
     } else if (textval.toUpperCase().indexOf(val) > -1) {
       if (!toOpen.includes(detailsIndex)) {
@@ -63,13 +70,11 @@ function _testing() {
       }
       if (allFilters[i].item.classList.contains('d-none')) {
         allFilters[i].item.classList.toggle('d-none');
-        // add labels
         labels[i].classList.toggle('d-none');
       }
     } else {
       if (!allFilters[i].item.classList.contains('d-none')) {
         allFilters[i].item.classList.toggle('d-none');
-        // add labels
         labels[i].classList.toggle('d-none');
       }
     }
@@ -78,7 +83,15 @@ function _testing() {
     console.log('has');
     console.log(z);
     console.log(toOpen);
-    toOpen.includes(`${z}`) ? openDetails(z) : closeDetails(z);
+    if (toOpen.length !== 0) {
+      toOpen.includes(`${z}`) ? openDetails(z) : closeDetails(z);
+    } else {
+      details.forEach(function (item) {
+        if (item.classList.contains('d-none')) {
+          item.classList.toggle('d-none');
+        }
+      });
+    }
   }
 }
 filterSearch.addEventListener('keyup', _testing);
