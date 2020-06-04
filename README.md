@@ -2,8 +2,6 @@
 
 <!-- ![Screenshot van de applicatie]() -->
 
-for heroku
-
 ## APIs tested in this branch
 
 - Tivo / AllMusic.com needs a full company name to register for the api
