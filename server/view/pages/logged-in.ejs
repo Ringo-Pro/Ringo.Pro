@@ -3,14 +3,16 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-    
-    <div class="main-section">
-    <%- include( '../components/sidebar.ejs') %>
+
+    <div class="page">
+    <%- include( '../components/project-aside.ejs') %>
+    <%- include( '../components/filters-aside.ejs', filters) %>
+
     <main>
 
-        
 
     </main>
+
 
     <%- include('../components/sidebar2.ejs')%>
     <%- include('../components/sidebar3.ejs')%>
@@ -28,8 +30,6 @@
     <script src="/js/drag-and-drop.js"></script>
     <script src="/js/search.js" type="module"></script>
     <%- include('../components/music-player.ejs') %>
-
-    
 
 
 

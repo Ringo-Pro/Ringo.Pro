@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
   <%- include( '../components/head.ejs') %>
 
   <body>
@@ -12,11 +11,13 @@
       const uriList = `<%= trackData.map(track => track.uri) %>`
     </script>
     <main>
+
     <%- include('../components/sidebar2.ejs'), trackData %>
 
     <%- include('../components/music-player.ejs') %> 
 
     <script src="/js/music-player.js"></script>
+
   </main>
   </body>
 </html>
