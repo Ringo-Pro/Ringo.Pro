@@ -14,6 +14,8 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-terser": "^1.2.0",
     "node-fetch": "^2.6.0",
     "query-string": "^6.12.1",
     "url": "^0.11.0"
@@ -25,9 +27,12 @@
     "prestart": "gulp css",
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
-    "start:dev": "npm run watch:css & npm run dev",
+    "start:dev": "npm run watch & npm run dev",
     "build:css": "gulp css",
-    "watch:css": "gulp watch"
+    "watch": "gulp watch",
+    "build:js": "gulp es",
+    "build:img": "gulp img",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
