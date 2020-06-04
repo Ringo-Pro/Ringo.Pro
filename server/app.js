@@ -138,6 +138,7 @@ function callback(req, res) {
   }
 }
 function searchResultsRoute(req, res) {
+
   let artist = req.query.searchValue;
   let access_token = req.query.token;
   let userData = JSON.parse(req.query.data);
@@ -149,76 +150,31 @@ function searchResultsRoute(req, res) {
     method: 'GET',
     headers: { Authorization: 'Bearer ' + access_token },
   };
-  fetch(
-    `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
-    options
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (body) {
-      _searchResults = body.tracks.items;
-      console.log('SEARCH');
-      console.log(_searchResults);
-      const __recommended = body.tracks.items.map(function (song) {
-        return fetch(
-          `https://api.spotify.com/v1/audio-features/${song.id}`,
-          options
-        )
-          .then(function (response) {
-            return response.json();
-          })
-          .then(function (data) {
-            const _mood = moodFilter.addMood(data);
-            const energyMin = _mood.values.energyValues.min,
-              energyMax = _mood.values.energyValues.max,
-              valenceMin = _mood.values.valenceValues.min,
-              valenceMax = _mood.values.valenceValues.max,
-              danceabilityMin = _mood.values.danceabilityValues.min,
-              danceabilityMax = _mood.values.danceabilityValues.max,
-              _trackID = _mood.id,
-              limit = 1;
-            __mood.push(_mood);
-            return fetch(
-              `https://api.spotify.com/v1/recommendations?limit=${limit}&market=US&min_energy=${energyMin}&max_energy=${energyMax}&min_valence=${valenceMin}&max_valence=${valenceMax}&min_danceability=${danceabilityMin}&max_danceability=${danceabilityMax}&seed_tracks=${_trackID}`,
-              options
-            );
-          })
-          .then(function (response) {
-            return response.json();
-          })
-          .catch(function (error) {
-            console.log('Request failed', error);
-          });
-      });
+  if(req.query.async){
+      fetch(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&market=US&limit=10&offset=5`,
+      options)
+        .then((res) => res.json())
+        .then((body) => {
+            console.log(body)
+
+            res.render(__dirname + '/view/components/result-list.ejs', {
+                trackData: body.tracks.items,
+                token: access_token
+            })
+        })
+
+  } else {
 
 
-      Promise.all(__recommended).then((values) => {
-        let genMood = [];
-        __mood.forEach(function (item) {
-          genMood.push({ id: item.id, mood: item.mood });
-        });
-        let rec = [];
-        values.forEach(function (item) {
-          // console.log(item.tracks);
-          rec.push({
-            id: item.tracks[0].id,
-            name: item.tracks[0].name,
-            artist: item.tracks[0].artists[0].name,
-            duration: item.tracks[0].duration_ms,
-            popularity: item.tracks[0].popularity,
-          });
-        });
-        console.log(rec);
-        res.render('search-results', {
-          trackData: _searchResults,
-          mood: genMood,
-          data: userData,
-          token: access_token,
-          recommended: rec,
-        });
+      res.render('logged-in', {
+        trackData: body.tracks.items,
+        data: JSON.parse(req.query.data),
+        token: access_token,
+        userInput: artist
       });
     });
+
+    }
 }
 
 // ------
