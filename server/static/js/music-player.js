@@ -1,39 +1,13 @@
 console.log('This is musicplayer speaking')
 console.log('token: ', token)
-// console.log('uris: ', uriList)
 
-// let currentUri
-// console.log('current uri to be played: ', currentUri)
-const playButtonList = document.querySelectorAll('.playButton')
-const pauseButton = document.querySelector('.pauseButton')
-const previousButton = document.querySelector('.previousButton')
-const nextButton = document.querySelector('.nextButton')
-const albumArt = document.querySelector('.album-art')
-const nowPlaying = document.querySelector('.nowPlaying')
-const trackProgression = document.querySelector('.progress')
-const volume = document.querySelector('.volume')
-console.log(volume.step)
-
-console.log(nowPlaying)
-console.log(playButtonList)
-
-// console.log(pauseButtonList)
-
-// async function getPlayer(){
-
-//     let options = {
-//         headers: { Authorization: 'Bearer ' + token },
-//         method: 'GET'
-//       };
-
-//     const fetchGetNowPlaying = await fetch('https://api.spotify.com/v1/me/player', options)
-//     const nowPlaying = await fetchGetNowPlaying.json()
-
-//     console.log('the async function boii: ', nowPlaying)
-
-//     return nowPlaying
-
-// }
+let pauseButton = document.querySelector('.pauseButton')
+let previousButton = document.querySelector('.previousButton')
+let nextButton = document.querySelector('.nextButton')
+let albumArt = document.querySelector('.album-art')
+let nowPlaying = document.querySelector('.nowPlaying')
+let trackProgression = document.querySelector('.progress')
+let volume = document.querySelector('.volume')
 
 window.onSpotifyWebPlaybackSDKReady = () => {
     const player = new Spotify.Player({
@@ -143,20 +117,45 @@ window.onSpotifyWebPlaybackSDKReady = () => {
                 })
             })
         }
-    
-        playButtonList.forEach((playButton) => {
-            // console.log(playButton)
-        
-            playButton.addEventListener('click', event => {
-                console.log(event.target.id)
 
-                return play({
-                    playerInstance: player,
-                    spotify_uri: event.target.id,
+        const observer = new MutationObserver(function(mutations) {
+
+            mutations.forEach(function(mutation) {
+              if(mutation){
+                  console.log(mutation)
+                  const playButtonList = document.querySelectorAll('.playButton')
+                  console.log(playButtonList)
+
+                  playButtonList.forEach((playButton) => {
+                    // console.log(playButton)
+                
+                    playButton.addEventListener('click', event => {
+                        console.log(event.target.id)
+        
+                        return play({
+                            playerInstance: player,
+                            spotify_uri: event.target.id,
+                        })
+                        // console.log(event.target.id)
+                    })
                 })
-                // console.log(event.target.id)
+              }
             })
         })
+        
+        const results = document.querySelectorAll('.search-results')
+        
+        
+        console.log(results)
+        
+        observer.observe(results[0], {
+            childList: true,
+            attributes: true,
+            characterData: true,
+        
+        })
+    
+
 
     });
 

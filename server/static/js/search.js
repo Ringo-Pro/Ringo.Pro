@@ -22,15 +22,15 @@ searchBar.addEventListener('input', debounce((event) => {
         .then(html => {
             document.querySelector('.search-results').innerHTML = html
 
-            // const playButtonList = document.querySelectorAll('.playButton')
+            const playButtonList = document.querySelectorAll('.playButton')
             
 
-            // console.log(playButtonList)
+            console.log(playButtonList)
 
-            // playButtonList.forEach(item => {
-            //     item.addEventListener('click', (event) => console.log(event.target.id))
-            //     // play(event.target.id)
-            // })
+            playButtonList.forEach(item => {
+                item.addEventListener('click', (event) => console.log(event.target.id))
+                // play(event.target.id)
+            })
 
         })
     

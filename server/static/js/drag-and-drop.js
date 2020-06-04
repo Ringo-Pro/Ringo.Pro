@@ -1,6 +1,6 @@
 if(window.MutationObserver){
 
-var observer = new MutationObserver(function(mutations) {
+const observer = new MutationObserver(function(mutations) {
 
     mutations.forEach(function(mutation) {
       if(mutation){
