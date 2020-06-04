@@ -1,6 +1,23 @@
-<%- include('../components/head'); %> 
+
+  <%- include( '../components/head.ejs') %>
+
+  <body>
+    <%# include( '../components/topbar.ejs'), data, token %> 
+    <!-- previous projects -->
+    <%- include( '../components/project-aside.ejs') %>
+    <!-- filters -->
+    <%- include( '../components/filters-aside.ejs', filters) %>
+    <!-- video -->
     <main>
-      <p>Placeholder text</p>
+      <section>Main window</section>
+      <section>time line</section>
     </main>
+    <!-- recommended playlist / search results -->
+    <aside class="aside-recommended"></aside>
+    <!-- curated playlist -->
+    <aside class="aside-curated"></aside>
+   
+    <script src="/js/filter-menu.js"></script>
+   
   </body>
 </html>

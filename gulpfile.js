@@ -4,6 +4,13 @@ const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 
+function cssReset() {
+  return gulp
+    .src('./server/dev/reset/reset.css')
+    .pipe(concat('reset.css'))
+    .pipe(cleanCSS())
+    .pipe(gulp.dest('./server/static/dist/'));
+}
 function css() {
   return gulp
     .src(['./server/dev/css/themes/*.css', './server/dev/css/*.css'])
@@ -20,5 +27,7 @@ function css() {
 function watch() {
   gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
 }
-exports.css = css;
+const buildCSS = gulp.series(cssReset, css);
+
+exports.css = buildCSS;
 exports.watch = watch;

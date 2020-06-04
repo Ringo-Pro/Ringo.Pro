@@ -118,9 +118,17 @@ function callback(req, res) {
             }
           })
           .then((body) => {
+            let listOfFilters = [];
+            const entriesArr = Object.entries(req.query);
+            entriesArr.forEach(function (item) {
+              if (item[1] === 'on') {
+                listOfFilters.push(item[0]);
+              }
+            });
             res.render('logged-in', {
               data: body,
               token: access_token,
+              filters: listOfFilters,
             });
           })
           .catch((err) => {
@@ -183,6 +191,7 @@ function searchResultsRoute(req, res) {
             console.log('Request failed', error);
           });
       });
+
 
       Promise.all(__recommended).then((values) => {
         let genMood = [];
