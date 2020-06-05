@@ -152,7 +152,7 @@ function searchResultsRoute(req, res) {
   };
 
   if(req.query.async){
-      fetch(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&market=US&limit=10&offset=5`,
+      fetch(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0`,
       options)
         .then((res) => res.json())
         .then((body) => {

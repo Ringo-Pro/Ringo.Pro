@@ -11,11 +11,6 @@ searchBar.addEventListener('input', debounce((event) => {
     
     history.replaceState({}, '','?searchValue=' + userInput + '&token=' + token)
 
-    // console.log(url + '?query=' + userInput + '&async=true')
-    // console.log(url + '?query=' + userInput + '&async=true' + '&token=' + token)
-    // console.log(data)
-    
-    
 
     fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token) 
         .then(res => res.text())
