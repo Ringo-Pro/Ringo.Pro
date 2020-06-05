@@ -9,7 +9,7 @@
     justify-content: center; */
     align-items: center;
     border-left: 4px solid var(--light-grey);
-    transition: width 2s ease-in-out;
+    
     overflow-y: scroll;
     resize: horizontal;
     overflow: auto;
@@ -31,3 +31,4 @@
       justify-content: center;
       border: white dashed;
   }
+

@@ -29,7 +29,7 @@
     max-width: 0px;
     overflow: hidden;
   
-    
+    transition: max-width .25s ease-in-out;
   }
   
 
