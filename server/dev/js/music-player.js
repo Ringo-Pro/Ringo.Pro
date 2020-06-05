@@ -158,7 +158,12 @@ setInterval(() => {
         });
     })
 
-    
+    trackProgression.addEventListener('mouseup', function(){
+        console.log('yeet: ', this.value)
+        player.seek(this.value).then(() => {
+            console.log('Changed position!');
+        })
+    })
     
     // Ready
     player.addListener('ready', ({ device_id }) => {
