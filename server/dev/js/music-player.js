@@ -91,7 +91,6 @@ player.addListener('player_state_changed', state => {
   currState.position = state.position;
   currState.duration = state.duration;
   currState.updateTime = performance.now()
-//   console.log(state)
   currState.current_track = state.track_window.current_track
 });
 
@@ -99,32 +98,30 @@ player.addListener('player_state_changed', state => {
 
 
 function getStatePosition() {
-    // trackProgression.max = currState.duration 
+    // trackProgression.max = currState.duration
+    if(currState.current_track){
     nowPlaying.textContent = `${currState.current_track.name} - ${currState.current_track.artists[0].name}`
     albumArt.src = currState.current_track.album.images[1].url
-  if (currState.paused === true) {
+    }
+  
+    if (currState.paused === true) {
      return currState.position;
-  }
+    }
 trackProgression.max = currState.duration
   let position = currState.position + (performance.now() - currState.updateTime) / 1000;
   return position > currState.duration ? currState.duration : position;
 }
 
 setInterval(() => {
-    // currState.current_track.duration
-    // if(Object.keys(currState).length > 0 && currState.constructor === Object)
+
     if(typeof getStatePosition() !== NaN){
-        console.log(getStatePosition())
+        // console.log(getStatePosition())
         // trackProgression.stepUp()
         trackProgression.setAttribute('value', getStatePosition().toString())
         
         if(currState.paused === false){
-        trackProgression.stepUp(1000)}
-
-        
-        // trackProgression.style.WebkitTransition = 'transition: width .1s'
-        // trackProgression.max = currState.duration
-        // console.log('hallo: ', Math.floor((getStatePosition() / currState.duration) * 100))
+        trackProgression.stepUp(1000)
+        }
 
     }
 }, 1000);
