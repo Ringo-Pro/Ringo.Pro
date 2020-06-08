@@ -1,7 +1,8 @@
 const details = document.querySelectorAll('details');
 const filterSearch = document.getElementById('js-searchFilter');
-filterSearch.classList.remove('d-none');
 const filtersForm = document.getElementById('js-allFilters');
+
+filterSearch.classList.remove('d-none');
 
 function setLS(key, val) {
   localStorage.setItem(key, val);
