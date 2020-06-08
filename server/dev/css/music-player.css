@@ -48,3 +48,8 @@
       flex-direction: column;
       align-items: center;
   }
+
+  .player-info{
+    display: flex;
+    align-items: center;
+  }
