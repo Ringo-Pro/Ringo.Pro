@@ -1,20 +1,10 @@
 /* light theme */
 :root {
-  --primary-color: #f4f6ff;
-  --secondary-color: #182628;
-  --accent-color: #faed26;
-  /* --accent-color: #8860d0; */
+  --primary-color: white;
+  --secondary-color: lightgray;
+  --accent-color: black;
   --dark-gray: #222831;
   --light-gray: #8e8d8a;
   --dark-grey: #222831;
   --light-grey: #8e8d8a;
 }
-/* :root {
-  --primary-color: #eae7dc;
-  --secondary-color: #d8c3a5;
-  --accent-color: #e85a4f;
-  --dark-gray: #444444;
-  --light-gray: #8e8d8a;
-  --dark-grey: #444444;
-  --light-grey: #8e8d8a;
-} */
