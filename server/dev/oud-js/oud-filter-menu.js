@@ -1,21 +1,10 @@
-const details = document.querySelectorAll('details');
-const filterSearch = document.getElementById('js-searchFilter');
-filterSearch.classList.remove('d-none');
-const filtersForm = document.getElementById('js-allFilters');
-
-function setLS(key, val) {
-  localStorage.setItem(key, val);
-}
-function getLS(key) {
-  localStorage.getItem(key);
-}
-function removeLS(key) {
-  localStorage.removeItem(key);
-}
-
+const details = document.querySelectorAll('details'),
+  filterSearch = document.getElementById('js-searchFilter'),
+  filtersForm = document.getElementById('js-filtersForm');
 const checkboxes = filtersForm.querySelectorAll('input[type="checkbox"]'),
   labels = filtersForm.querySelectorAll('label');
 let allFilters = [];
+filterSearch.classList.remove('d-none');
 checkboxes.forEach((item) => {
   const name = item.name,
     mainFilter = item.dataset.mainFilter;

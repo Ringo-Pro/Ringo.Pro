@@ -38,6 +38,10 @@
   text-decoration: none;
   display: inline-block;
 }
+.aside-projects ul li:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
 .find-filters section form,
 .find-filters section form details {
   width: 100%;

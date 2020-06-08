@@ -1,406 +1,260 @@
 <aside class="aside-filters">
-    <section class="active-filters">
+  <section>
+    <input type="text" name="searchFilter" id="js-searchFilter" placeholder="Search" autocomplete="off" class="d-none" />
+  </section>
+
+  <section id="js-allFilters" class="find-filters">
+    <details
+      ><summary>Genre</summary>
       <ul>
-      <% if (filters) { %>
-        <% filters.map(filter => { %>
-          <li><%= filter %></li>
-        <% }) %>
-      <% } %>
-    </ul>
-    </section>
-    <section>
-      <input type="text" name="searchFilter" id="js-searchFilter" placeholder="Search" autocomplete="off" class="d-none"></section>
-    <section class="find-filters">
-      <form id="js-filtersForm" action="" method="GET">
-      <details><summary>Genre</summary>
-        <ul>
-          <li>
-            <% function amIchecked(name) { %>
-              <% const check = filters.filter(item => item === name ? true : false) %>
-              <%  return check.length !== 0 ? true : false %>
-              <% } %>
-            <% if (amIchecked('rock')) { %>
-              <input id="rock" type="checkbox" name="rock" data-main-filter="0" checked>
-          <% } else { %>
-            <input id="rock" type="checkbox" name="rock" data-main-filter="0">
-            <% } %>
-          <label for="rock">Rock</label></li>
-          <li>
-            <% if (amIchecked('pop')) { %>
-              <input id="pop" type="checkbox" name="pop" data-main-filter="0" checked>
-          <% } else { %>
-            <input id="pop" type="checkbox" name="pop" data-main-filter="0">
-            <% } %>
-          <label for="pop">Pop</label></li>
-          <li>
-            <% if (amIchecked('genre3')) { %>
-              <input type="checkbox" name="genre3" data-main-filter="0" checked>
-          <% } else { %>
-            <input type="checkbox" name="genre3" data-main-filter="0">
-            <% } %>
-          <label for="genre3">Genre 3</label></li>
-          <li>
-            <% if (amIchecked('genre4')) { %>
-              <input type="checkbox" name="genre4" data-main-filter="0" checked>
-          <% } else { %>
-            <input type="checkbox" name="genre4" data-main-filter="0">
-            <% } %>
-          <label for="genre4">Genre 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Tempo</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('tempo1')) { %>
-              <input type="checkbox" name="tempo1" data-main-filter="1" checked>
-          <% } else { %>
-            <input type="checkbox" name="tempo1" data-main-filter="1">
-            <% } %>
-          <label for="tempo1">Tempo 1</label></li>
-          <li>
-            <% if (amIchecked('tempo2')) { %>
-              <input type="checkbox" name="tempo2" data-main-filter="1" checked>
-          <% } else { %>
-            <input type="checkbox" name="tempo2" data-main-filter="1">
-            <% } %>
-          <label for="tempo2">Tempo 2</label></li>
-          <li>
-             <% if (amIchecked('tempo3')) { %>
-              <input type="checkbox" name="tempo3" data-main-filter="1" checked>
-          <% } else { %>
-            <input type="checkbox" name="tempo3" data-main-filter="1">
-            <% } %>
-          <label for="tempo3">Tempo 3</label></li>
-          <li>
-             <% if (amIchecked('tempo4')) { %>
-              <input type="checkbox" name="tempo4" data-main-filter="1" checked>
-          <% } else { %>
-            <input type="checkbox" name="tempo4" data-main-filter="1">
-            <% } %>
-          <label for="tempo4">Tempo 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Instrumentation</summary>
-        <ul>
-          <li>
-             <% if (amIchecked('instrumentation1')) { %>
-              <input type="checkbox" name="instrumentation1" data-main-filter="2" checked>
-          <% } else { %>
-            <input type="checkbox" name="instrumentation1" data-main-filter="2">
-            <% } %>
-          <label for="instrumentation1">Instrumentation 1</label></li>
-          <li>
-             <% if (amIchecked('instrumentation2')) { %>
-              <input type="checkbox" name="instrumentation2" data-main-filter="2" checked>
-          <% } else { %>
-            <input type="checkbox" name="instrumentation2" data-main-filter="2">
-            <% } %>
-          <label for="instrumentation2">Instrumentation 2</label></li>
-          <li>
-             <% if (amIchecked('instrumentation3')) { %>
-              <input type="checkbox" name="instrumentation3" data-main-filter="2" checked>
-          <% } else { %>
-            <input type="checkbox" name="instrumentation3" data-main-filter="2">
-            <% } %>
-          <label for="instrumentation3">Instrumentation 3</label></li>
-          <li>
-             <% if (amIchecked('instrumentation4')) { %>
-              <input type="checkbox" name="instrumentation4" data-main-filter="2" checked>
-          <% } else { %>
-            <input type="checkbox" name="instrumentation4" data-main-filter="2">
-            <% } %>
-          <label for="instrumentation4">Instrumentation 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Vocals</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('vocals1')) { %>
-            <input type="checkbox" name="vocals1" data-main-filter="3" checked>
-            <% } else { %>
-            <input type="checkbox" name="vocals1" data-main-filter="3">
-            <% } %>
-          <label for="vocals1">vocals 1</label></li>
-          <li>
-            <% if (amIchecked('vocals2')) { %>
-            <input type="checkbox" name="vocals2" data-main-filter="3" checked>
-            <% } else { %>
-            <input type="checkbox" name="vocals2" data-main-filter="3">
-            <% } %>
-          <label for="vocals2">vocals 2</label></li>
-          <li>
-            <% if (amIchecked('vocals3')) { %>
-            <input type="checkbox" name="vocals3" data-main-filter="3" checked>
-            <% } else { %>
-            <input type="checkbox" name="vocals3" data-main-filter="3">
-            <% } %>
-          <label for="vocals3">vocals 3</label></li>
-          <li>
-            <% if (amIchecked('vocals4')) { %>
-            <input type="checkbox" name="vocals4" data-main-filter="3" checked>
-            <% } else { %>
-            <input type="checkbox" name="vocals4" data-main-filter="3">
-            <% } %>
-          <label for="vocals4">vocals 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>key</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('key1')) { %>
-            <input type="checkbox" name="key1" data-main-filter="4" checked>
-            <% } else { %>
-            <input type="checkbox" name="key1" data-main-filter="4">
-            <% } %>
-          <label for="key1">key 1</label></li>
-          <li>
-            <% if (amIchecked('key2')) { %>
-            <input type="checkbox" name="key2" data-main-filter="4" checked>
-            <% } else { %>
-            <input type="checkbox" name="key2" data-main-filter="4">
-            <% } %>
-          <label for="key2">key 2</label></li>
-          <li>
-            <% if (amIchecked('key3')) { %>
-            <input type="checkbox" name="key3" data-main-filter="4" checked>
-            <% } else { %>
-            <input type="checkbox" name="key3" data-main-filter="4">
-            <% } %>
-          <label for="key3">key 3</label></li>
-          <li>
-            <% if (amIchecked('key4')) { %>
-            <input type="checkbox" name="key4" data-main-filter="4" checked>
-            <% } else { %>
-            <input type="checkbox" name="key4" data-main-filter="4">
-            <% } %>
-          <label for="key4">key 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Language</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('lang1')) { %>
-            <input type="checkbox" name="lang1" data-main-filter="5" checked>
-            <% } else { %>
-            <input type="checkbox" name="lang1" data-main-filter="5">
-            <% } %>
-          <label for="lang1">Lang 1</label></li>
-          <li>
-            <% if (amIchecked('lang2')) { %>
-            <input type="checkbox" name="lang2" data-main-filter="5" checked>
-            <% } else { %>
-            <input type="checkbox" name="lang2" data-main-filter="5">
-            <% } %>
-          <label for="lang2">Lang 2</label></li>
-          <li>
-            <% if (amIchecked('lang3')) { %>
-            <input type="checkbox" name="lang3" data-main-filter="5" checked>
-            <% } else { %>
-            <input type="checkbox" name="lang3" data-main-filter="5">
-            <% } %>
-          <label for="lang3">Lang 3</label></li>
-          <li>
-            <% if (amIchecked('lang4')) { %>
-            <input type="checkbox" name="lang4" data-main-filter="5" checked>
-            <% } else { %>
-            <input type="checkbox" name="lang4" data-main-filter="5">
-            <% } %>
-          <label for="lang4">Lang 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Mood</summary>
-        <ul class="mood-filters">
-          <li>
-            <% if (amIchecked('mood1')) { %>
-            <input type="checkbox" name="mood1" data-main-filter="6" checked>
-            <% } else { %>
-            <input type="checkbox" name="mood1" data-main-filter="6">
-            <% } %>
-          <label for="mood1">Mood 1</label></li>
-          <li>
-            <% if (amIchecked('mood2')) { %>
-            <input type="checkbox" name="mood2" data-main-filter="6" checked>
-            <% } else { %>
-            <input type="checkbox" name="mood2" data-main-filter="6">
-            <% } %>
-          <label for="mood2">Mood 2</label></li>
-          <li>
-            <% if (amIchecked('mood3')) { %>
-            <input type="checkbox" name="mood3" data-main-filter="6" checked>
-            <% } else { %>
-            <input type="checkbox" name="mood3" data-main-filter="6">
-            <% } %>
-          <label for="mood3">Mood 3</label></li>
-          <li>
-            <% if (amIchecked('mood4')) { %>
-            <input type="checkbox" name="mood4" data-main-filter="6" checked>
-            <% } else { %>
-            <input type="checkbox" name="mood4" data-main-filter="6">
-            <% } %>
-          <label for="mood4">Mood 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Themes</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('theme1')) { %>
-            <input type="checkbox" name="theme1" data-main-filter="7" checked>
-            <% } else { %>
-            <input type="checkbox" name="theme1" data-main-filter="7">
-            <% } %>
-          <label for="theme1">Theme 1</label></li>
-          <li>
-            <% if (amIchecked('theme2')) { %>
-            <input type="checkbox" name="theme2" data-main-filter="7" checked>
-            <% } else { %>
-            <input type="checkbox" name="theme2" data-main-filter="7">
-            <% } %>
-          <label for="theme2">Theme 2</label></li>
-          <li>
-            <% if (amIchecked('theme3')) { %>
-            <input type="checkbox" name="theme3" data-main-filter="7" checked>
-            <% } else { %>
-            <input type="checkbox" name="theme3" data-main-filter="7">
-            <% } %>
-          <label for="theme3">Theme 3</label></li>
-          <li>
-            <% if (amIchecked('theme4')) { %>
-            <input type="checkbox" name="theme4" data-main-filter="7" checked>
-            <% } else { %>
-            <input type="checkbox" name="theme4" data-main-filter="7">
-            <% } %>
-          <label for="theme4">Theme 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Lyrics</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('lyrics1')) { %>
-            <input type="checkbox" name="lyrics1" data-main-filter="8" checked>
-            <% } else { %>
-            <input type="checkbox" name="lyrics1" data-main-filter="8">
-            <% } %>
-          <label for="lyrics1">lyrics 1</label></li>
-          <li>
-            <% if (amIchecked('lyrics2')) { %>
-            <input type="checkbox" name="lyrics2" data-main-filter="8" checked>
-            <% } else { %>
-            <input type="checkbox" name="lyrics2" data-main-filter="8">
-            <% } %>
-          <label for="lyrics2">lyrics 2</label></li>
-          <li>
-            <% if (amIchecked('lyrics3')) { %>
-            <input type="checkbox" name="lyrics3" data-main-filter="8" checked>
-            <% } else { %>
-            <input type="checkbox" name="lyrics3" data-main-filter="8">
-            <% } %>
-          <label for="lyrics3">lyrics 3</label></li>
-          <li>
-            <% if (amIchecked('lyrics4')) { %>
-            <input type="checkbox" name="lyrics4" data-main-filter="8" checked>
-            <% } else { %>
-            <input type="checkbox" name="lyrics4" data-main-filter="8">
-            <% } %>
-          <label for="lyrics4">lyrics 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Release Year</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('year1')) { %>
-            <input type="checkbox" name="year1" data-main-filter="9" checked>
-            <% } else { %>
-            <input type="checkbox" name="year1" data-main-filter="9">
-            <% } %>
-          <label for="year1">year 1</label></li>
-          <li>
-            <% if (amIchecked('year2')) { %>
-            <input type="checkbox" name="year2" data-main-filter="9" checked>
-            <% } else { %>
-            <input type="checkbox" name="year2" data-main-filter="9">
-            <% } %>
-          <label for="year2">year 2</label></li>
-          <li>
-            <% if (amIchecked('year3')) { %>
-            <input type="checkbox" name="year3" data-main-filter="9" checked>
-            <% } else { %>
-            <input type="checkbox" name="year3" data-main-filter="9">
-            <% } %>
-          <label for="year3">year 3</label></li>
-          <li>
-            <% if (amIchecked('year4')) { %>
-            <input type="checkbox" name="year4" data-main-filter="9" checked>
-            <% } else { %>
-            <input type="checkbox" name="year4" data-main-filter="9">
-            <% } %>
-          <label for="year4">year 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Country of origin</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('country1')) { %>
-            <input type="checkbox" name="country1" data-main-filter="10" checked>
-            <% } else { %>
-            <input type="checkbox" name="country1" data-main-filter="10">
-            <% } %>
-          <label for="country1">country 1</label></li>
-          <li>
-            <% if (amIchecked('country2')) { %>
-            <input type="checkbox" name="country2" data-main-filter="10" checked>
-            <% } else { %>
-            <input type="checkbox" name="country2" data-main-filter="10">
-            <% } %>
-          <label for="country2">country 2</label></li>
-          <li>
-            <% if (amIchecked('country3')) { %>
-            <input type="checkbox" name="country3" data-main-filter="10" checked>
-            <% } else { %>
-            <input type="checkbox" name="country3" data-main-filter="10">
-            <% } %>
-          <label for="country3">country 3</label></li>
-          <li>
-            <% if (amIchecked('country4')) { %>
-            <input type="checkbox" name="country4" data-main-filter="10" checked>
-            <% } else { %>
-            <input type="checkbox" name="country4" data-main-filter="10">
-            <% } %>
-          <label for="country4">country 4</label></li>
-        </ul> 
-      </details>
-      <details><summary>Popularity</summary>
-        <ul>
-          <li>
-            <% if (amIchecked('pop1')) { %>
-            <input type="checkbox" name="pop1" data-main-filter="11" checked>
-            <% } else { %>
-            <input type="checkbox" name="pop1" data-main-filter="11">
-            <% } %>
-          <label for="pop1">popularity 1</label></li>
-          <li>
-            <% if (amIchecked('pop2')) { %>
-            <input type="checkbox" name="pop2" data-main-filter="11" checked>
-            <% } else { %>
-            <input type="checkbox" name="pop2" data-main-filter="11">
-            <% } %>
-          <label for="pop2">popularity 2</label></li>
-          <li>
-            <% if (amIchecked('pop3')) { %>
-            <input type="checkbox" name="pop3" data-main-filter="11" checked>
-            <% } else { %>
-            <input type="checkbox" name="pop3" data-main-filter="11">
-            <% } %>
-          <label for="pop3">popularity 3</label></li>
-          <li>
-            <% if (amIchecked('pop4')) { %>
-            <input type="checkbox" name="pop4" data-main-filter="11" checked>
-            <% } else { %>
-            <input type="checkbox" name="pop4" data-main-filter="11">
-            <% } %>
-          <label for="pop4">popularity 4</label></li>
-        </ul> 
-      </details>
-      <input type="submit" value="Filter"> 
-    </form>
-    </section>
-  </aside>
+        <li>
+          <input id="rock" type="checkbox" name="rock" data-main-filter="0" />
+          <label for="rock">Rock</label>
+        </li>
+        <li>
+          <input id="pop" type="checkbox" name="pop" data-main-filter="0" />
+          <label for="pop">Pop</label>
+        </li>
+        <li>
+          <input type="checkbox" name="genre3" data-main-filter="0" />
+          <label for="genre3">Genre 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="genre4" data-main-filter="0" />
+          <label for="genre4">Genre 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Tempo</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="tempo1" data-main-filter="1" />
+          <label for="tempo1">Tempo 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="tempo2" data-main-filter="1" />
+          <label for="tempo2">Tempo 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="tempo3" data-main-filter="1" />
+          <label for="tempo3">Tempo 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="tempo4" data-main-filter="1" />
+          <label for="tempo4">Tempo 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Instrumentation</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="instrumentation1" data-main-filter="2" />
+          <label for="instrumentation1">Instrumentation 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="instrumentation2" data-main-filter="2" />
+          <label for="instrumentation2">Instrumentation 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="instrumentation3" data-main-filter="2" />
+          <label for="instrumentation3">Instrumentation 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="instrumentation4" data-main-filter="2" />
+          <label for="instrumentation4">Instrumentation 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Vocals</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="vocals1" data-main-filter="3" />
+          <label for="vocals1">vocals 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="vocals2" data-main-filter="3" />
+          <label for="vocals2">vocals 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="vocals3" data-main-filter="3" />
+          <label for="vocals3">vocals 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="vocals4" data-main-filter="3" />
+          <label for="vocals4">vocals 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>key</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="key1" data-main-filter="4" />
+          <label for="key1">key 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="key2" data-main-filter="4" />
+          <label for="key2">key 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="key3" data-main-filter="4" />
+          <label for="key3">key 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="key4" data-main-filter="4" />
+          <label for="key4">key 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Language</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="lang1" data-main-filter="5" />
+          <label for="lang1">Lang 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="lang2" data-main-filter="5" />
+          <label for="lang2">Lang 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="lang3" data-main-filter="5" />
+          <label for="lang3">Lang 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="lang4" data-main-filter="5" />
+          <label for="lang4">Lang 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Mood</summary>
+      <ul class="mood-filters">
+        <li>
+          <input type="checkbox" name="mood1" data-main-filter="6" />
+          <label for="mood1">Mood 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="mood2" data-main-filter="6" />
+          <label for="mood2">Mood 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="mood3" data-main-filter="6" />
+          <label for="mood3">Mood 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="mood4" data-main-filter="6" />
+          <label for="mood4">Mood 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Themes</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="theme1" data-main-filter="7" />
+          <label for="theme1">Theme 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="theme2" data-main-filter="7" />
+          <label for="theme2">Theme 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="theme3" data-main-filter="7" />
+          <label for="theme3">Theme 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="theme4" data-main-filter="7" />
+          <label for="theme4">Theme 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Lyrics</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="lyrics1" data-main-filter="8" />
+          <label for="lyrics1">lyrics 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="lyrics2" data-main-filter="8" />
+          <label for="lyrics2">lyrics 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="lyrics3" data-main-filter="8" />
+          <label for="lyrics3">lyrics 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="lyrics4" data-main-filter="8" />
+          <label for="lyrics4">lyrics 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Release Year</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="year1" data-main-filter="9" />
+          <label for="year1">year 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="year2" data-main-filter="9" />
+          <label for="year2">year 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="year3" data-main-filter="9" />
+          <label for="year3">year 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="year4" data-main-filter="9" />
+          <label for="year4">year 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Country of origin</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="country1" data-main-filter="10" />
+          <label for="country1">country 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="country2" data-main-filter="10" />
+          <label for="country2">country 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="country3" data-main-filter="10" />
+          <label for="country3">country 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="country4" data-main-filter="10" />
+          <label for="country4">country 4</label>
+        </li>
+      </ul>
+    </details>
+    <details
+      ><summary>Popularity</summary>
+      <ul>
+        <li>
+          <input type="checkbox" name="pop1" data-main-filter="11" />
+          <label for="pop1">popularity 1</label>
+        </li>
+        <li>
+          <input type="checkbox" name="pop2" data-main-filter="11" />
+          <label for="pop2">popularity 2</label>
+        </li>
+        <li>
+          <input type="checkbox" name="pop3" data-main-filter="11" />
+          <label for="pop3">popularity 3</label>
+        </li>
+        <li>
+          <input type="checkbox" name="pop4" data-main-filter="11" />
+          <label for="pop4">popularity 4</label>
+        </li>
+      </ul>
+    </details>
+  </section>
+</aside>
