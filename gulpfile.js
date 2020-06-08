@@ -22,7 +22,8 @@ function css() {
 }
 function es() {
   return gulp
-    .src(['./server/dev/js/*.js', './server/dev/js/modules/*.js', '!./server/dev/js/filter-toggle.js'])
+
+    .src(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'])
     .pipe(terser())
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./server/static/dist/'));
@@ -37,6 +38,7 @@ function watch() {
     gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
     gulp.watch(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'], es);
   }
+
 const build = gulp.series(cssReset, css, es, img);
 
 exports.css = css;
