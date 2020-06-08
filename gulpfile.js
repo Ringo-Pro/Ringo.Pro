@@ -4,7 +4,14 @@ const gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   concat = require('gulp-concat'),
   terser = require('gulp-terser'),
-  imagemin = require('gulp-imagemin');
+  imagemin = require('gulp-imagemin'),
+  iconsPath = require('./icons.js');
+
+function icons() {
+  return gulp
+    .src(iconsPath.paths)
+    .pipe(gulp.dest('./server/static/dist/icons/'));
+}
 
 function cssReset() {
   return gulp
@@ -35,12 +42,13 @@ function img() {
     .pipe(gulp.dest('./server/static/dist/img/'));
 }
 function watch() {
-    gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
-    gulp.watch(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'], es);
-  }
+  gulp.watch(['./server/dev/css/*.css', './server/dev/css/themes/*.css'], css);
+  gulp.watch(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'], es);
+}
 
 const build = gulp.series(cssReset, css, es, img);
 
+exports.icons = icons;
 exports.css = css;
 exports.es = es;
 exports.img = img;
