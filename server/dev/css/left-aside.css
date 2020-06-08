@@ -75,6 +75,9 @@ summary::-webkit-details-marker {
 .aside-filters input[type='checkbox']:hover + label {
   background: var(--accent-color);
 }
+.aside-filters input[type='checkbox']:hover + label {
+  transform: scale(0.8);
+}
 
 .aside-filters input[type='checkbox']:checked + label {
   background: var(--accent-color);
