@@ -13,7 +13,7 @@
     padding: 1rem;
   
     color: #A77B0E;
-    background: #FAE042;
+    /* background: #FAE042; */
   
     cursor: pointer;
   
@@ -31,6 +31,7 @@
   
     transition: max-width .25s ease-in-out;
   }
+  
 
   .toggle:checked + .lbl-toggle + .collapsible-content {
     max-width: 100%;
@@ -51,7 +52,7 @@
     padding: 1rem;
   
     color: #A77B0E;
-    background: #FAE042;
+    /* background: #FAE042; */
   
     cursor: pointer;
   
