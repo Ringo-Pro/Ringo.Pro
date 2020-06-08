@@ -2,6 +2,8 @@ const details = document.querySelectorAll('details');
 const filterSearch = document.getElementById('js-searchFilter');
 const filtersForm = document.getElementById('js-allFilters');
 
+// http://localhost:4000/
+
 filterSearch.classList.remove('d-none');
 
 function setLS(key, val) {
@@ -18,7 +20,7 @@ const checkboxes = filtersForm.querySelectorAll('input[type="checkbox"]'),
   labels = filtersForm.querySelectorAll('label');
 let allFilters = [];
 checkboxes.forEach((item) => {
-  const name = item.name,
+  const name = item.id,
     mainFilter = item.dataset.mainFilter;
   allFilters.push({ name: name, main: mainFilter, item: item });
 });
