@@ -141,21 +141,14 @@ function searchResultsRoute(req, res) {
     headers: { Authorization: 'Bearer ' + access_token },
   };
 
-
-  if(req.query.async){
-      fetch(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0`,
-      options)
-        .then((res) => res.json())
-        .then((body) => {
-            console.log(body)
-
-            res.render(__dirname + '/view/components/result-list.ejs', {
-                trackData: body.tracks.items,
-                token: access_token
-            })
-        })
-
-  } else {
+  if (req.query.async) {
+    fetch(
+      `https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0`,
+      options
+    )
+      .then((res) => res.json())
+      .then((body) => {
+        console.log(body);
 
         res.render(__dirname + '/view/components/result-list.ejs', {
           trackData: body.tracks.items,
