@@ -13,26 +13,20 @@ body {
   background: var(--primary-color);
 }
 
-aside {
-  /* Might need some restructure after merging! */
-  overflow: scroll;
-  height: 100%;
-}
 /* headers */
 h3 {
   font-weight: 500;
 }
-
-/* img */
-img,
-svg {
-  max-height: 100%;
-  max-width: 100%;
+header {
+  color: var(--accent-color);
 }
-svg {
+.material-icons {
+  color: #f2f2f2;
+}
+header svg {
   width: 1.5em;
   height: 1.5em;
-  fill: var(--light-grey);
+  fill: var(--accent-color);
 }
 
 /* utility classes */
