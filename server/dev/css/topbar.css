@@ -5,7 +5,7 @@ header div {
 }
 header {
   position: relative;
-  padding: 4px 12px;
+  padding: 4px 15px;
   background: white;
   justify-content: space-between;
   box-shadow: 0 0.125rem 0 0 rgba(7, 7, 33, 0.15);
@@ -13,14 +13,10 @@ header {
 header svg {
   fill: var(--dark-gray);
 }
-.user svg {
-  margin-left: 1em;
-}
 .logo {
   font-weight: 700;
   font-size: 1.3em;
   margin-right: 6em;
-  margin-left: 1em;
 }
 .logo:hover {
   cursor: pointer;
