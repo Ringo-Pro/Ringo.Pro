@@ -40,24 +40,91 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
     })
     
+    // setInterval(function(){  }, 1000);
+
     // Playback status updates
-    player.addListener('player_state_changed', ({
-        position,
-        duration,
-        track_window: {current_track}
-    }) => {
-        console.log('Currnetly Playing: ', current_track)
-        console.log('Position in Song: ', position)
-        console.log('Duration of Song: ', duration)
-        nowPlaying.textContent = `${current_track.name} - ${current_track.artists[0].name}`
-        albumArt.src = current_track.album.images[1].url
+    
+    // player.addListener('player_state_changed', ({
+    //     paused,
+    //     position,
+    //     duration,
+    //     updateTime = performance.now(),
+    //     track_window: {current_track}
         
+    // }) => {
+            
 
-        trackProgression.max = duration
-        trackProgression.value = position
+    //         // console.log('Currnetly Playing: ', current_track)
 
-    });
+    //         nowPlaying.textContent = `${current_track.name} - ${current_track.artists[0].name}`
+    //         albumArt.src = current_track.album.images[1].url
+            
+     
+    //         trackProgression.max = duration
+    //         trackProgression.value = position
 
+    //         // if(paused === true){
+    //         //     trackProgression.value = position
+    //         // }
+
+    //         //     setInterval(() => {
+  
+    //         //         position = position + (performance.now() - updateTime) / 1000;
+    //         //         // trackProgression.value = position
+    //         //         console.log(position)
+    
+    //         //     }, 5000);
+ 
+    //             // function getStatePosition() {
+    //             //     if (paused) {
+    //             //        return position;
+    //             //     }
+    //             //     else{
+    //             //     position = position + (performance.now() - updateTime) / 1000;
+    //             //     return position > duration ? duration : position;}
+    //             // }  
+    // });
+
+    let currState = {}
+player.addListener('player_state_changed', state => {
+  currState.paused = state.paused;
+  currState.position = state.position;
+  currState.duration = state.duration;
+  currState.updateTime = performance.now()
+  currState.current_track = state.track_window.current_track
+});
+
+// if(currState.duration) trackProgression.max = currState.duration
+
+
+function getStatePosition() {
+    // trackProgression.max = currState.duration
+    if(currState.current_track){
+    nowPlaying.textContent = `${currState.current_track.name} - ${currState.current_track.artists[0].name}`
+    albumArt.src = currState.current_track.album.images[1].url
+    }
+  
+    if (currState.paused === true) {
+     return currState.position;
+    }
+trackProgression.max = currState.duration
+  let position = currState.position + (performance.now() - currState.updateTime) / 1000;
+  return position > currState.duration ? currState.duration : position;
+}
+
+setInterval(() => {
+
+    if(typeof getStatePosition() !== NaN){
+        // console.log(getStatePosition())
+        // trackProgression.stepUp()
+        trackProgression.setAttribute('value', getStatePosition().toString())
+        
+        if(currState.paused === false){
+        trackProgression.stepUp(1000)
+        }
+
+    }
+}, 1000);
 
 
     volume.addEventListener('mouseup', function(){
@@ -67,8 +134,8 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         })
     })
     
-    pauseButton.addEventListener('click', () => {
-
+    pauseButton.addEventListener('click', (event) => {
+        event.target.classList.toggle("paused")
         player.togglePlay().then(() => {
             
         })
@@ -88,7 +155,12 @@ window.onSpotifyWebPlaybackSDKReady = () => {
         });
     })
 
-    
+    trackProgression.addEventListener('mouseup', function(){
+        console.log('yeet: ', this.value)
+        player.seek(this.value).then(() => {
+            console.log('Changed position!');
+        })
+    })
     
     // Ready
     player.addListener('ready', ({ device_id }) => {
@@ -117,6 +189,14 @@ window.onSpotifyWebPlaybackSDKReady = () => {
                 })
             })
         }
+        function start(){
+            // console.log(this.id)
+            trackProgression.stepDown(trackProgression.value)
+            return play({
+                playerInstance: player,
+                spotify_uri: this.id,
+            })
+        }
 
         const observer = new MutationObserver(function(mutations) {
 
@@ -129,15 +209,19 @@ window.onSpotifyWebPlaybackSDKReady = () => {
                   playButtonList.forEach((playButton) => {
                     // console.log(playButton)
                 
-                    playButton.addEventListener('click', event => {
-                        console.log(event.target.id)
+                    // playButton.addEventListener('click', event => {
+                    //     pauseButton.classList.add('paused')
+                    //     console.log(event.target.id)
         
-                        return play({
-                            playerInstance: player,
-                            spotify_uri: event.target.id,
-                        })
-                        // console.log(event.target.id)
-                    })
+                    //     return play({
+                    //         playerInstance: player,
+                    //         spotify_uri: event.target.id,
+                    //     })
+                    //     // console.log(event.target.id)
+                    // })
+                    playButton.addEventListener('click', start)
+                    // playButton.removeEventListener('click', start)
+
                 })
               }
             })
@@ -168,3 +252,4 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     player.connect();
 
 }
+

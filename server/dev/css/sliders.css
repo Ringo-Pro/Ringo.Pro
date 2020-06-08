@@ -1,4 +1,4 @@
-input[type=range] {
+/* input[type=range] {
     -webkit-appearance: none;
     margin: 10px 0;
     
@@ -99,4 +99,9 @@ main{
 
 legend{
     font-size: 2rem;
+} */
+
+main{
+  width: 100%;
 }
+
