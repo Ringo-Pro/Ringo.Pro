@@ -3,7 +3,7 @@
   background: lightgray;
 }
 .aside-filters {
-  width: 20%;
+  width: 27rem;
 }
 .active-filters {
   width: calc(100% - 4px);

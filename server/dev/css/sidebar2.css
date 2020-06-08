@@ -2,7 +2,7 @@
     width: 60%;
     padding: 4px;
     background: var(--primary-color);
-    height: calc(100% - (4em + 8px));
+    /* height: calc(100% - (4em + 8px)); */
     /* width: 10em; */
     /* display: flex;
     flex-direction: column;
@@ -11,7 +11,6 @@
     border-left: 4px solid var(--light-grey);
     
     overflow-y: scroll;
-    resize: horizontal;
     overflow: auto;
   }
 
