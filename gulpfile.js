@@ -4,14 +4,7 @@ const gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   concat = require('gulp-concat'),
   terser = require('gulp-terser'),
-  imagemin = require('gulp-imagemin'),
-  iconsPath = require('./icons.js');
-
-function icons() {
-  return gulp
-    .src(iconsPath.paths)
-    .pipe(gulp.dest('./server/static/dist/icons/'));
-}
+  imagemin = require('gulp-imagemin');
 
 function cssReset() {
   return gulp
