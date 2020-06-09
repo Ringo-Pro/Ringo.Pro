@@ -74,7 +74,7 @@
       <!-- key -->
       <details><summary>Key</summary>
       <div>
-        <input type="text" name="key" id="key" list="key_list" data-lpignore="true">
+        <input type="text" name="key" id="key" list="key_list" data-lpignore="true" placeholder="Search">
         <datalist id="key_list">
           <option>C</option>
           <option>D♭</option>
@@ -93,7 +93,7 @@
       <!-- language -->
       <details><summary>Language</summary>
       <div>
-        <input type="text" name="lang" id="lang" list="lang_list" data-lpignore="true">
+        <input type="text" name="lang" id="lang" list="lang_list" data-lpignore="true" placeholder="Search">
        <datalist id="lang_list">
          <option value="English">English</option>
          <option value="Dutch">Dutch</option>
@@ -104,11 +104,16 @@
       </details>
       <!-- mood -->
       <details><summary>Mood</summary>
-      <div>
-       <input type="range" name="mood" id="mood">
-       <div><p>Sad</p><p>Angry</p><p>Happy</p></div>
-       <label for="mood">00 BPM</label>
-      </div>
+        <div>
+          <input type="checkbox" name="sad" id="sad">
+          <label for="sad">sad</label>
+          <input type="checkbox" name="happy" id="happy">
+          <label for="happy">happy</label>
+          <input type="checkbox" name="agressive" id="agressive">
+          <label for="agressive">agressive</label>
+          <input type="checkbox" name="exciting" id="exciting">
+          <label for="exciting">exciting</label>
+        </div>
       </details>
       <!-- themes -->
       <details><summary>Themes</summary>
@@ -132,7 +137,7 @@
       <!-- origin -->
       <details><summary>Country</summary>
       <div>
-        <input type="text" name="country" id="country" list="country_list" data-lpignore="true">
+        <input type="text" name="country" id="country" list="country_list" data-lpignore="true" placeholder="Search">
        <datalist id="country_list">
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>

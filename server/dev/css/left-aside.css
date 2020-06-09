@@ -6,6 +6,11 @@
   color: lightblue;
   padding: 4px 15px 4px 0;
 }
+.aside-projects ul li a {
+  font-size: smaller;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+}
 /* filters */
 .aside-filters {
   flex-grow: 0;
@@ -13,6 +18,8 @@
   width: 16rem;
   border-right: solid;
   overflow-y: scroll;
+  padding-bottom: 10px;
+  padding-right: 15px;
 }
 .aside-filters section:last-of-type form div {
   display: flex;
@@ -35,10 +42,17 @@
   position: absolute;
   left: -100vw;
 }
-
 .aside-filters section:last-of-type form input[type='checkbox']:checked + label,
-.aside-filters section:last-of-type form input[type='checkbox']:hover + label {
+.aside-filters
+  section:last-of-type
+  form
+  input[type='checkbox']:checked:hover
+  + label {
   background: black;
+  color: white;
+}
+.aside-filters section:last-of-type form input[type='checkbox']:hover + label {
+  background: #393e46;
   color: white;
 }
 summary {
@@ -75,14 +89,23 @@ select::-ms-expand {
 select option {
   color: blue;
 }
-.aside-filters form {
+/* use this code if there is a project bar */
+/* .aside-filters form {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 .aside-filters input[type='range'] + div {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   width: 100%;
+}
+input[type='text'],
+input[type='number'] {
+  width: 100%;
+  border: 2px solid black;
+  margin: 10px 0;
+  border-radius: 4px;
+  padding: 6.5px 18px;
 }

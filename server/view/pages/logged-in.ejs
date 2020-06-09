@@ -3,51 +3,27 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-
     <div class="page">
     <%- include( '../components/project-aside.ejs') %>
     <%- include( '../components/filters-aside.ejs') %>
 
+
     <main>
-
-
     <%- include('../components/main-nav.ejs')%>
-
     <%- include('../components/video.ejs')%>
-
-
-
     </main>
-
     <section class="right-sidebars">
     <%- include('../components/sidebar2.ejs')%>
     <%- include('../components/sidebar3.ejs')%>
     </section>
-
     </div>
-
     <script>
         const token = `<%= token %>`
-    
     </script>
-  
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
 
-  <%- include('../components/music-player.ejs') %>
+    <%- include('../components/music-player.ejs') %>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script src="/dist/all.js"></script>
 
-  
-
-  <!-- <script src="/dist/all.js"></script>
-  <script src="../dev/js/drag-and-drop.js"></script>
-  <script src="../dev/js/input-support.js"></script>
-  <script src="../dev/js/music-player.js"></script>
-  <script src="../dev/js/search.js"></script>
-  <script src="../../dev/js/music-player.js"></script>
-  <script src="../../dev/js/"></script>
- <script src="/dist/all.js"></script>
-  <script src="/dist/all.js"></script> -->
-  <script src="/dist/all.js"></script>
-
-    
   </body>
 </html>

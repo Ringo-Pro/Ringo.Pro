@@ -17,7 +17,6 @@ header svg {
   font-weight: 700;
   font-size: 1.3em;
   margin-right: 6em;
-
 }
 .logo:hover {
   cursor: pointer;
@@ -71,13 +70,35 @@ input[type='radio'] + label {
   padding: 6.5px 18px;
   border-left: solid black;
   font-size: 13.3333px;
+  transition: all 0.2s ease-in-out;
 }
-input[type='radio']:hover + label,
+input[type='radio']:checked:hover + label,
 input[type='radio']:checked + label,
 input[type='radio']:focus + label {
+  background: black;
+  color: white;
+}
+input[type='radio']:hover + label {
   background: #393e46;
   color: white;
 }
 .user h3 {
   padding: 4px 0 4px 4px;
+}
+#quickSearchForm {
+  margin-left: 155px;
+}
+input[type='search']::-webkit-search-cancel-button {
+  display: none;
+}
+input[type='search'] {
+  width: 233px;
+}
+button[type='reset'] {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+#search:focus + button[type='reset'],
+#search input:not([value='']) + button[type='reset'] {
+  opacity: 1;
 }
