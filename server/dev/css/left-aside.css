@@ -10,6 +10,7 @@
 .aside-filters {
   width: 16rem;
   border-right: solid;
+  overflow-y: scroll;
 }
 .aside-filters section:last-of-type form div {
   display: flex;
@@ -17,7 +18,7 @@
   flex-wrap: wrap;
   padding: 0 12px;
 }
-.aside-filters section:last-of-type form label,
+.aside-filters section:last-of-type form input[type='checkbox'] + label,
 .aside-filters section:last-of-type form div div {
   border: solid black 2px;
   padding: 10px 5px;
@@ -73,4 +74,12 @@ select::-ms-expand {
 }
 select option {
   color: blue;
+}
+/* Firefox doesn't support hash marks and labels. Chrome supports hash marks but doesn't support labels. Version 66 of Chrome supports labels but the datalist tag has to be styled with css as its display property is set to none by default, hiding the labels. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range  */
+datalist {
+  display: flex;
+  justify-content: space-between;
+}
+input[type='text'] + datalist {
+  display: none;
 }

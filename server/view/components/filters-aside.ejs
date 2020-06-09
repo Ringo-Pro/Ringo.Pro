@@ -28,9 +28,23 @@
       <!-- tempo -->
       <!-- range -->
       <details><summary>Tempo</summary>
-       <input type="range" name="" id="">
+       <input type="range" name="tempo" id="tempo" min="30" max="240" step="5" list="tickmarks" value="30">
+        <datalist id="tickmarks">
+          <!-- Firefox doesn't support hash marks and labels. Chrome supports hash marks but doesn't support labels. Version 66 of Chrome supports labels but the datalist tag has to be styled with css as its display property is set to none by default, hiding the labels. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range -->
+          <option value="30" label="30"></option>
+          <option value="135" label="135"></option>
+          <option value="240" label="240"></option>
+        </datalist>
+       <label for="tempo">Tempo:</label>
         <!-- <input type="number" name="" id="" pattern="\d{3}" placeholder=""> -->
+        <!-- Dub: 60-90 bpm
+          Hip-hop: 60-100 bpm
+          House: 115-130 bpm
+          Techno/trance: 120-140 bpm
+          Dubstep: 135-145 bpm
+          Drum and bass: 160-180 bpm -->
       </details>
+    
       <!-- instrument -->
       <details><summary>instrument</summary>
         <div class="instrument">
@@ -65,7 +79,14 @@
       <!-- language -->
       <!-- select -->
       <details><summary>Language</summary>
-       
+        <label for="country">Country:</label>
+        <input type="text" name="lang" id="lang" list="lang_list">
+       <datalist id="lang_list">
+         <option value="english">English</option>
+         <option value="dutch">Dutch</option>
+         <option value="spanish">Spanish</option>
+         <option value="hindi">Hindi</option>
+       </datalist>
       </details>
       <!-- mood -->
       <!-- range -->
@@ -89,16 +110,9 @@
       <!-- origin -->
       <!-- select -->
       <details><summary>Country</summary>
-        <div class="country">
-          <div><img src="/dist/img/flag-nl.svg" alt=""></div>
-          <div><img src="/dist/img/flag-nl.svg" alt=""></div>
-          <div><img src="/dist/img/flag-nl.svg" alt=""></div>
-          <div><img src="/dist/img/flag-nl.svg" alt=""></div>
-          <div><img src="/dist/img/flag-nl.svg" alt=""></div>
-          <div><img src="/dist/img/flag-nl.svg" alt=""></div>
-        </div>
-        <select id="country" name="country">
-            <option value="">Other countries</option>
+       <label for="country">Country:</label>
+        <input type="text" name="country" id="country" list="country_list">
+       <datalist id="country_list">
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>
             <option value="Albania">Albania</option>
@@ -343,7 +357,7 @@
             <option value="Yemen">Yemen</option>
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
-        </select>
+       </datalist>
 </details>
       <!-- popularity -->
       <!-- range -->
