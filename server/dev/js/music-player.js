@@ -9,6 +9,8 @@ let nowPlaying = document.querySelector('.nowPlaying')
 let trackProgression = document.querySelector('.progress')
 let volume = document.querySelector('.volume')
 
+// console.log(nowPlaying.children[0])
+
 window.onSpotifyWebPlaybackSDKReady = () => {
     const player = new Spotify.Player({
         name: 'Ringo Pro player',
@@ -24,7 +26,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     
     player.getCurrentState().then(state => {
         if(!state){
-            nowPlaying.textContent = 'Click on a song!'
+            nowPlaying.children[0].textContent = 'Click on a song!'
             // console.error('User is not playing music through the Web Playback SDK')
             return
         }
@@ -40,50 +42,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
 
     })
     
-    // setInterval(function(){  }, 1000);
 
-    // Playback status updates
-    
-    // player.addListener('player_state_changed', ({
-    //     paused,
-    //     position,
-    //     duration,
-    //     updateTime = performance.now(),
-    //     track_window: {current_track}
-        
-    // }) => {
-            
-
-    //         // console.log('Currnetly Playing: ', current_track)
-
-    //         nowPlaying.textContent = `${current_track.name} - ${current_track.artists[0].name}`
-    //         albumArt.src = current_track.album.images[1].url
-            
-     
-    //         trackProgression.max = duration
-    //         trackProgression.value = position
-
-    //         // if(paused === true){
-    //         //     trackProgression.value = position
-    //         // }
-
-    //         //     setInterval(() => {
-  
-    //         //         position = position + (performance.now() - updateTime) / 1000;
-    //         //         // trackProgression.value = position
-    //         //         console.log(position)
-    
-    //         //     }, 5000);
- 
-    //             // function getStatePosition() {
-    //             //     if (paused) {
-    //             //        return position;
-    //             //     }
-    //             //     else{
-    //             //     position = position + (performance.now() - updateTime) / 1000;
-    //             //     return position > duration ? duration : position;}
-    //             // }  
-    // });
 
     let currState = {}
 player.addListener('player_state_changed', state => {
@@ -100,7 +59,11 @@ player.addListener('player_state_changed', state => {
 function getStatePosition() {
     // trackProgression.max = currState.duration
     if(currState.current_track){
-    nowPlaying.textContent = `${currState.current_track.name} - ${currState.current_track.artists[0].name}`
+    // nowPlaying.textContent = `${currState.current_track.name} - ${currState.current_track.artists[0].name}`
+    
+    nowPlaying.children[0].textContent = currState.current_track.name
+    nowPlaying.children[1].textContent = currState.current_track.artists[0].name
+
     albumArt.src = currState.current_track.album.images[1].url
     }
   

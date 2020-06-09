@@ -64,3 +64,7 @@
   .buttons button span{
     color: black;
   }
+
+  .nowPlaying{
+      margin-left: .5rem;
+  }
