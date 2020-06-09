@@ -57,6 +57,7 @@ summary::-webkit-details-marker {
   text-transform: capitalize;
   width: 14rem;
   border-radius: 4px;
+  margin-top: 8px;
 }
 details div div img {
   width: 50px;
@@ -82,4 +83,9 @@ datalist {
 }
 input[type='text'] + datalist {
   display: none;
+}
+.aside-filters form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
