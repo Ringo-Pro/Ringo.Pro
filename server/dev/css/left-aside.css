@@ -15,7 +15,6 @@
 .aside-filters {
   flex-grow: 0;
   flex-shrink: 0;
-  width: 16rem;
   border-right: solid;
   overflow-y: scroll;
   padding-bottom: 10px;
