@@ -1,81 +1,82 @@
 .sidebar2 {
-    /* width: 60%; */
-    width: 22rem;
-    padding: 4px;
-    background: var(--primary-color);
-    /* height: calc(100% - (4em + 8px)); */
-    /* width: 10em; */
-    /* display: flex;
+  /* width: 60%; */
+  width: 22rem;
+  padding: 8px;
+  background: var(--primary-color);
+  /* height: calc(100% - (4em + 8px)); */
+  /* width: 10em; */
+  /* display: flex;
     flex-direction: column;
     justify-content: center; */
-    align-items: center;
-    border-left: 4px solid var(--light-grey);
-    
-    overflow-y: scroll;
-    overflow: auto;
-  }
+  align-items: center;
+  border-left: 4px solid var(--light-grey);
 
-  .sidebar2 li{
-    height: 4rem;
-    background: black;
-    padding: .1rem;
-    margin-bottom: .1rem;
-    border-radius: .3rem;
-    display: flex;
-    align-items: center;
-    color: white;
-    justify-content: flex-start;
-    font-size: 1rem;
-  }
+  overflow-y: scroll;
+  overflow: auto;
+}
 
-  .sidebar2 li a{
-      color: white;
-  }
-  .sidebar2 li a:link{
-    text-decoration: none;
-  }
-  
-  .sidebar2 li a:visited{
-    text-decoration: none;
-  }
-  
-  .sidebar2 li div{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-left: .5rem;
-    justify-content: space-between;
-  }
+.sidebar2 li {
+  height: 4rem;
+  background: black;
+  padding: 0.1rem;
+  margin-bottom: 0.1rem;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  color: white;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+
+.sidebar2 li a {
+  color: white;
+}
+.sidebar2 li a:link {
+  text-decoration: none;
+}
+
+.sidebar2 li a:visited {
+  text-decoration: none;
+}
+
+.sidebar2 li div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 0.5rem;
+  justify-content: space-between;
+}
+
 
   .sidebar2 li div p:first-of-type{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     width: 10rem;
-    }
+ }
 
-  .unfold{
-    transform: rotate(90deg);
-    background: black;
-    border-radius: 50%;
-    padding: .1rem;
-    color: white;
-  }
+.unfold {
+  transform: rotate(90deg);
+  background: black;
+  border-radius: 50%;
+  padding: 0.1rem;
+  color: white;
+}
 
-  .info{
-      margin-left: auto;
-  }
+.info {
+  margin-left: auto;
+}
 
-  .add-track{
-      text-align: center;
-      justify-content: center;
-      border: white dashed;
-  }
+.add-track {
+  text-align: center;
+  justify-content: center;
+  border: white dashed;
+}
 
-  .playButton{
-      background: grey;
-  }
+.playButton {
+  background: grey;
+}
 
   .right-sidebars{
     display: flex;
@@ -83,3 +84,4 @@
     flex-shrink: 0;
     margin-left: auto;
   }
+
