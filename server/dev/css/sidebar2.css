@@ -1,5 +1,6 @@
 .sidebar2 {
-    width: 60%;
+    /* width: 60%; */
+    width: 22rem;
     padding: 4px;
     background: var(--primary-color);
     /* height: calc(100% - (4em + 8px)); */
@@ -39,11 +40,20 @@
   }
   
   .sidebar2 li div{
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      margin-left: .5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: .5rem;
+    justify-content: space-between;
   }
+
+  .sidebar2 li div p:first-of-type{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 70%;
+    }
 
   .unfold{
     transform: rotate(90deg);
@@ -65,4 +75,10 @@
 
   .playButton{
       background: grey;
+  }
+
+  .right-sidebars{
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
   }
