@@ -18,8 +18,7 @@
   flex-wrap: wrap;
   padding: 0 12px;
 }
-.aside-filters section:last-of-type form input[type='checkbox'] + label,
-.aside-filters section:last-of-type form div div {
+.aside-filters section:last-of-type form input[type='checkbox'] + label {
   border: solid black 2px;
   padding: 10px 5px;
   font-size: small;
@@ -29,9 +28,6 @@
   margin: 8px 0px;
   text-transform: capitalize;
   background: none;
-}
-.aside-filters section:last-of-type form div div:hover {
-  background: #eeeeee;
 }
 .aside-filters section:last-of-type form input[type='checkbox'] {
   position: absolute;
@@ -44,11 +40,12 @@
   color: white;
 }
 summary {
-  list-style: none;
-  padding: 10px 0px;
+  list-style-position: inside;
+  padding: 10px 5px;
+  font-weight: 500;
 }
 summary::-webkit-details-marker {
-  color: transparent;
+  list-style-position: inside;
 }
 .aside-filters details {
   border: solid black 2px;
@@ -59,7 +56,7 @@ summary::-webkit-details-marker {
   border-radius: 4px;
   margin-top: 8px;
 }
-details div div img {
+details div label img {
   width: 50px;
 }
 .aside-filters section:last-of-type form div.instrument div,
@@ -76,16 +73,14 @@ select::-ms-expand {
 select option {
   color: blue;
 }
-/* Firefox doesn't support hash marks and labels. Chrome supports hash marks but doesn't support labels. Version 66 of Chrome supports labels but the datalist tag has to be styled with css as its display property is set to none by default, hiding the labels. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range  */
-datalist {
-  display: flex;
-  justify-content: space-between;
-}
-input[type='text'] + datalist {
-  display: none;
-}
 .aside-filters form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.aside-filters input[type='range'] + div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
 }

@@ -6,7 +6,8 @@
   <section>
     <form action="">
       <!-- genre -->
-      <!-- <details><summary>Genre</summary>
+      <details><summary>Genre</summary>
+    <div>
       <input type="checkbox" name="rock" id="rock">
       <label for="rock">rock</label>
       <input type="checkbox" name="pop" id="pop">
@@ -15,27 +16,31 @@
       <label for="jazz">jazz</label>
       <input type="checkbox" name="country" id="country">
       <label for="country">country</label>
-      </details> -->
-      <details><summary>Genre</summary>
-        <div>
-        <div>Rock</div>
-        <div>Pop</div>
-        <div>Jazz</div>
-        <div>Country</div>
-      </div>
-      </details>
-     
+      <input type="checkbox" name="blues" id="blues">
+      <label for="blues">blues</label>
+      <input type="checkbox" name="electronic" id="electronic">
+      <label for="electronic">electronic</label>
+      <input type="checkbox" name="folk" id="folk">
+      <label for="folk">folk</label>
+      <input type="checkbox" name="hiphop" id="hiphop">
+      <label for="hiphop">hip hop</label>
+      <input type="checkbox" name="latin" id="latin">
+      <label for="latin">latin</label>
+      <input type="checkbox" name="rb" id="rb">
+      <label for="rb">R&B</label>
+      <input type="checkbox" name="metal" id="metal">
+      <label for="metal">Heavy metal</label>
+      <input type="checkbox" name="punkrock" id="punkrock">
+      <label for="punkrock">punkrock</label>
+    </div>
+      </details> 
       <!-- tempo -->
-      <!-- range -->
       <details><summary>Tempo</summary>
+      <div>
        <input type="range" name="tempo" id="tempo" min="30" max="240" step="5" list="tickmarks" value="30">
-        <datalist id="tickmarks">
-          <!-- Firefox doesn't support hash marks and labels. Chrome supports hash marks but doesn't support labels. Version 66 of Chrome supports labels but the datalist tag has to be styled with css as its display property is set to none by default, hiding the labels. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range -->
-          <option value="30" label="30"></option>
-          <option value="135" label="135"></option>
-          <option value="240" label="240"></option>
-        </datalist>
-       <label for="tempo">Tempo:</label>
+        <div><p>30</p><p>135</p><p>240</p></div>
+       <label for="tempo">00 BPM</label>
+      </div>
         <!-- <input type="number" name="" id="" pattern="\d{3}" placeholder=""> -->
         <!-- Dub: 60-90 bpm
           Hip-hop: 60-100 bpm
@@ -44,74 +49,90 @@
           Dubstep: 135-145 bpm
           Drum and bass: 160-180 bpm -->
       </details>
-    
       <!-- instrument -->
       <details><summary>instrument</summary>
-        <div class="instrument">
-          <div><img src="/dist/img/guitar.svg" alt=""></div>
-          <div><img src="/dist/img/guitar.svg" alt=""></div>
-          <div><img src="/dist/img/guitar.svg" alt=""></div>
-          <div><img src="/dist/img/guitar.svg" alt=""></div>
-          <div><img src="/dist/img/guitar.svg" alt=""></div>
-          <div><img src="/dist/img/guitar.svg" alt=""></div>
+        <div>
+          <input type="checkbox" name="guitar" id="guitar">
+          <label for="guitar">Guitar</label>
+          <input type="checkbox" name="flute" id="flute">
+          <label for="flute">Flute</label>
+          <input type="checkbox" name="drums" id="drums">
+          <label for="drums">drums</label>
+          <input type="checkbox" name="piano" id="piano">
+          <label for="piano">piano</label>
         </div>
       </details>
       <!-- vocals -->
-      <!-- checkbox -->
       <details><summary>Vocals</summary>
-        <div>
-          <div>Label</div>
-          <div>Label</div>
-          <div>Label</div>
-          <div>Label</div>
-        </div>
+      <div>
+        <input type="checkbox" name="male" id="male">
+        <label for="male">male</label>
+        <input type="checkbox" name="female" id="female">
+        <label for="female">female</label>
+      </div>
       </details>
       <!-- key -->
-      <!-- checkbox -->
       <details><summary>Key</summary>
-        <div>
-          <div>Label</div>
-          <div>Label</div>
-          <div>Label</div>
-          <div>Label</div>
-        </div>
+      <div>
+        <input type="text" name="key" id="key" list="key_list" data-lpignore="true">
+        <datalist id="key_list">
+          <option>C</option>
+          <option>D♭</option>
+          <option>D</option>
+          <option>E♭</option>
+          <option>E</option>
+          <option>G</option>
+          <option>F#</option>
+          <option>A♭</option>
+          <option>A</option>
+          <option>B♭</option>
+          <option>B</option>
+        </datalist>
+      </div>
       </details>
       <!-- language -->
-      <!-- select -->
       <details><summary>Language</summary>
-        <label for="lang">Language:</label>
-        <input type="text" name="lang" id="lang" list="lang_list">
+      <div>
+        <input type="text" name="lang" id="lang" list="lang_list" data-lpignore="true">
        <datalist id="lang_list">
          <option value="English">English</option>
          <option value="Dutch">Dutch</option>
          <option value="Spanish">Spanish</option>
          <option value="Hindi">Hindi</option>
        </datalist>
+       </div>
       </details>
       <!-- mood -->
-      <!-- range -->
       <details><summary>Mood</summary>
-       <input type="range" name="" id="">
+      <div>
+       <input type="range" name="mood" id="mood">
+       <div><p>Sad</p><p>Angry</p><p>Happy</p></div>
+       <label for="mood">00 BPM</label>
+      </div>
       </details>
       <!-- themes -->
       <details><summary>Themes</summary>
         <div>
-          <div>Label</div>
-          <div>Label</div>
-          <div>Label</div>
-          <div>Label</div>
+          <input type="checkbox" name="theme1" id="theme1">
+          <label for="theme1">Theme 1</label>
+          <input type="checkbox" name="theme2" id="theme2">
+          <label for="theme2">theme 2</label>
+          <input type="checkbox" name="theme3" id="theme3">
+          <label for="theme3">theme 3</label>
+          <input type="checkbox" name="theme4" id="theme4">
+          <label for="theme4">theme 4</label>
         </div>
       </details>
       <!-- year -->
-      <!-- year -->
       <details><summary>Year</summary>
-      <input type=number pattern="\d{4}" placeholder="2020" min="1700" max="2020" value="2020">
+    <div>
+      <input type=number pattern="\d{4}" placeholder="2020" min="1700" max="2020" value="2020" name="year" id="year">
+    </div>
       </details>
       <!-- origin -->
-      <!-- select -->
       <details><summary>Country</summary>
-       <label for="country">Country:</label>
-        <input type="text" name="country" id="country" list="country_list">
+      <div>
+        <input type="text" name="country" id="country" list="country_list" data-lpignore="true">
        <datalist id="country_list">
             <option value="Afghanistan">Afghanistan</option>
             <option value="Åland Islands">Åland Islands</option>
@@ -358,11 +379,15 @@
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
        </datalist>
+      </div>
 </details>
       <!-- popularity -->
-      <!-- range -->
       <details><summary>popularity</summary>
-      <input type="range" name="" id="">
+    <div>
+      <input type="range" name="popularity" id="popularity">
+      <div><p>Not popular</p><p>Popular</p></div>
+       <label for="popularity">Not popular</label>
+    </div>
       </details> 
     </form>
      </section>

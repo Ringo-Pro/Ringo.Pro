@@ -31,22 +31,7 @@ function supportsType(input) {
 function supportsDatalist() {
   /*   main check; most of the browsers have partial support i.e. support with input type text and not with input type i.e. range */
   'options' in document.createElement('datalist') ? true : false;
-}
-
-function supportsRangeDatalist() {
-  //   additional test
-  const tickmarks = document.getElementById('tickmarks'),
-    option = tickmarks.querySelector('option');
-  if (option.clientHeight === 0) {
-    console.log('Tickmarks not supported with input type range');
-    tickmarks.classList.add('d-none');
-    // add div with markers
-
-    return false;
-  } else return true;
+  //   false -> insert select
 }
 const supportsRange = supportsType('range'),
-  supportsDatalist = supportDatalist();
-if (supportsRange && supportDatalist) {
-  supportsRangeDatalist();
-}
+  datalist = supportDatalist();
