@@ -4,3 +4,20 @@
   padding: 0px 15px;
   flex-direction: row;
 }
+
+.main-content article{
+    border: dashed;
+    height: 60vh;
+    text-align: center;
+    border-radius: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content article p{
+    background: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+}

@@ -52,4 +52,19 @@
   .player-info{
     display: flex;
     align-items: center;
+    width: 12em;
+  }
+
+  .buttons button{
+    padding: 0.5rem;
+    border-radius: 50%;
+    border-style: none;
+  }
+
+  .buttons button span{
+    color: black;
+  }
+
+  .nowPlaying{
+      margin-left: .5rem;
   }

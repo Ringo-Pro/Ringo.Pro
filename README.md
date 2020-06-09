@@ -1,8 +1,18 @@
 # Ringo.Pro
 
+Ringo Pro is a application for music supervisors. It makes looking for tracks and searching for licenses easier.
 <!-- ![Screenshot van de applicatie]() -->
 
+
 https://gist.github.com/danrovito/977bcb97c9c2dfd3398a
+
+## Table of contents
+
+* [APIs](#apis)
+* [Wishlist](#Whishlist)
+* [Credits](#Credits)
+* [Sources](#Sources)
+
 
 ## APIs tested in this branch
 
@@ -24,16 +34,11 @@ git clone https://github.com/CountNick/Ringo.Pro.git
 cd Ringo.Pro
 ```
 
-## Table of contents
 
-- [APIs](#apis)
-- [Whishlist](#Whishlist)
-- [Credits](#Credits)
-- [Sources](#Sources)
 
 ## APIs
 
-### Spotify API
+* ### Spotify API
 
 ### Genius API
 
@@ -227,7 +232,27 @@ Free plan
 - [ ] Add access mode (like key/oAUTH etc.)
 - [ ] Add description
 
-## Whishlist
+## Wishlist
+
+## Installation
+
+```zsh
+git clone https://github.com/CountNick/Ringo.Pro.git
+cd Ringo.Pro
+```
+
+run the app in production:
+
+```
+npm start
+```
+
+run the app in development mode:
+```
+npm run start:dev
+```
+
+
 
 ## Credits
 
