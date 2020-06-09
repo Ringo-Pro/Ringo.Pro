@@ -5,6 +5,10 @@
   flex-direction: row;
 }
 
+main{
+    width: 60%;
+}
+
 .main-content article{
     border: dashed;
     height: 60vh;
@@ -21,3 +25,4 @@
     padding: 1rem;
     border-radius: 1rem;
 }
+
