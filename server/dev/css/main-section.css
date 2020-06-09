@@ -3,3 +3,11 @@
   height: 86vh;
   flex-direction: row;
 }
+
+.main-content article{
+    border: dashed;
+    height: 60vh;
+    text-align: center;
+    border-radius: 1.3rem;
+    display: flex;
+}

@@ -1,0 +1,12 @@
+.main-nav{
+    justify-content: space-around;
+    display: flex;
+    background: var(--secondary-color);
+    padding: .3rem;
+    width: 100%;
+}
+
+.main-nav li a{
+    text-decoration: none;
+    color: white;
+}
