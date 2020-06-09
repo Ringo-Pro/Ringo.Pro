@@ -23,7 +23,11 @@ function css() {
 function es() {
   return gulp
 
-    .src(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'])
+    .src([
+      './server/dev/js/*.js',
+      '!./server/dev/js/filter-toggle.js',
+      '!./server/dev/js/filter-menu.js',
+    ])
     .pipe(terser())
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./server/static/dist/'));
@@ -41,7 +45,6 @@ function watch() {
 
 const build = gulp.series(cssReset, css, es, img);
 
-exports.icons = icons;
 exports.css = css;
 exports.es = es;
 exports.img = img;
