@@ -33,6 +33,6 @@ function supportsDatalist() {
   'options' in document.createElement('datalist') ? true : false;
   //   false -> insert select
 }
-const rangeEl = document.getElementById('mood');
+const rangeEl = document.getElementById('tempo');
 const supportsRange = supportsType(rangeEl),
   datalist = supportsDatalist();
