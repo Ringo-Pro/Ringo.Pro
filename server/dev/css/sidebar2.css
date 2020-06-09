@@ -48,12 +48,13 @@
   justify-content: space-between;
 }
 
-.sidebar2 li div p:first-of-type {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 70%;
-}
+
+  .sidebar2 li div p:first-of-type{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 10rem;
+ }
 
 .unfold {
   transform: rotate(90deg);
@@ -77,8 +78,10 @@
   background: grey;
 }
 
-.right-sidebars {
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
+  .right-sidebars{
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+

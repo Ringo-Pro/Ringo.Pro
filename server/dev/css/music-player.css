@@ -66,5 +66,13 @@
   }
 
   .nowPlaying{
-      margin-left: .5rem;
+    margin-left: .5rem;
+    display: flex;
+    flex-direction: column;
+    height: 4rem;
+    justify-content: space-evenly;
+  }
+
+  .nowPlaying p:first-of-type{
+    white-space: nowrap;
   }
