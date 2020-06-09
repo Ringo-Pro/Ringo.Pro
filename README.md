@@ -17,16 +17,12 @@ npm start
 
 ## Table of contents
 
-- [APIs](#apis)
-- [Wishlist](#Whishlist)
+- [Dependencies](#dependencies)
+- [NPM Scripts](#npm-scripts)
+- [API](#api)
 - [Credits](#Credits)
+- [Wishlist](#Whishlist)
 - [Sources](#Sources)
-
-## API
-
-### Spotify API
-
-## Wishlist
 
 ## NPM Scripts
 
@@ -60,6 +56,10 @@ npm start
 - [Url]()
 - [Nodemon]()
 
+## API
+
+### Spotify API
+
 ## Credits
 
 - Jo
@@ -67,6 +67,8 @@ npm start
 - [CSS Reset by Meyerweb](http://meyerweb.com/eric/tools/css/reset/)
 - https://gist.github.com/danrovito/977bcb97c9c2dfd3398a
 - peter paul input support
+
+## Wishlist
 
 ## Sources
 
