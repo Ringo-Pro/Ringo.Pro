@@ -1,9 +1,15 @@
 // import { play } from "./modules/player.js";
 
 const searchBar = document.getElementById('search')
+const form = document.getElementById('quickSearchForm')
+console.log(searchBar.nextSibling)
 
+form.addEventListener('click', function(event){
+    event.preventDefault()
+})
 
 searchBar.addEventListener('input', debounce((event) => {
+    
     const userInput = event.target.value
 
     const url = document.getElementById('quickSearchForm').getAttribute('action')
