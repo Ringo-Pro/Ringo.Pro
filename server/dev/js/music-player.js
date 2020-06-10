@@ -26,8 +26,9 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     
     player.getCurrentState().then(state => {
         if(!state){
-            nowPlaying.children[0].textContent = 'Click on a song!'
+            // nowPlaying.children[0].textContent = 'Click on a song!'
             // console.error('User is not playing music through the Web Playback SDK')
+            console.log('User is not playing music through the Web Playback SDK')
             return
         }
 

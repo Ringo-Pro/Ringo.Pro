@@ -10,7 +10,7 @@
 
     text-align: center;
   
-    padding: 1rem;
+    padding: 1.3rem;
   
     color: #A77B0E;
     /* background: #FAE042; */
@@ -29,7 +29,8 @@
     max-width: 0px;
     overflow: hidden;
     padding: 0px;
-    transition: max-width .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    /* transition: max-width .25s ease-in-out; */
   }
   
 
@@ -50,7 +51,7 @@
 
     text-align: center;
   
-    padding: 1rem;
+    padding: 1.3rem;
   
     color: #A77B0E;
     /* background: #FAE042; */
@@ -69,7 +70,8 @@
     max-width: 0px;
     overflow: hidden;
     padding: 0px;
-    transition: max-width .25s ease-in-out;
+    transition: all .25s ease-in-out;
+    /* transition: padding .25s ease-in-out; */
   }
 
   .toggle2:checked + .lbl-toggle2 + .collapsible-content2 {
