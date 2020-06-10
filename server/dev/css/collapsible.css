@@ -28,13 +28,14 @@
   .collapsible-content {
     max-width: 0px;
     overflow: hidden;
-  
+    padding: 0px;
     transition: max-width .25s ease-in-out;
   }
   
 
   .toggle:checked + .lbl-toggle + .collapsible-content {
-    max-width: 100%;
+    max-width: 18rem;
+    padding: 8px;
   }
 
 .toggle2 {
@@ -67,10 +68,11 @@
   .collapsible-content2 {
     max-width: 0px;
     overflow: hidden;
-  
+    padding: 0px;
     transition: max-width .25s ease-in-out;
   }
 
   .toggle2:checked + .lbl-toggle2 + .collapsible-content2 {
-    max-width: 100%;
+    max-width: 18rem;
+    padding: 8px;
   }

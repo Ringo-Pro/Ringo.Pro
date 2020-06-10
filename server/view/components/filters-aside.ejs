@@ -8,30 +8,14 @@
       <!-- genre -->
       <details><summary>Genre</summary>
     <div>
-      <input type="checkbox" name="rock" id="rock">
-      <label for="rock">rock</label>
-      <input type="checkbox" name="pop" id="pop">
-      <label for="pop">pop</label>
-      <input type="checkbox" name="jazz" id="jazz">
-      <label for="jazz">jazz</label>
-      <input type="checkbox" name="country" id="country">
-      <label for="country">country</label>
-      <input type="checkbox" name="blues" id="blues">
-      <label for="blues">blues</label>
-      <input type="checkbox" name="electronic" id="electronic">
-      <label for="electronic">electronic</label>
-      <input type="checkbox" name="folk" id="folk">
-      <label for="folk">folk</label>
-      <input type="checkbox" name="hiphop" id="hiphop">
-      <label for="hiphop">hip hop</label>
-      <input type="checkbox" name="latin" id="latin">
-      <label for="latin">latin</label>
-      <input type="checkbox" name="rb" id="rb">
-      <label for="rb">R&B</label>
-      <input type="checkbox" name="metal" id="metal">
-      <label for="metal">Heavy metal</label>
-      <input type="checkbox" name="punkrock" id="punkrock">
-      <label for="punkrock">punkrock</label>
+
+      <% genreList.forEach(genre => { %>
+
+        <input type="checkbox" name="<%= genre %>" id="<%= genre %>">
+        <label for="<%= genre %>"><%= genre %></label>
+        
+    <% }) %>
+
     </div>
       </details> 
       <!-- tempo -->
