@@ -45,7 +45,7 @@
   flex-direction: column;
   width: 100%;
   margin-left: 0.5rem;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 
@@ -54,6 +54,11 @@
     white-space: nowrap;
     overflow: hidden;
     width: 10rem;
+ }
+  
+ .sidebar2 li div p:last-of-type{
+    font-size: .89rem;
+    color: var(--artist-name);
  }
 
 .unfold {
