@@ -1,6 +1,7 @@
 require('dotenv').config();
 const util = require('util');
 const router = require('./routes/router.js'),
+  genreList = require('./apis/genres.json'),
   port = process.env.PORT || 4000,
   express = require('express'),
   bodyParser = require('body-parser'),
@@ -11,6 +12,8 @@ const router = require('./routes/router.js'),
   querystring = require('querystring'),
   cookieParser = require('cookie-parser');
 const { URLSearchParams } = require('url');
+
+
 
 const moodFilter = require('./mood-filter/mood-filter.js');
 /**
@@ -121,6 +124,7 @@ function callback(req, res) {
             res.render('logged-in', {
               data: body,
               token: access_token,
+              genreList: genreList.genres
             });
           })
           .catch((err) => {
@@ -133,6 +137,7 @@ function callback(req, res) {
 function searchResultsRoute(req, res) {
   let artist = req.query.searchValue;
   let access_token = req.query.token;
+  console.log(req.query)
   //   let userData = JSON.parse(req.query.data);
 
   let options = {
