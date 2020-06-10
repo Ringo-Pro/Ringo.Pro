@@ -1,7 +1,6 @@
 .page {
   display: flex;
-  height: 82.5vh;
-  padding: 0px 15px;
+  height: 83vh;
   flex-direction: row;
 }
 

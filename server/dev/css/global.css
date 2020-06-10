@@ -10,7 +10,7 @@ body {
   overflow: hidden;
   font-family: 'Roboto', sans-serif;
   color: var(--dark-gray);
-  background: var(--primary-color);
+  background: var(--background-color);
 }
 
 /* headers */
@@ -18,7 +18,7 @@ h3 {
   font-weight: 500;
 }
 header {
-  color: var(--accent-color);
+  color: var(--primary-color);
 }
 .material-icons {
   color: #f2f2f2;

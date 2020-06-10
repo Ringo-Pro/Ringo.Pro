@@ -13,12 +13,14 @@
 }
 /* filters */
 .aside-filters {
+  background: var(--secondary-color);
   flex-grow: 0;
   flex-shrink: 0;
   border-right: solid;
   overflow-y: scroll;
   padding-bottom: 10px;
   padding-right: 15px;
+  padding-left: 15px;
 }
 .aside-filters section:last-of-type form div {
   display: flex;
@@ -56,21 +58,23 @@
 }
 summary {
   list-style-position: inside;
-  padding: 10px 5px;
+  padding: 1rem;
   font-weight: 500;
 }
 summary::-webkit-details-marker {
   list-style-position: inside;
 }
 .aside-filters details {
-  border: solid black 2px;
+  border: solid var(--background-color) 2px;
   font-size: small;
-  color: black;
+  color: var(--primary-color);
   text-transform: capitalize;
   width: 14rem;
   border-radius: 4px;
   margin-top: 8px;
+  background: var(--background-color);
 }
+
 details div label img {
   width: 50px;
 }
