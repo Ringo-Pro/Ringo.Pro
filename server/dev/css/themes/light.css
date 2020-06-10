@@ -1,10 +1,19 @@
 /* light theme */
 :root {
-  --primary-color: white;
+  /* --primary-color: white;
   --secondary-color: lightgray;
   --accent-color: black;
   --dark-gray: #222831;
   --light-gray: #8e8d8a;
   --dark-grey: #222831;
-  --light-grey: #8e8d8a;
+  --light-grey: #8e8d8a; */
+  --primary-color: white;
+  --secondary-color: rgb(23, 41, 82);
+  --background-color: rgb(3, 15, 41);
+  --track-background: rgba(106, 134, 202, 0.15);
+  --button-color: rgb(228, 93, 94);
+  --artist-name: #ABC1F5;
+  /* --light-gray: #8e8d8a;
+  --dark-grey: #222831;
+  --light-grey: #8e8d8a; */
 }

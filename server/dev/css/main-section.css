@@ -1,16 +1,16 @@
 .page {
   display: flex;
-  height: 82.5vh;
-  padding: 0px 15px;
+  height: 83vh;
   flex-direction: row;
 }
 
 main{
-    width: 60%;
+    width: 100%;
 }
 
 .main-content article{
-    border: dashed;
+    margin: 1rem;
+    border: dashed var(--track-background);
     height: 60vh;
     text-align: center;
     border-radius: 1.3rem;
@@ -20,9 +20,8 @@ main{
 }
 
 .main-content article p{
-    background: black;
+    background: var(--track-background);
     color: white;
     padding: 1rem;
     border-radius: 1rem;
 }
-

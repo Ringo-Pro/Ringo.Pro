@@ -9,7 +9,7 @@
 
     <li class="draggableTrack" draggable="true"> 
         <span class="material-icons">drag_indicator</span>
-        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt="album-art" width="64px" height="64px"><div> <p><%= track.name %></p> <p><%= track.artists[0].name %></p> <p><%= millisToMinutesAndSeconds(track.duration_ms) %></p></div> <a href=<%= `/track/:${track.id}/:${token}` %>>
+        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt="album-art" width="64px" height="64px"><div> <p><%= track.name %></p> <p><%= track.artists[0].name %></p></div> <a href=<%= `/track/:${track.id}/:${token}` %>>
         <span class="material-icons info">info</span></a>
     </li> 
     
