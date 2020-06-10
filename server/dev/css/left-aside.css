@@ -16,7 +16,7 @@
   background: var(--secondary-color);
   flex-grow: 0;
   flex-shrink: 0;
-  border-right: solid;
+  /* border-right: solid; */
   overflow-y: scroll;
   padding-bottom: 10px;
   padding-right: 15px;
@@ -29,15 +29,16 @@
   padding: 0 12px;
 }
 .aside-filters section:last-of-type form input[type='checkbox'] + label {
-  border: solid black 2px;
+  border: solid var(--secondary-color) 2px;
   padding: 10px 5px;
   font-size: small;
-  color: black;
+  color: var(--primary-color);
   border-radius: 4px;
   width: 80px;
   margin: 8px 0px;
   text-transform: capitalize;
-  background: none;
+  background: var(--secondary-color);
+  text-align: center;
 }
 .aside-filters section:last-of-type form input[type='checkbox'] {
   position: absolute;

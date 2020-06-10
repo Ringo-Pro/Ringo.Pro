@@ -9,7 +9,8 @@ main{
 }
 
 .main-content article{
-    border: dashed;
+    margin: 1rem;
+    border: dashed var(--track-background);
     height: 60vh;
     text-align: center;
     border-radius: 1.3rem;
@@ -19,7 +20,7 @@ main{
 }
 
 .main-content article p{
-    background: black;
+    background: var(--track-background);
     color: white;
     padding: 1rem;
     border-radius: 1rem;

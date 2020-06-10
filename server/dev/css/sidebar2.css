@@ -71,7 +71,7 @@
 .add-track {
   text-align: center;
   justify-content: center;
-  border: white dashed;
+  border: var(--track-background) dashed;
 }
 
 .playButton {

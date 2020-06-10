@@ -55,7 +55,7 @@ header svg {
 /* States quick search input */
 #quickSearchForm input:focus,
 #quickSearchForm input:hover {
-  color: var(--dark-gray);
+  color: var(--background-color);
 }
 header div > svg:hover {
   cursor: pointer;
@@ -74,11 +74,13 @@ input[type='radio'] + label {
   border-left: solid black;
   font-size: 13.3333px;
   transition: all 0.2s ease-in-out;
+  background: var(--track-background);
+  color: var(--background-color)
 }
 input[type='radio']:checked:hover + label,
 input[type='radio']:checked + label,
 input[type='radio']:focus + label {
-  background: black;
+  background: var(--background-color);
   color: white;
 }
 input[type='radio']:hover + label {
