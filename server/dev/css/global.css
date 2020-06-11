@@ -7,9 +7,9 @@ html {
 html,
 body {
   /* height: 100%; */
-  overflow: hidden;
+  /* overflow: hidden; */
   font-family: 'Roboto', sans-serif;
-  color: var(--dark-gray);
+  color: white;
   background: var(--primary-color);
 }
 
@@ -18,7 +18,7 @@ h3 {
   font-weight: 500;
 }
 header {
-  color: var(--accent-color);
+  color: white;
 }
 .material-icons {
   color: #f2f2f2;

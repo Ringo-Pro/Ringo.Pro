@@ -1,10 +1,138 @@
 /* light theme */
 :root {
-  --primary-color: white;
+  --primary-color: #181818;
   --secondary-color: lightgray;
   --accent-color: black;
   --dark-gray: #222831;
   --light-gray: #8e8d8a;
   --dark-grey: #222831;
   --light-grey: #8e8d8a;
+}
+/* #F20732
+#07038C
+#0439D9
+#056CF2
+#F20505 */
+/* #181818
+#121212 
+#0a0a0a */
+.test-sidebar {
+  background: #121212;
+  padding: 4px 15px;
+  width: 140px;
+}
+.test-main {
+  display: flex;
+  width: 87%;
+  padding: 20px;
+  flex-direction: column;
+}
+.test-main > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* width: 95%; */
+}
+.test-main > div {
+  padding: 20px;
+
+  margin-bottom: 20px;
+}
+.mt > div {
+  background: #121212;
+  border-radius: 10px;
+  padding: 20px 40px;
+}
+.ii {
+  padding: 0 40px;
+}
+.test-main div.nopad {
+  position: absolute;
+  background: #121212;
+  border-radius: 10px;
+  justify-content: center;
+  width: 81%;
+}
+span.circle {
+  height: 100px;
+  width: 100px;
+  border: solid 5px #f20732;
+  border-radius: 200%;
+  display: block;
+}
+.mock-results li {
+  display: flex;
+}
+.mt {
+  margin-top: 20rem;
+  padding: 0;
+}
+.mock-results li h3 {
+  font-weight: 600;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+/* ----- */
+/* https://codepen.io/dimitor115-the-typescripter/pen/pQjPbQ */
+.cp-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: auto;
+  font-family: 'Share Tech', sans-serif;
+  color: #444;
+  z-index: 1;
+}
+
+#percent {
+  font-size: 30px;
+  width: 80px;
+  z-index: 2;
+  position: relative;
+  bottom: 173px;
+  left: 127px;
+}
+
+.nopad h2 {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.nopad > div {
+  padding: 0;
+}
+.genre_list {
+  height: 200px;
+  width: 170px;
+  overflow: scroll;
+  padding: 0 20px;
+}
+.tempo_list {
+  width: 170px;
+}
+.line {
+  display: block;
+  background: #fff;
+  width: 3px;
+  border-radius: 210px;
+  height: 150px;
+  opacity: 0.5;
+}
+h2 {
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+.pr {
+  padding-right: 40px;
+}
+.pl {
+  padding-left: 40px;
+}
+.genre_list input[type='checkbox'] + label {
+  border: 2px solid red;
+}
+img + div {
+  padding: 0 10px;
 }

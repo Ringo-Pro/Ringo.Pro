@@ -3,22 +3,263 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-    <div class="page">
+<div class="page">
+ 
+  <div class="test-sidebar">
+    <ul>
+      <li><span class="material-icons">
+        explore
+        </span>Explore</li>
+      <li><span class="material-icons">
+        collections_bookmark
+        </span>Projects</li>
+      <li><span class="material-icons">
+        campaign
+        </span>Actions</li>
+    </ul>
+  </div>
+  <div class="test-main">
+    <div class="nopad">
+      <span class="material-icons pr">
+        chevron_left
+        </span>
+      <div><h2>Genre</h2>
+      <div class="genre_list">
+        <ul>
+        <% genreList.forEach(genre => { %>
+          <li>
+          <input type="checkbox" name="<%= genre %>" id="<%= genre %>">
+          <label for="<%= genre %>"><%= genre %></label>
+        </li>
+      <% }) %>
+    </ul>
+      </div></div>
+      <span class="line"></span>
+      <div><h2>tempo</h2>
+      <div class="genre_list tempo_list">
+        <round-slider value="50" valueLabel="Temperature" style="--round-slider-bar-color: #F20732;"></round-slider>
+        <h1>Value: <span id="value">50</span></h1>
+        
+      </div></div>
+      <span class="line"></span>
+      <div><h2>vocals</h2>
+      <div class="genre_list">
+        <input type="checkbox" name="male" id="male">
+        <label for="male">male</label>
+        <input type="checkbox" name="female" id="female">
+        <label for="female">female</label>
+      </div></div>
+      <span class="line"></span>
+      <div><h2>key</h2><div class="genre_list">
+
+      </div></div>
+      <!-- <span class="line"></span> -->
+      <!-- <div><h2>language</h2><div class="genre_list"></div></div>
+      <span class="line"></span> -->
+      <!-- <div><h2>mood</h2><div class="genre_list"></div></div> -->
+      <!-- <div><h2>themes</h2></div>
+      <div><h2>year</h2></div>
+      <div><h2>country</h2></div>
+      <div><h2>popularity</h2></div> -->
+      <span class="material-icons pl">
+        chevron_right
+        </span>
+  </div>
+  <div class="mt">
+  <div><h2>Results</h2>
+  <ul class="mock-results">
+    <li>
+      <img src="/dist/img/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000-768x768.jpg" width="65px" height="65px" alt="">
+      <div>
+      <h3>I Don't Want To Know</h3>
+      <h4>Fleetwood Mac</h4>
+      <p>3:15</p>
+    </div>
+      <div class="flex">
+      <span class="material-icons ii">
+        favorite_border
+        </span>
+        <span class="material-icons ii">
+          clear
+          </span>
+        </div>
+          <div>
+        <span class="material-icons">
+          drag_indicator
+          </span>
+        </div>
+    </li>
+    <li>
+      <img src="/dist/img/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000-768x768.jpg" width="65px" height="65px" alt="">
+      <div>
+      <h3>I Don't Want To Know</h3>
+      <h4>Fleetwood Mac</h4>
+      <p>3:15</p>
+    </div>
+      <div class="flex">
+      <span class="material-icons ii">
+        favorite_border
+        </span>
+        <span class="material-icons ii">
+          clear
+          </span>
+        </div>
+          <div>
+        <span class="material-icons">
+          drag_indicator
+          </span>
+        </div></li>
+    <li><img src="/dist/img/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000-768x768.jpg" width="65px" height="65px" alt="">
+      <div>
+      <h3>I Don't Want To Know</h3>
+      <h4>Fleetwood Mac</h4>
+      <p>3:15</p>
+    </div>
+      <div class="flex">
+      <span class="material-icons ii">
+        favorite_border
+        </span>
+        <span class="material-icons ii">
+          clear
+          </span>
+        </div>
+          <div>
+        <span class="material-icons">
+          drag_indicator
+          </span>
+        </div></li>
+  </ul>
+
+        
+  
+  </div>
+  <div><h2>Playlist</h2>
+  <ul class="mock-results">
+    <li>
+      <img src="/dist/img/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000-768x768.jpg" width="65px" height="65px" alt="">
+      <div>
+      <h3>I Don't Want To Know</h3>
+      <h4>Fleetwood Mac</h4>
+      <p>3:15</p>
+    </div>
+      <div class="flex">
+      <span class="material-icons ii">
+        favorite_border
+        </span>
+        <span class="material-icons ii">
+          clear
+          </span>
+        </div>
+          <div>
+        <span class="material-icons">
+          drag_indicator
+          </span>
+        </div>
+    </li>
+    <li>
+      <img src="/dist/img/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000-768x768.jpg" width="65px" height="65px" alt="">
+      <div>
+      <h3>I Don't Want To Know</h3>
+      <h4>Fleetwood Mac</h4>
+      <p>3:15</p>
+    </div>
+      <div class="flex">
+      <span class="material-icons ii">
+        favorite_border
+        </span>
+        <span class="material-icons ii">
+          clear
+          </span>
+        </div>
+          <div>
+        <span class="material-icons">
+          drag_indicator
+          </span>
+        </div></li>
+    <li><img src="/dist/img/Fleetwood-Mac-Rumours-album-covers-billboard-1000x1000-768x768.jpg" width="65px" height="65px" alt="">
+      <div>
+      <h3>I Don't Want To Know</h3>
+      <h4>Fleetwood Mac</h4>
+      <p>3:15</p>
+    </div>
+      <div class="flex">
+      <span class="material-icons ii">
+        favorite_border
+        </span>
+        <span class="material-icons ii">
+          clear
+          </span>
+        </div>
+          <div>
+        <span class="material-icons">
+          drag_indicator
+          </span>
+        </div></li>
+  </ul>
+
+        
+  
+  </div>
+  </div>
+</div>
+</div>
+
+    <!-- <div class="page">
     <%# include( '../components/project-aside.ejs') %>
-    <%- include( '../components/filters-aside.ejs') %>
+    <%# include( '../components/filters-aside.ejs') %>
 
 
     <main>
-    <%- include('../components/main-nav.ejs', genreList)%>
-    <%- include('../components/video.ejs')%>
+    <%# include('../components/main-nav.ejs', genreList)%>
+    <%# include('../components/video.ejs')%>
     </main>
     <section class="right-sidebars">
-    <%- include('../components/sidebar2.ejs')%>
-    <%- include('../components/sidebar3.ejs')%>
+    <%# include('../components/sidebar2.ejs')%>
+    <%# include('../components/sidebar3.ejs')%>
     </section>
-    </div>
+    </div> -->
     <script>
         const token = `<%= token %>`
+      const setValue = function (value, active) {
+        document.querySelectorAll('round-slider').forEach(function (el) {
+          if (el.value === undefined) return;
+          el.value = value;
+        });
+        const span = document.querySelector('#value');
+        span.innerHTML = value;
+      };
+      const setLow = function (value, active) {
+        document.querySelectorAll('round-slider').forEach(function (el) {
+          if (el.low === undefined) return;
+          el.low = value;
+        });
+        const span = document.querySelector('#low');
+        span.innerHTML = value;
+      };
+      const setHigh = function (value, active) {
+        document.querySelectorAll('round-slider').forEach(function (el) {
+          if (el.high === undefined) return;
+          el.high = value;
+        });
+        const span = document.querySelector('#high');
+        span.innerHTML = value;
+      };
+
+      document.querySelectorAll('round-slider').forEach(function (el) {
+        el.addEventListener('value-changed', function (ev) {
+          if (ev.detail.value !== undefined) setValue(ev.detail.value, false);
+          else if (ev.detail.low !== undefined) setLow(ev.detail.low, false);
+          else if (ev.detail.high !== undefined) setHigh(ev.detail.high, false);
+        });
+
+        el.addEventListener('value-changing', function (ev) {
+          if (ev.detail.value !== undefined) setValue(ev.detail.value, true);
+          else if (ev.detail.low !== undefined) setLow(ev.detail.low, true);
+          else if (ev.detail.high !== undefined) setHigh(ev.detail.high, true);
+        });
+      });
+    
+
     </script>
 
     <%- include('../components/music-player.ejs') %>

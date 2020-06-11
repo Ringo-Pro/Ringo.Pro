@@ -6,6 +6,10 @@
 
 Ringo Pro is a application for music supervisors. It makes looking for tracks and searching for licenses easier.
 
+## Live Demo
+
+[Live demo](#)
+
 ## Usage
 
 ```zsh
@@ -76,3 +80,4 @@ npm start
 
 - 📖 [Genius API Documentation](https://docs.genius.com/)
 - 🛠 [RegEx Tool](https://regexr.com/)
+- Can I Use
