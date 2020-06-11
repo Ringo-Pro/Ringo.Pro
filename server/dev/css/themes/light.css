@@ -35,9 +35,16 @@ summary > span::after {
   transition: all 0.5s ease-in-out;
   display: inline-block;
 }
-details[open] span::after {
+details[open] > summary > span::after {
   transform: rotate(180deg);
 }
 .justify-start {
-  justify-content: start;
+  justify-content: start !important;
+  flex-wrap: nowrap;
+  padding: 0;
+  width: 95.6%;
+  border-top: 0.5px solid white;
+}
+.justify-start details {
+  width: auto;
 }

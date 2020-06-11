@@ -6,19 +6,23 @@
   <section>
     <form action="">
       <!-- genre -->
-      <details><summary>Genre<span class='material-icons'></span></summary>
-    <div class="no-flex">
-      <details><summary>Blues</summary></details>
-      <details><summary>Classical</summary></details>
-      <details><summary>Jazz</summary></details>
-      <details><summary>Reggae</summary></details>
-      <details><summary>Country</summary></details>
-      <details><summary>Electronic</summary></details>
-      <details><summary>Folk</summary></details>
-      <details><summary>Rock</summary></details>
-      
-   
+      <details class="main-genre"><summary>Genre<span class='material-icons'></span></summary>
+    <div class="justify-start">
+     
+     
+      <% Object.keys(genreList).forEach(function(main) { %>
+        <% if(main !== 'toBeSorted') {%>
+        <details><summary><%= main %><span class='material-icons'></span></summary>
+        <% genreList[main].forEach(genre => { %>
+          <input type="checkbox" name="<%= genre %>" id="<%= genre %>">
+          <label for="<%= genre %>"><%= genre %></label>
+          <% }) %>
+        
+        </details>
 
+
+        <% }}) %>
+      
     </div>
       </details> 
       <!-- tempo -->

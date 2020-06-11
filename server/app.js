@@ -13,8 +13,6 @@ const router = require('./routes/router.js'),
   cookieParser = require('cookie-parser');
 const { URLSearchParams } = require('url');
 
-
-
 const moodFilter = require('./mood-filter/mood-filter.js');
 /**
  * Generates a random string containing numbers and letters
@@ -124,7 +122,7 @@ function callback(req, res) {
             res.render('logged-in', {
               data: body,
               token: access_token,
-              genreList: genreList.genres
+              genreList: genreList,
             });
           })
           .catch((err) => {
@@ -137,7 +135,7 @@ function callback(req, res) {
 function searchResultsRoute(req, res) {
   let artist = req.query.searchValue;
   let access_token = req.query.token;
-  console.log(req.query)
+  console.log(req.query);
   //   let userData = JSON.parse(req.query.data);
 
   let options = {
