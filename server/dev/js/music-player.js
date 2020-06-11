@@ -11,6 +11,9 @@ let volume = document.querySelector('.volume')
 
 // console.log(nowPlaying.children[0])
 
+
+
+
 window.onSpotifyWebPlaybackSDKReady = () => {
     const player = new Spotify.Player({
         name: 'Ringo Pro player',
@@ -29,6 +32,21 @@ window.onSpotifyWebPlaybackSDKReady = () => {
             // nowPlaying.children[0].textContent = 'Click on a song!'
             // console.error('User is not playing music through the Web Playback SDK')
             console.log('User is not playing music through the Web Playback SDK')
+            fetch('https://api.spotify.com/v1/me/player', {
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }})
+                .then(res => res.json())
+                .then(body => {
+                    console.log(body)
+                    nowPlaying.children[0].textContent = body.item.name
+                    nowPlaying.children[1].textContent = body.item.artists[0].name
+                
+                    albumArt.src = body.item.album.images[2].url
+                })
+
             return
         }
 
