@@ -13,6 +13,7 @@
 
   overflow-y: scroll;
   overflow: auto;
+  height: 40%;
 }
 
 .sidebar2 li {
@@ -48,22 +49,21 @@
   justify-content: space-around;
 }
 
+.sidebar2 li div p:first-of-type {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 10rem;
+}
 
-  .sidebar2 li div p:first-of-type{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 10rem;
- }
-  
- .sidebar2 li div p:last-of-type{
-    font-size: .89rem;
-    color: var(--artist-name);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 10rem;
- }
+.sidebar2 li div p:last-of-type {
+  font-size: 0.89rem;
+  color: var(--artist-name);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 10rem;
+}
 
 .unfold {
   transform: rotate(90deg);
@@ -87,11 +87,11 @@
   background: grey;
 }
 
-  .right-sidebars{
-    display: flex;
-    flex-grow: 0;
-    flex-shrink: 0;
-    margin-left: auto;
-    padding-right: 15px;
-  }
-
+.right-sidebars {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-right: 15px;
+  flex-direction: column;
+}

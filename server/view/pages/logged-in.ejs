@@ -3,19 +3,21 @@
   <%- include( '../components/head.ejs') %>
   <body>    
     <%- include( '../components/topbar.ejs'), data, token %>
-    <div class="page">
-    <%# include( '../components/project-aside.ejs') %>
     <%- include( '../components/filters-aside.ejs') %>
+    <div class="page">
+      <section class="right-sidebars">
+        <%- include('../components/sidebar2.ejs')%>
+        <%- include('../components/sidebar3.ejs')%>
+        </section>
+    <%# include( '../components/project-aside.ejs') %>
+    
 
 
     <main>
     <%- include('../components/main-nav.ejs', genreList)%>
     <%- include('../components/video.ejs')%>
     </main>
-    <section class="right-sidebars">
-    <%- include('../components/sidebar2.ejs')%>
-    <%- include('../components/sidebar3.ejs')%>
-    </section>
+  
     </div>
     <script>
         const token = `<%= token %>`

@@ -28,7 +28,6 @@ To make the application work you will need to make a `.env` file in the root fol
 SPOTIFY_CLIENT_ID=<YOUR_CLIENT_ID>
 SPOTIFY_CLIENT_SECRET=<YOUR CLIENT SECRET>
 REDIRECT_URI=<YOUR_REDIRECT_URI>
-
 ```
 
 ### 3. Run the app
@@ -98,6 +97,25 @@ here comes data
 ```
 
 </details>
+
+## Acessibility
+
+- alleen html (functional)
+- html + css
+- html + css + es
+- colors
+- keyboard acessibility
+- slow connection
+
+## Compatibility
+
+- input types check
+
+## Performance
+
+- PWA
+- minifying CSS ES IMG
+- serverside rendering / clientside hybrid
 
 ## Credits
 

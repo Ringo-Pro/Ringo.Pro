@@ -1,80 +1,79 @@
 .toggle {
-    display: none;
-  }
+  display: none;
+}
 
-  .lbl-toggle {
-    display: block;
-  
-    font-weight: bold;
-    font-family: monospace;
+.lbl-toggle {
+  display: block;
 
-    text-align: center;
-  
-    padding: 1.3rem;
-  
-    color: #A77B0E;
-    /* background: #FAE042; */
-  
-    cursor: pointer;
-  
-    border-radius: 50%;
-    transition: all 0.25s ease-out;
-  }
-  
-  .lbl-toggle:hover {
-    color: #7C5A0B;
-  }
+  font-weight: bold;
+  font-family: monospace;
 
-  .collapsible-content {
-    max-width: 0px;
-    overflow: hidden;
-    padding: 0px;
-    transition: all .25s ease-in-out;
-    /* transition: max-width .25s ease-in-out; */
-  }
-  
+  text-align: center;
 
-  .toggle:checked + .lbl-toggle + .collapsible-content {
-    max-width: 18rem;
-    padding: 8px;
-  }
+  padding: 1.3rem;
+
+  color: #a77b0e;
+  /* background: #FAE042; */
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle:hover {
+  color: #7c5a0b;
+}
+
+.collapsible-content {
+  max-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  transition: all 0.25s ease-in-out;
+  /* transition: max-width .25s ease-in-out; */
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+  max-width: 18rem;
+  padding: 15px;
+}
 
 .toggle2 {
-    display: none;
-  }
+  display: none;
+}
 
-  .lbl-toggle2 {
-    display: block;
-  
-    font-weight: bold;
-    font-family: monospace;
+.lbl-toggle2 {
+  display: block;
 
-    text-align: center;
-  
-    padding: 1.3rem;
-  
-    color: #A77B0E;
-    /* background: #FAE042; */
-  
-    cursor: pointer;
-  
-    border-radius: 50%;
-    transition: all 0.25s ease-out;
-  }
-  
-  .lbl-toggle2:hover {
-    color: #7C5A0B;
-  }
+  font-weight: bold;
+  font-family: monospace;
 
-  .collapsible-content2 {
-    max-width: 0px;
-    overflow: hidden;
-    padding: 0px;
-    transition: all .25s ease-in-out;
-    /* transition: padding .25s ease-in-out; */
-  }
+  text-align: center;
 
-  .toggle2:checked + .lbl-toggle2 + .collapsible-content2 {
-    max-width: 18rem;
-    padding: 8px;
-  }
+  padding: 1.3rem;
+
+  color: #a77b0e;
+  /* background: #FAE042; */
+
+  cursor: pointer;
+
+  border-radius: 50%;
+  transition: all 0.25s ease-out;
+}
+
+.lbl-toggle2:hover {
+  color: #7c5a0b;
+}
+
+.collapsible-content2 {
+  max-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  transition: all 0.25s ease-in-out;
+  /* transition: padding .25s ease-in-out; */
+}
+
+.toggle2:checked + .lbl-toggle2 + .collapsible-content2 {
+  max-width: 18rem;
+  padding: 15px;
+}
