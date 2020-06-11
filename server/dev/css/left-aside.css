@@ -58,12 +58,11 @@
   color: white;
 }
 summary {
-  list-style-position: inside;
+  list-style: none;
   padding: 1rem;
-  font-weight: 500;
 }
 summary::-webkit-details-marker {
-  list-style-position: inside;
+  display: none;
 }
 .aside-filters details {
   border: solid var(--background-color) 2px;
@@ -71,7 +70,7 @@ summary::-webkit-details-marker {
   color: var(--primary-color);
   text-transform: capitalize;
   width: 14rem;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   margin-top: 8px;
   background: var(--background-color);
 }

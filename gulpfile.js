@@ -6,6 +6,18 @@ const gulp = require('gulp'),
   terser = require('gulp-terser'),
   imagemin = require('gulp-imagemin');
 
+const jsFiles = [
+    './server/dev/js/*.js',
+    '!./server/dev/js/filter-toggle.js',
+    '!./server/dev/js/filter-menu.js',
+    '!./server/dev/js/input-support.js',
+  ],
+  cssFiles = [
+    './server/dev/css/*.css',
+    './server/dev/css/themes/*.css',
+    '!./server/dev/css/sidebar.css',
+  ];
+
 function cssReset() {
   return gulp
     .src('./server/dev/reset/reset.css')
@@ -14,7 +26,7 @@ function cssReset() {
 }
 function css() {
   return gulp
-    .src(['./server/dev/css/themes/*.css', './server/dev/css/*.css'])
+    .src(cssFiles)
     .pipe(concat('index.css'))
     .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(autoprefixer({ cascade: false }))
@@ -22,12 +34,7 @@ function css() {
 }
 function es() {
   return gulp
-
-    .src([
-      './server/dev/js/*.js',
-      '!./server/dev/js/filter-toggle.js',
-      '!./server/dev/js/filter-menu.js',
-    ])
+    .src(jsFiles)
     .pipe(terser())
     .pipe(concat('all.js'))
     .pipe(gulp.dest('./server/static/dist/'));
@@ -39,15 +46,8 @@ function img() {
     .pipe(gulp.dest('./server/static/dist/img/'));
 }
 function watch() {
-  gulp.watch(
-    [
-      './server/dev/css/*.css',
-      './server/dev/css/themes/*.css',
-      '!./server/dev/css/sidebar.css',
-    ],
-    css
-  );
-  gulp.watch(['./server/dev/js/*.js', '!./server/dev/js/filter-toggle.js'], es);
+  gulp.watch(cssFiles, css);
+  gulp.watch(jsFiles, es);
 }
 
 const build = gulp.series(cssReset, css, es, img);
