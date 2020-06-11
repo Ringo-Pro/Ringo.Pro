@@ -21,7 +21,11 @@ searchBar.addEventListener('input', debounce((event) => {
     fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token) 
         .then(res => res.text())
         .then(html => {
-            document.querySelector('.search-results').innerHTML = html
+            const resultComponents = document.querySelectorAll('.search-results')
+
+            resultComponents.forEach(component => {
+                component.innerHTML = html
+            })
 
             const playButtonList = document.querySelectorAll('.playButton')
             
