@@ -166,7 +166,7 @@ setInterval(() => {
 
             mutations.forEach(function(mutation) {
               if(mutation){
-                  console.log(mutation)
+                //   console.log(mutation)
                   const playButtonList = document.querySelectorAll('.playButton')
                   console.log(playButtonList)
 

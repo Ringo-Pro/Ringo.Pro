@@ -193,19 +193,35 @@ function searchResultsRoute(req, res) {
 }
 
 function detailRoute(req, res) {
+    console.log('yeeeeeeeeeeeeeees: ', req.query)
   console.log(req.params);
 
-  const trackId = req.params.id.substring(1);
-  const access_token = req.params.token.substring(1);
-
-  console.log(access_token);
-  console.log(trackId);
+  let access_token = req.query.token
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
     headers: { Authorization: 'Bearer ' + access_token },
   };
+
+  if(req.query.async){
+    fetch(`https://api.spotify.com/v1/audio-features/${req.query.query}`, options)
+        .then((res) => res.json())
+        .then((body) => {
+            res.render(__dirname + '/view/components/vital-info', {
+                data: body
+            })
+        })
+
+  } else{
+
+  const trackId = req.params.id.substring(1);
+//   const access_token = req.params.token.substring(1);
+
+  console.log(access_token);
+  console.log(trackId);
+
+
 
   fetch(`https://api.spotify.com/v1/audio-features/${trackId}`, options)
     .then((res) => res.json())
@@ -215,6 +231,7 @@ function detailRoute(req, res) {
         data: body,
       });
     });
+ }
 }
 
 function inspireMe(req, res) {
