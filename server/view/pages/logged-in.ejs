@@ -24,11 +24,15 @@
     <%- include('../components/main-nav.ejs', genreList)%>
     <%- include('../components/video.ejs')%>
     </main>
-  
+    <section class="track-information">
+
+    </section>
     </div>
     <script>
         const token = `<%= token %>`
     </script>
+
+
 
     <%- include('../components/music-player.ejs') %>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
