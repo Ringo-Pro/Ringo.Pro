@@ -76,7 +76,8 @@ app
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe);
+  .get('/inspireme', inspireMe)
+  .get('/projects/:id');
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -121,12 +122,15 @@ async function callback(req, res) {
         // Api.getSpotifyUserInfo(options)
 
         const userData = await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
+        const userPlaylists = await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
         console.log(userData)
+        console.log(userPlaylists)
 
         res.render('logged-in', {
               data: userData,
               token: access_token,
-              genreList: genreList.genres
+              genreList: genreList.genres,
+              projects: userPlaylists.items
             });
         
         // fetch(`https://api.spotify.com/v1/me`, options)
@@ -208,6 +212,10 @@ async function searchResultsRoute(req, res) {
         });
       });
   }
+}
+
+async function projectsRoute(req, res){
+
 }
 
 function detailRoute(req, res) {

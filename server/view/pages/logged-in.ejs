@@ -5,7 +5,7 @@
     <%- include( '../components/topbar.ejs'), data, token %>
     <%- include( '../components/filters-aside.ejs') %>
     <div class="page">
-
+        <%- include('../components/project-aside.ejs')%>
         <section class="playLists">
 
       <section class="right-sidebars">
@@ -15,7 +15,7 @@
         </section>
     <%# include( '../components/project-aside.ejs') %>
     
-    <%- include('../components/sidebar3.ejs')%>
+    <%- include('../components/sidebar3.ejs', projects)%>
     </section>
     
 
