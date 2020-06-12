@@ -5,7 +5,7 @@
 
       <% projects.forEach(project => { %>
 
-        <li><a class="project-link" href="/projects/<%= project.id %>"><%= project.name %></a></li>
+        <li><a id="<%= project.id %>" class="project-link" href="/projects/<%= project.id %>"><%= project.name %></a></li>
         
       <% }) %>
 

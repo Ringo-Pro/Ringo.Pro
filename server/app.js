@@ -77,7 +77,7 @@ app
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
   .get('/inspireme', inspireMe)
-  .get('/projects/:id');
+  .get('/projects/:id', projectsRoute);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
@@ -215,6 +215,26 @@ async function searchResultsRoute(req, res) {
 }
 
 async function projectsRoute(req, res){
+    console.log('Projects: ', req.query)
+
+    let options = {
+        // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
+        method: 'GET',
+        headers: { Authorization: 'Bearer ' + req.query.token },
+    };
+
+  const playlistTrackList = await getDataFromSpotfy(`https://api.spotify.com/v1/playlists/${req.query.query}/tracks`, options)
+
+  const trackList = playlistTrackList.items.map(track => {
+      return track.track
+  })
+  
+  console.log(trackList)
+
+  res.render(__dirname + '/view/components/result-list.ejs', {
+    trackData: trackList,
+    token: req.query.token,
+  });
 
 }
 
