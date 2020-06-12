@@ -256,7 +256,7 @@ async function detailRoute(req, res) {
   if(req.query.async){
     const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${req.query.query}`, options)
     console.log(audioFeatures)
-    res.render(__dirname + '/view/components/result-list.ejs', {
+    res.render(__dirname + '/view/components/track-information.ejs', {
       data: audioFeatures,
     });
   } else{

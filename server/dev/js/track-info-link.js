@@ -25,14 +25,14 @@ const observer = new MutationObserver(function(mutations) {
                     event.preventDefault()
                     document.querySelector('.track-information').style.display = 'block'
                     // console.log(event.target.previousSibling)
-                    const spotifyUri = anchor.id
+                    const trackId = anchor.id
                     const url = anchor.getAttribute('href')
                     console.log(url)
-                    fetch(url + '?query=' + spotifyUri + '&async=true' + '&token=' + token)
-                        .then(res => console.log(res))
-                    //     .then(html => {
-                    //         document.querySelector('.main-content').innerHTML = html
-                    //     })
+                    fetch(url + '?query=' + trackId + '&async=true' + '&token=' + token)
+                        .then(res => res.text())
+                        .then(html => {
+                            document.querySelector('.track-information').innerHTML = html
+                        })
 
                 })
                 // anchor.addEventListener('click', function(event){
