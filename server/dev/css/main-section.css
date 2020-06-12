@@ -1,7 +1,8 @@
 .page {
-  display: flex;
-  height: 83vh;
-  flex-direction: row;
+    position: relative;
+    display: flex;
+    height: 83vh;
+    flex-direction: row;
 }
 
 main{

@@ -2,7 +2,7 @@
 
 const searchBar = document.getElementById('search')
 const form = document.getElementById('quickSearchForm')
-console.log(searchBar.nextSibling)
+
 
 form.addEventListener('click', function(event){
     event.preventDefault()
@@ -27,15 +27,7 @@ searchBar.addEventListener('input', debounce((event) => {
                 component.innerHTML = html
             })
 
-            const playButtonList = document.querySelectorAll('.playButton')
-            
 
-            console.log(playButtonList)
-
-            playButtonList.forEach(item => {
-                item.addEventListener('click', (event) => console.log(event.target.id))
-                // play(event.target.id)
-            })
 
         })
     
