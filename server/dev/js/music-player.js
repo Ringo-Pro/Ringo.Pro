@@ -184,9 +184,9 @@ setInterval(() => {
 
             mutations.forEach(function(mutation) {
               if(mutation){
-                  console.log(mutation)
+                //   console.log(mutation)
                   const playButtonList = document.querySelectorAll('.playButton')
-                  console.log(playButtonList)
+                //   console.log(playButtonList)
 
                   playButtonList.forEach((playButton) => {
                     // console.log(playButton)
@@ -212,7 +212,7 @@ setInterval(() => {
         const results = document.querySelectorAll('.search-results')
         
         
-        console.log(results)
+        console.log(results[0])
         
         observer.observe(results[0], {
             childList: true,
@@ -229,7 +229,7 @@ setInterval(() => {
     player.addListener('not_ready', ({ device_id }) => {
         console.log('Device ID has gone offline', device_id);
     });
-    console.log('player: ', player)
+    // console.log('player: ', player)
     // Connect to the player!
     player.connect();
 
