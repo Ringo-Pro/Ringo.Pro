@@ -238,8 +238,8 @@ async function projectsRoute(req, res){
 
 }
 
-function detailRoute(req, res) {
-  console.log(req.params);
+async function detailRoute(req, res) {
+  console.log(req.query);
 
   const trackId = req.params.id.substring(1);
   const access_token = req.params.token.substring(1);
@@ -250,15 +250,23 @@ function detailRoute(req, res) {
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
-    headers: { Authorization: 'Bearer ' + access_token },
+    headers: { Authorization: 'Bearer ' + access_token || req.query.token },
   };
+  
+  if(req.query.async){
+    const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${req.query.query}`, options)
+    console.log(audioFeatures)
+    res.render(__dirname + '/view/components/result-list.ejs', {
+      data: audioFeatures,
+    });
+  } else{
 
-  const audioFeatures = getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${trackId}`, options)
+  const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${trackId}`, options)
 
   res.render('track-detail', {
     data: audioFeatures,
   });
-
+  }
 
 }
 

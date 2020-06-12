@@ -29,7 +29,7 @@ const observer = new MutationObserver(function(mutations) {
                     const url = anchor.getAttribute('href')
                     console.log(url)
                     fetch(url + '?query=' + spotifyUri + '&async=true' + '&token=' + token)
-                    //     .then(res => res.text())
+                        .then(res => console.log(res))
                     //     .then(html => {
                     //         document.querySelector('.main-content').innerHTML = html
                     //     })
