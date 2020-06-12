@@ -14,8 +14,6 @@
 
         <section class="metadata">
 
-        <p>Album: <%= trackData.album.name %></p>
-        <p>Release year: <%= trackData.album.release_date %></p>
 
         
         <h3>Track information</h3>
@@ -27,6 +25,10 @@
         <section>
         <h4 class="info-title">Release date</h4>
         <p><%= trackData.album.release_date %></p>
+        </section>
+        <section>
+            <h4 class="info-title">Album</h4>
+            <p><%= trackData.album.name %></p>
         </section>
         </section>
 

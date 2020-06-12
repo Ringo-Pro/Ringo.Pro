@@ -32,7 +32,7 @@
 }
 
 .detail-header p:first-of-type{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
 }
 
@@ -44,14 +44,26 @@
 .information-block{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+
 }
 
-.information-block section:last-child{
+.information-block section:nth-child(even){
     margin-left: auto;
+
+}
+
+.information-block section p{
+    color: var(--primary-color);
 }
 
 .metadata{
-    padding: .5rem;
+    padding: 1.6rem;
+}
+
+.metadata h3{
+    margin-bottom: 1rem;
+    color: var(--artist-name);
 }
 
 .metadata section{
@@ -60,4 +72,15 @@
 
 .info-title{
     color: var(--button-color);
+    margin-bottom: .5rem;
+}
+
+.lyrics h3{
+    margin-bottom: 1rem;
+    color: var(--artist-name);
+}
+
+
+.lyrics{
+    color: white;
 }
