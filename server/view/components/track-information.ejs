@@ -1,25 +1,37 @@
 <!-- <section class="track-information"> -->
-    <h1>Audio features of this track</h1>
+    
 
-    <ul>
-      <li>danceability: <%= data.danceability %></li>
-      <li>energy: <%= data.energy %></li>
-      <li>key: <%= data.key %></li>
-      <li>loudness: <%= data.loudness %></li>
-      <li>mode: <%= data.mode %></li>
-      <li>speechiness: <%= data.speechiness %></li>
-      <li>acousticness: <%= data.acousticness %></li>
-      <li>instrumentalness: <%= data.instrumentalness %></li>
-      <li>liveness: <%= data.liveness %></li>
-      <li>valence: <%= data.valence %></li>
-      <li>tempo: <%= data.tempo %></li>
-      <li>time signature: <%= data.time_signature %></li>
-      <li>href: <a href="<%= data.track_href %>">link</a></li>
-    </ul>
+    
+    <!-- <h1>Audio features of this track</h1> -->
+    <% if (typeof(trackData) !== 'undefined') { %>
+        <%= console.log(trackData.artists) %>
+        <span class="material-icons">close</span>
+        <div class="detail-header">
+        <img class="detail-img" src="<%= trackData.album.images[1].url %>" alt="">
+        <p><%= trackData.name %></p>
+        <p><%= trackData.artists[0].name %></p>
+        </div>
 
-    <article>
+        <section class="metadata">
+
+        <p>Album: <%= trackData.album.name %></p>
+        <p>Release year: <%= trackData.album.release_date %></p>
+
+        
+        <h3>Track information</h3>
+        <section class="information-block">
+        <section>
+        <h4 class="info-title">ISRC</h4>
+        <p><%= trackData.external_ids.isrc %></p>
+        </section>
+        <section>
+        <h4 class="info-title">Release date</h4>
+        <p><%= trackData.album.release_date %></p>
+        </section>
+        </section>
+
         <section class="lyrics">
-            <h2>lyrics</h2>
+            <h3>lyrics</h3>
             <p>
             The Lion of Judah shall break every chain, Shall sit in the sidewalks.
 
@@ -32,6 +44,14 @@
             And beg bread." Haunted, memories won't let me be, Ini vibration, yeah! (positive!) uh-huh-huh, a yeah! From reality I just can't drift (drift)
             </p>
         </section>
-    </article>
+
+        </section>
+
+    <% } %>
+
+
+
+
+    
 
 <!-- </section> -->
