@@ -112,3 +112,8 @@ input[type='number'] {
   border-radius: 4px;
   padding: 6.5px 18px;
 }
+.subgenres {
+  flex-direction: column;
+  overflow-y: scroll;
+  z-index: 1;
+}
