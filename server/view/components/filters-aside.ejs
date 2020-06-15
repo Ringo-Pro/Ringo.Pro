@@ -4,26 +4,29 @@
   </section>
 
   <section>
-    <form action="">
+    <form id="filter_form" action="/searchResults" method="get">
       <!-- genre -->
-      <details><summary>Genre</summary>
-    <div>
-
-      <% genreList.forEach(genre => { %>
-
-        <input type="checkbox" name="<%= genre %>" id="<%= genre %>">
-        <label for="<%= genre %>"><%= genre %></label>
-        
-    <% }) %>
-
+      <details class="main-genre"><summary>Genre<span class='material-icons'></span></summary>
+    <div class="justify-start">
+      <% Object.keys(genreList).forEach(function(main) { %>
+        <details><summary><%= main %><span class='material-icons'></span></summary><div class="subgenres">
+        <% genreList[main].forEach(genre => { %>
+          <input type="checkbox" name="<%= genre %>" id="<%= genre %>">
+          <label for="<%= genre %>"><%= genre %></label>
+          <% }) %>
+        </div>
+        </details>
+        <% }) %>
     </div>
       </details> 
       <!-- tempo -->
-      <details><summary>Tempo</summary>
-      <div>
-       <input type="range" name="tempo" id="tempo" min="30" max="240" step="5" list="tickmarks" value="30">
+      <details><summary>Tempo<span class='material-icons'></span></summary>
+      <div class="filter_tempo">
+        <round-slider value="50" valueLabel="tempo" style="--round-slider-bar-color: #F20732;"></round-slider>
+        <h1>Value: <span id="value">50</span></h1>
+       <!-- <input type="range" name="tempo" id="tempo" min="30" max="240" step="5" list="tickmarks" value="30">
         <div><p>30</p><p>135</p><p>240</p></div>
-       <label for="tempo">00 BPM</label>
+       <label for="tempo">00 BPM</label> -->
       </div>
         <!-- <input type="number" name="" id="" pattern="\d{3}" placeholder=""> -->
         <!-- Dub: 60-90 bpm
@@ -34,8 +37,8 @@
           Drum and bass: 160-180 bpm -->
       </details>
       <!-- instrument -->
-      <details><summary>instrument</summary>
-        <div>
+      <details><summary>instrument<span class='material-icons'></span></summary>
+        <div class="subgenres">
           <input type="checkbox" name="guitar" id="guitar">
           <label for="guitar">Guitar</label>
           <input type="checkbox" name="flute" id="flute">
@@ -47,8 +50,8 @@
         </div>
       </details>
       <!-- vocals -->
-      <details><summary>Vocals</summary>
-      <div>
+      <details><summary>Vocals<span class='material-icons'></span></summary>
+      <div class="subgenres">
         <input type="checkbox" name="male" id="male">
         <label for="male">male</label>
         <input type="checkbox" name="female" id="female">
@@ -56,7 +59,7 @@
       </div>
       </details>
       <!-- key -->
-      <details><summary>Key</summary>
+      <details><summary>Key<span class='material-icons'></span></summary>
       <div>
         <input type="text" name="key" id="key" list="key_list" data-lpignore="true" placeholder="Search">
         <datalist id="key_list">
@@ -75,7 +78,7 @@
       </div>
       </details>
       <!-- language -->
-      <details><summary>Language</summary>
+      <details><summary>Language<span class='material-icons'></span></summary>
       <div>
         <input type="text" name="lang" id="lang" list="lang_list" data-lpignore="true" placeholder="Search">
        <datalist id="lang_list">
@@ -87,8 +90,8 @@
        </div>
       </details>
       <!-- mood -->
-      <details><summary>Mood</summary>
-        <div>
+      <details><summary>Mood<span class='material-icons'></span></summary>
+        <div class="subgenres">
           <input type="checkbox" name="sad" id="sad">
           <label for="sad">sad</label>
           <input type="checkbox" name="happy" id="happy">
@@ -100,8 +103,8 @@
         </div>
       </details>
       <!-- themes -->
-      <details><summary>Themes</summary>
-        <div>
+      <details><summary>Themes<span class='material-icons'></span></summary>
+        <div class="subgenres">
           <input type="checkbox" name="theme1" id="theme1">
           <label for="theme1">Theme 1</label>
           <input type="checkbox" name="theme2" id="theme2">
@@ -113,13 +116,13 @@
         </div>
       </details>
       <!-- year -->
-      <details><summary>Year</summary>
+      <details><summary>Year<span class='material-icons'></span></summary>
     <div>
       <input type=number pattern="\d{4}" placeholder="2020" min="1700" max="2020" value="2020" name="year" id="year">
     </div>
       </details>
       <!-- origin -->
-      <details><summary>Country</summary>
+      <details><summary>Country<span class='material-icons'></span></summary>
       <div>
         <input type="text" name="country" id="country" list="country_list" data-lpignore="true" placeholder="Search">
        <datalist id="country_list">
@@ -371,7 +374,7 @@
       </div>
 </details>
       <!-- popularity -->
-      <details><summary>popularity</summary>
+      <details><summary>popularity<span class='material-icons'></span></summary>
     <div>
       <input type="range" name="popularity" id="popularity">
       <div><p>Not popular</p><p>Popular</p></div>

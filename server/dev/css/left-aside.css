@@ -73,12 +73,11 @@
   color: white;
 }
 summary {
-  list-style-position: inside;
+  list-style: none;
   padding: 1rem;
-  font-weight: 500;
 }
 summary::-webkit-details-marker {
-  list-style-position: inside;
+  display: none;
 }
 .aside-filters details {
   border: solid var(--background-color) 2px;
@@ -86,7 +85,7 @@ summary::-webkit-details-marker {
   color: var(--primary-color);
   text-transform: capitalize;
   width: 14rem;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   margin-top: 8px;
   background: var(--background-color);
 }
@@ -127,4 +126,15 @@ input[type='number'] {
   margin: 10px 0;
   border-radius: 4px;
   padding: 6.5px 18px;
+}
+.subgenres {
+  flex-direction: column;
+  overflow-y: scroll;
+  z-index: 1;
+  height: 427px;
+  flex-wrap: nowrap !important;
+  justify-content: unset !important;
+}
+.filter_tempo {
+  height: 100px;
 }
