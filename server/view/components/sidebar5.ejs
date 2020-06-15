@@ -1,8 +1,10 @@
 <input id="collapsible" class="toggle" type="checkbox" checked>
 <label for="collapsible" class="lbl-toggle d-none"><span class="material-icons unfold">unfold_more</span></label>
 
-<aside class="sidebar2 collapsible-content playlist1" >
-    <h4 class="playlist-title"><span class="material-icons">search</span>Search results</h4>
+
+<aside class="sidebar2 collapsible-content playlist2" >
+    <h4 class="playlist-title"><span class="material-icons">description</span>Recent project</h4>
+
     <!-- <div class="switch-field">
     
 
@@ -14,9 +16,10 @@
     </div> -->
 
     <!-- <div class="collapsible-content"> -->
+
 <% if (typeof trackData === 'undefined') { %>
-    <ul class="search-results">
-        <li>No results yet</li>
+    <ul class="project-list">
+        <li>No recent project</li>
     </ul>
 <% } else if (typeof trackData !== 'undefined'){%>
 <h2>Results for: <%= userInput %></h2>

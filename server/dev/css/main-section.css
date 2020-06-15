@@ -1,27 +1,94 @@
 .page {
+  position: relative;
   display: flex;
   height: 83vh;
   flex-direction: row;
 }
 
-main{
-    width: 100%;
+main {
+  width: 34%;
+  display: flex;
+  justify-content: flex-end;
+}
+main > section {
+  background: rgba(106, 134, 202, 0.15);
+  height: 101%;
+  width: 4%;
+  color: white;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+main > section input[type='checkbox'] {
+  position: absolute;
+  left: -100vw;
+}
+main > section label {
+  background: var(--track-background);
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 87%;
+  cursor: pointer;
+  z-index: 1;
+}
+main > section label div {
+  transform: rotate(90deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video_overlay {
+  background: var(--background-color);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  transition: all 2s ease-in-out;
+  left: 100vw;
+  top: 113px;
+  display: flex;
+  justify-content: space-around;
+}
+.video_overlay section {
+  height: 100%;
+}
+.video_video {
+  width: 50%;
 }
 
-.main-content article{
-    margin: 1rem;
-    border: dashed var(--track-background);
-    height: 60vh;
-    text-align: center;
-    border-radius: 1.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#video_overlay_btn:checked + .video_overlay {
+  left: 0;
+  top: 113px;
+}
+.controls {
+  z-index: 2 !important;
 }
 
-.main-content article p{
-    background: var(--track-background);
-    color: white;
-    padding: 1rem;
-    border-radius: 1rem;
+.video_video article {
+  margin: 1rem;
+  border: dashed var(--track-background);
+  height: 60vh;
+  text-align: center;
+  border-radius: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video_video article p {
+  background: var(--track-background);
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+main .sidebar2 {
+  height: 67%;
+}
+main > section > label > div > span {
+  padding-right: 5px;
+}
+main > section > label > div > p {
+  padding-left: 5px;
 }

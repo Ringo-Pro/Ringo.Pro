@@ -5,23 +5,40 @@
     <%- include( '../components/topbar.ejs'), data, token %>
     <%- include( '../components/filters-aside.ejs') %>
     <div class="page">
-      <section class="right-sidebars">
-        <%- include('../components/sidebar2.ejs')%>
-        <%- include('../components/sidebar3.ejs')%>
-        </section>
+        <%- include('../components/project-aside.ejs')%>
+        <section class="playLists">
+
+
     <%# include( '../components/project-aside.ejs') %>
+    <%- include('../components/sidebar2.ejs')%>
+    <%- include('../components/sidebar5.ejs')%>
+    <%- include('../components/sidebar4.ejs')%>
+    
+    <%- include('../components/sidebar3.ejs', projects)%>
+    <!-- <form action="">
+        <input type="text" name="" id="" placeholder="Project name">
+        <input type="submit" value="Save project">
+    </form> -->
+    </section>
     
 
 
+
+
     <main>
-    <%- include('../components/main-nav.ejs', genreList)%>
+    <%# include('../components/main-nav.ejs', genreList)%>
     <%- include('../components/video.ejs')%>
     </main>
-  
+
+    <section class="track-information">
+    <%- include('../components/track-information.ejs')%>
+    </section>
     </div>
     <script>
         const token = `<%= token %>`
     </script>
+
+
 
     <%- include('../components/music-player.ejs') %>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>

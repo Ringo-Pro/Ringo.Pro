@@ -13,6 +13,39 @@ const router = require('./routes/router.js'),
   cookieParser = require('cookie-parser');
 const { URLSearchParams } = require('url');
 
+async function getDataFromSpotfy(url, opt){
+
+    const urlToFetch = await fetch(url, opt)
+
+    const data = await urlToFetch.json()
+
+    return data
+}
+
+async function postDataToSpotify(url, parameters){
+
+    const tokenUrlToFetch = await fetch(url, {
+        method: 'post',
+        headers: {
+          Authorization:
+            'Basic ' +
+            new Buffer.from(
+              process.env.SPOTIFY_CLIENT_ID +
+                ':' +
+                process.env.SPOTIFY_CLIENT_SECRET
+            ).toString('base64'),
+        },
+        body: parameters,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      })
+    
+    const tokens = await tokenUrlToFetch.json()
+
+    console.log('jaaaaa', tokens)
+    return tokens
+}
+
+
 const moodFilter = require('./mood-filter/mood-filter.js');
 /**
  * Generates a random string containing numbers and letters
@@ -43,13 +76,14 @@ app
   .get('/callback', callback)
   .get('/searchResults', searchResultsRoute)
   .get('/track/:id/:token', detailRoute)
-  .get('/inspireme', inspireMe);
+  .get('/inspireme', inspireMe)
+  .get('/projects/:id', projectsRoute);
 
 app.listen(port, () => {
   console.log(`Dev app listening on port: ${port}`);
 });
 
-function callback(req, res) {
+async function callback(req, res) {
   let code = req.query.code || null;
   let state = req.query.state || null;
   let storedState = req.cookies ? req.cookies[stateKey] : null;
@@ -76,28 +110,10 @@ function callback(req, res) {
       params.append(key, form[key]);
     }
 
-    // const spotifyToken = Api.getSpotifyToken(params)
+    const tokenObject = await postDataToSpotify(`https://accounts.spotify.com/api/token`, params)
 
-    // console.log('SpotifyToken Function Module: ', spotifyToken)
-
-    fetch(`https://accounts.spotify.com/api/token`, {
-      method: 'post',
-      headers: {
-        Authorization:
-          'Basic ' +
-          new Buffer.from(
-            process.env.SPOTIFY_CLIENT_ID +
-              ':' +
-              process.env.SPOTIFY_CLIENT_SECRET
-          ).toString('base64'),
-      },
-      body: params,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    })
-      .then((res) => res.json())
-      .then((body) => {
-        let access_token = body.access_token;
-        let refresh_token = body.refresh_token;
+        let access_token = tokenObject.access_token;
+        let refresh_token = tokenObject.refresh_token;
 
         let options = {
           headers: { Authorization: 'Bearer ' + access_token },
@@ -105,37 +121,49 @@ function callback(req, res) {
 
         // Api.getSpotifyUserInfo(options)
 
-        fetch(`https://api.spotify.com/v1/me`, options)
-          .then((res) => {
-            if (!res.ok) {
-              res.redirect(
-                '/' +
-                  querystring.stringify({
-                    error: 'invalid_token',
-                  })
-              );
-            } else {
-              return res.json();
-            }
-          })
-          .then((body) => {
-            res.render('logged-in', {
-              data: body,
+        const userData = await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
+        const userPlaylists = await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
+        console.log(userData)
+        console.log(userPlaylists)
+
+        res.render('logged-in', {
+              data: userData,
               token: access_token,
-              genreList: genreList,
+              genreList: genreList.genres,
+              projects: userPlaylists.items
             });
-          })
-          .catch((err) => {
-            throw Error(err);
-          });
-      });
+        
+        // fetch(`https://api.spotify.com/v1/me`, options)
+        //   .then((res) => {
+        //     if (!res.ok) {
+        //       res.redirect(
+        //         '/' +
+        //           querystring.stringify({
+        //             error: 'invalid_token',
+        //           })
+        //       );
+        //     } else {
+        //       return res.json();
+        //     }
+        //   })
+        //   .then((body) => {
+        //     res.render('logged-in', {
+        //       data: body,
+        //       token: access_token,
+        //       genreList: genreList.genres
+        //     });
+        //   })
+        //   .catch((err) => {
+        //     throw Error(err);
+        //   });
+    //   });
   }
 }
 
-function searchResultsRoute(req, res) {
+async function searchResultsRoute(req, res) {
   let artist = req.query.searchValue;
   let access_token = req.query.token;
-  console.log(req.query);
+  console.log(req.query)
   //   let userData = JSON.parse(req.query.data);
 
   let options = {
@@ -143,20 +171,17 @@ function searchResultsRoute(req, res) {
     method: 'GET',
     headers: { Authorization: 'Bearer ' + access_token },
   };
-  let resultsArray = [];
 
   if (req.query.async) {
-    fetch(
-      `https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0`,
-      options
-    )
-      .then((res) => res.json())
-      .then((body) => {
-        res.render(__dirname + '/view/components/result-list.ejs', {
-          trackData: body.tracks.items,
-          token: access_token,
-        });
+
+    const searchResults = await getDataFromSpotfy(`https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0`, options)
+
+    res.render(__dirname + '/view/components/result-list.ejs', {
+        trackData: searchResults.tracks.items,
+        token: access_token,
       });
+
+
   } else {
     fetch(
       `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
@@ -189,8 +214,32 @@ function searchResultsRoute(req, res) {
   }
 }
 
-function detailRoute(req, res) {
-  console.log(req.params);
+async function projectsRoute(req, res){
+    console.log('Projects: ', req.query)
+
+    let options = {
+        // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
+        method: 'GET',
+        headers: { Authorization: 'Bearer ' + req.query.token },
+    };
+
+  const playlistTrackList = await getDataFromSpotfy(`https://api.spotify.com/v1/playlists/${req.query.query}/tracks`, options)
+
+  const trackList = playlistTrackList.items.map(track => {
+      return track.track
+  })
+  
+  console.log(trackList)
+
+  res.render(__dirname + '/view/components/result-list.ejs', {
+    trackData: trackList,
+    token: req.query.token,
+  });
+
+}
+
+async function detailRoute(req, res) {
+  console.log(req.query);
 
   const trackId = req.params.id.substring(1);
   const access_token = req.params.token.substring(1);
@@ -201,17 +250,29 @@ function detailRoute(req, res) {
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
-    headers: { Authorization: 'Bearer ' + access_token },
+    headers: { Authorization: 'Bearer ' + access_token || req.query.token },
   };
-
-  fetch(`https://api.spotify.com/v1/audio-features/${trackId}`, options)
-    .then((res) => res.json())
-    .then((body) => {
-      console.log(body);
-      res.render('track-detail', {
-        data: body,
-      });
+  
+  if(req.query.async){
+    const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${req.query.query}`, options)
+    // console.log(audioFeatures)
+    const completeTrack = await getDataFromSpotfy(`https://api.spotify.com/v1/tracks/${audioFeatures.id}`, options)
+    // console.log(completeTrack)
+    res.render(__dirname + '/view/components/track-information.ejs', {
+      data: audioFeatures,
+      trackData: completeTrack
     });
+    
+
+  } else{
+
+  const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${trackId}`, options)
+
+  res.render('track-detail', {
+    data: audioFeatures,
+  });
+  }
+
 }
 
 function inspireMe(req, res) {

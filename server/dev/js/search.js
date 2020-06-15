@@ -1,46 +1,40 @@
 // import { play } from "./modules/player.js";
 
-const searchBar = document.getElementById('search');
-const form = document.getElementById('quickSearchForm');
-console.log(searchBar.nextSibling);
 
-form.addEventListener('click', function (event) {
-  event.preventDefault();
-});
+const searchBar = document.getElementById('search')
+const form = document.getElementById('quickSearchForm')
 
-searchBar.addEventListener(
-  'input',
-  debounce((event) => {
-    const userInput = event.target.value;
 
-    const url = document
-      .getElementById('quickSearchForm')
-      .getAttribute('action');
+form.addEventListener('click', function(event){
+    event.preventDefault()
+})
 
-    history.replaceState(
-      {},
-      '',
-      '?searchValue=' + userInput + '&token=' + token
-    );
+searchBar.addEventListener('input', debounce((event) => {
+    
+    const userInput = event.target.value
 
-    fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token)
-      .then((res) => res.text())
-      .then((html) => {
-        document.querySelector('.search-results').innerHTML = html;
+    const url = document.getElementById('quickSearchForm').getAttribute('action')
 
-        const playButtonList = document.querySelectorAll('.playButton');
+    
+    history.replaceState({}, '','?searchValue=' + userInput + '&token=' + token)
 
-        console.log(playButtonList);
 
-        playButtonList.forEach((item) => {
-          item.addEventListener('click', (event) =>
-            console.log(event.target.id)
-          );
-          // play(event.target.id)
-        });
-      });
-  })
-);
+    fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token) 
+        .then(res => res.text())
+        .then(html => {
+            const resultComponents = document.querySelectorAll('.search-results')
+
+            resultComponents.forEach(component => {
+                component.innerHTML = html
+            })
+
+
+
+        })
+    
+    
+}))
+
 
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for

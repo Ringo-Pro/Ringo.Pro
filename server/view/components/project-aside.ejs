@@ -1,7 +1,13 @@
+<%= console.log(projects)%>
+
 <aside class="aside-projects">
     <ul>
-      <li title="Project 1"><a>Project 1</a></li>
-      <li title="Project 2"><a>Project 2</a></li>
-      <li title="Project 3"><a>Project 3</a></li>
+
+      <% projects.forEach(project => { %>
+
+        <li><a id="<%= project.id %>" class="project-link" href="/projects/<%= project.id %>"><%= project.name %></a></li>
+        
+      <% }) %>
+
     </ul>
   </aside>
