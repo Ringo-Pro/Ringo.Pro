@@ -4,9 +4,26 @@
 
 ## Introduction
 
-Ringo Pro is a application for music supervisors. It makes looking for tracks and searching for licenses easier.
+Ringo Pro is a application for music supervisors. It makes looking for tracks and searching for music licenses easier. This project is a proof of concept prototype which illustrates the possibilities of this application.
 
-## Usage
+## Working featues
+
+* Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
+* Search/filter function
+* Detailed information about tracks
+* Draggable search results to temporarily save chosen tracks
+* Music player
+    * Music can be played and paused using the webplayer
+    * It's possible to search in a track by scrubbing iver the track timeline
+    * The volume of the track can be adjusted
+
+**Wishlist**
+
+* Make a new playlist with chosen tracks
+* Show track lyrics in information screen
+* Make data visualisations of track stats
+
+## Installation
 
 ### 1. Clone the repo and install dependencies
 
@@ -34,6 +51,12 @@ REDIRECT_URI=<YOUR_REDIRECT_URI>
 
 ```zsh
 npm start
+```
+
+or run the app in development mode
+
+```zsh
+npm run start:dev
 ```
 
 ## Table of contents
@@ -83,20 +106,206 @@ npm start
 
 [Documentation](https://developer.spotify.com/documentation/web-api/)
 
-### Authentication
+The Spotify api makes use of a oAuth flow. In order to get data from the Spotify endpoints you have to go through the basice flow. 
+The endpoints used in this prototype:
 
-- [ ] key
-- [ ] oAuth
-
-### Data
-
-<details><summary>Data returned</summary>
-
+* https://api.spotify.com/v1/me - gets the current users Spotify profile
 ```js
-here comes data
+//request:
+await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
+//returned data:
+{
+   "country":"SE",
+   "display_name":"JM Wizzler",
+   "email":"email@example.com",
+   "external_urls":{
+      "spotify":"https://open.spotify.com/user/wizzler"
+   },
+   "followers":{
+      "href":null,
+      "total":3829
+   },
+   "href":"https://api.spotify.com/v1/users/wizzler",
+   "id":"wizzler",
+   "images":[
+      {
+         "height":null,
+         "url":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc3/t1.0-1/1970403_10152215092574354_1798272330_n.jpg",
+         "width":null
+      }
+   ],
+   "product":"premium",
+   "type":"user",
+   "uri":"spotify:user:wizzler"
+}
+```
+* https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists
+```js
+//request:
+await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
+//returned data:
+{
+   "href":"https://api.spotify.com/v1/users/wizzler/playlists",
+   "items":[
+      {
+         "collaborative":false,
+         "external_urls":{
+            "spotify":"http://open.spotify.com/user/wizzler/playlists/53Y8wT46QIMz5H4WQ8O22c"
+         },
+         "href":"https://api.spotify.com/v1/users/wizzler/playlists/53Y8wT46QIMz5H4WQ8O22c",
+         "id":"53Y8wT46QIMz5H4WQ8O22c",
+         "images":[
+
+         ],
+         "name":"Wizzlers Big Playlist",
+         "owner":{
+            "external_urls":{
+               "spotify":"http://open.spotify.com/user/wizzler"
+            },
+            "href":"https://api.spotify.com/v1/users/wizzler",
+            "id":"wizzler",
+            "type":"user",
+            "uri":"spotify:user:wizzler"
+         },
+         "public":true,
+         "snapshot_id":"bNLWdmhh+HDsbHzhckXeDC0uyKyg4FjPI/KEsKjAE526usnz2LxwgyBoMShVL+z+",
+         "tracks":{
+            "href":"https://api.spotify.com/v1/users/wizzler/playlists/53Y8wT46QIMz5H4WQ8O22c/tracks",
+            "total":30
+         },
+         "type":"playlist",
+         "uri":"spotify:user:wizzler:playlist:53Y8wT46QIMz5H4WQ8O22c"
+      },
+      {
+         "collaborative":false,
+         "external_urls":{
+            "spotify":"http://open.spotify.com/user/wizzlersmate/playlists/1AVZz0mBuGbCEoNRQdYQju"
+         },
+         "href":"https://api.spotify.com/v1/users/wizzlersmate/playlists/1AVZz0mBuGbCEoNRQdYQju",
+         "id":"1AVZz0mBuGbCEoNRQdYQju",
+         "images":[
+
+         ],
+         "name":"Another Playlist",
+         "owner":{
+            "external_urls":{
+               "spotify":"http://open.spotify.com/user/wizzlersmate"
+            },
+            "href":"https://api.spotify.com/v1/users/wizzlersmate",
+            "id":"wizzlersmate",
+            "type":"user",
+            "uri":"spotify:user:wizzlersmate"
+         },
+         "public":true,
+         "snapshot_id":"Y0qg/IT5T02DKpw4uQKc/9RUrqQJ07hbTKyEeDRPOo9LU0g0icBrIXwVkHfQZ/aD",
+         "tracks":{
+            "href":"https://api.spotify.com/v1/users/wizzlersmate/playlists/1AVZz0mBuGbCEoNRQdYQju/tracks",
+            "total":58
+         },
+         "type":"playlist",
+         "uri":"spotify:user:wizzlersmate:playlist:1AVZz0mBuGbCEoNRQdYQju"
+      }
+   ],
+   "limit":9,
+   "next":null,
+   "offset":0,
+   "previous":null,
+   "total":9
+}
 ```
 
-</details>
+* https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists
+
+
+* https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track
+
+### Spotify web playback SDK
+In order to make a custom music player Spotify made something called the web playback SDK. This is a library which you can easily use to plat spotify tracks whithin your own  web application. We made use of the following events:
+
+* Initialise the player:
+```js
+window.onSpotifyWebPlaybackSDKReady = () => {
+  // here is wehere all events related to the SDK live
+};
+```
+
+* getCurrentState:
+```js
+    player.getCurrentState().then(state => {
+        if(!state){
+            // nowPlaying.children[0].textContent = 'Click on a song!'
+            // console.error('User is not playing music through the Web Playback SDK')
+            console.log('User is not playing music through the Web Playback SDK')
+            fetch('https://api.spotify.com/v1/me/player', {
+                method: 'GET',
+                headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }})
+                .then(res => res.json())
+                .then(body => {
+                    console.log(body)
+                    nowPlaying.children[0].textContent = body.item.name
+                    nowPlaying.children[1].textContent = body.item.artists[0].name
+                
+                    albumArt.src = body.item.album.images[2].url
+                })
+
+            return
+        }
+
+        let {
+            current_track,
+            next_tracks: [next_track]
+        } = state.track_window
+
+        console.log('Currently Playing', current_track);
+        console.log('Playing Next', next_track);
+
+    })
+```
+
+* Player state changed:
+```js
+let currState = {}
+player.addListener('player_state_changed', state => {
+  currState.paused = state.paused;
+  currState.position = state.position;
+  currState.duration = state.duration;
+  currState.updateTime = performance.now()
+  currState.current_track = state.track_window.current_track
+});
+```
+
+* Changing volume:
+```js 
+    volume.addEventListener('mouseup', function(){
+
+        player.setVolume(this.value).then(() => {
+            console.log('volume updated to: ', this.value)
+        })
+    })
+```
+
+* Play and pause toggling:
+```js
+    pauseButton.addEventListener('click', (event) => {
+        player.togglePlay().then(() => {
+            
+        })
+    })
+```
+
+* Seeking in a track:
+```js
+    trackProgression.addEventListener('mouseup', function(){
+        // console.log('yeet: ', this.value)
+        player.seek(this.value).then(() => {
+            console.log('Changed position!');
+        })
+    })
+```
+
 
 ## Acessibility
 
