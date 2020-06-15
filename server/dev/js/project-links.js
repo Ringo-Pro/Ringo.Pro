@@ -9,16 +9,17 @@ link.addEventListener('click', function(event){
     
     const url = link.getAttribute('href')
 
-    console.log(link.id)
+    console.log(url)
 
     fetch(url + '?query=' + link.id + '&async=true' + '&token=' + token)
     .then(res => res.text())
     .then(html => {
-        const resultComponents = document.querySelectorAll('.search-results')
+        // console.log(html)
+        document.querySelector('.project-list').innerHTML = html
 
-        resultComponents.forEach(component => {
-            component.innerHTML = html
-        })
+        // resultComponents.forEach(component => {
+        //     component.innerHTML = html
+        // })
 
     })
 
