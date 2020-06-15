@@ -12,12 +12,12 @@
      
       <% Object.keys(genreList).forEach(function(main) { %>
         <% if(main !== 'toBeSorted') {%>
-        <details><summary><%= main %><span class='material-icons'></span></summary>
+        <details><summary><%= main %><span class='material-icons'></span></summary><div>
         <% genreList[main].forEach(genre => { %>
           <input type="checkbox" name="<%= genre %>" id="<%= genre %>">
           <label for="<%= genre %>"><%= genre %></label>
           <% }) %>
-        
+        </div>
         </details>
 
 

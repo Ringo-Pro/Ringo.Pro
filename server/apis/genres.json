@@ -1,6 +1,13 @@
 {
-  "blues": ["blues"],
-  "classical": ["classical", "new-age", "opera", "piano"],
+  "blues": [
+    "blues"
+  ],
+  "classical": [
+    "classical",
+    "new-age",
+    "opera",
+    "piano"
+  ],
   "jazz": [
     "afrobeat",
     "bossanova",
@@ -12,8 +19,15 @@
     "latino",
     "mpb"
   ],
-  "reggae": ["reggae", "reggaeton"],
-  "country": ["bluegrass", "country", "honky-tonk"],
+  "reggae": [
+    "reggae",
+    "reggaeton"
+  ],
+  "country": [
+    "bluegrass",
+    "country",
+    "honky-tonk"
+  ],
   "electronic": [
     "club",
     "dance",
@@ -41,7 +55,10 @@
     "techno",
     "trance"
   ],
-  "folk": ["acoustic", "folk"],
+  "folk": [
+    "acoustic",
+    "folk"
+  ],
   "rock": [
     "alt-rock",
     "hard-rock",
@@ -75,7 +92,11 @@
     "synth-pop",
     "power-pop"
   ],
-  "rap": ["hip-hop", "trip-hop", "r-n-b"],
+  "rap": [
+    "hip-hop",
+    "trip-hop",
+    "r-n-b"
+  ],
   "other": [
     "anime",
     "kids",
