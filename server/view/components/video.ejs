@@ -5,6 +5,12 @@
     <input type="checkbox" name="video_overlay_btn" id="video_overlay_btn">
     <section class="video_overlay">
         <section class="video_tracks">
+            <select id="choose-playlist">
+                <option value="searchres">search results</option>
+                <option value="lastproj">Last project</option>
+                <option value="recs">Recommendations</option>
+                <option value="currproj">Current project</option>
+            </select>
             <%- include('../components/sidebar2.ejs')%>
         </section>
         <section class="video_video">
