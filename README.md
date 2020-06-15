@@ -334,6 +334,7 @@ npm run start:dev
 - [Danrovito - Country dropdown](https://gist.github.com/danrovito/977bcb97c9c2dfd3398a) for saving us a lot of time.
 - [Peter-Paul Koch - checking input types with JS](https://quirksmode.org/html5/inputs/tests/inputs_js.html) for his code to check if a browser supports an input type.
 - [Thomas Loven](https://github.com/thomasloven/round-slider) for making round sliders.
+- [Google Material Icons](https://material.io/resources/icons/?style=baseline)
 
 ## Wishlist
 
@@ -345,3 +346,4 @@ npm run start:dev
 
 - 📖 [Spotify API Documentation](https://developer.spotify.com/documentation/web-api/)
 - 🛠 [RegEx Tool](https://regexr.com/)
+- 📖 [The fundamental music genre list - Dan Gravell - Blisshq.com](https://www.blisshq.com/music-library-management-blog/2011/01/25/fundamental-music-genre-list/)
