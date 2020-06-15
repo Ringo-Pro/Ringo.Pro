@@ -33,7 +33,9 @@
     "watch": "gulp watch",
     "build:js": "gulp es",
     "build:img": "gulp img",
-    "build": "gulp"
+    "build": "gulp",
+    "deploy": "git push heroku master",
+    "logs": "heroku logs --tail"
   },
   "repository": {
     "type": "git",

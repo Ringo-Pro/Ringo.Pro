@@ -56,6 +56,8 @@ npm start
 - `npm run build:img` = Build IMG
 - `npm run build` = Build CSS + ES + IMG
 - `npm run watch` = Watch CSS + ES Files
+- `npm run deploy` = Deploy to Heroku
+- `npm run logs` = Show Heroku logs
 
 ## Dependencies
 
