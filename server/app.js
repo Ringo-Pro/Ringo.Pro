@@ -143,6 +143,7 @@ function searchResultsRoute(req, res) {
     method: 'GET',
     headers: { Authorization: 'Bearer ' + access_token },
   };
+  let resultsArray = [];
 
   if (req.query.async) {
     fetch(
@@ -151,8 +152,6 @@ function searchResultsRoute(req, res) {
     )
       .then((res) => res.json())
       .then((body) => {
-        console.log(body);
-
         res.render(__dirname + '/view/components/result-list.ejs', {
           trackData: body.tracks.items,
           token: access_token,

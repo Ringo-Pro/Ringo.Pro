@@ -4,7 +4,7 @@
   </section>
 
   <section>
-    <form action="">
+    <form id="filter_form" action="/searchResults" method="get">
       <!-- genre -->
       <details class="main-genre"><summary>Genre<span class='material-icons'></span></summary>
     <div class="justify-start">
@@ -21,7 +21,7 @@
       </details> 
       <!-- tempo -->
       <details><summary>Tempo<span class='material-icons'></span></summary>
-      <div>
+      <div class="filter_tempo">
         <round-slider value="50" valueLabel="tempo" style="--round-slider-bar-color: #F20732;"></round-slider>
         <h1>Value: <span id="value">50</span></h1>
        <!-- <input type="range" name="tempo" id="tempo" min="30" max="240" step="5" list="tickmarks" value="30">
@@ -38,7 +38,7 @@
       </details>
       <!-- instrument -->
       <details><summary>instrument<span class='material-icons'></span></summary>
-        <div>
+        <div class="subgenres">
           <input type="checkbox" name="guitar" id="guitar">
           <label for="guitar">Guitar</label>
           <input type="checkbox" name="flute" id="flute">
@@ -51,7 +51,7 @@
       </details>
       <!-- vocals -->
       <details><summary>Vocals<span class='material-icons'></span></summary>
-      <div>
+      <div class="subgenres">
         <input type="checkbox" name="male" id="male">
         <label for="male">male</label>
         <input type="checkbox" name="female" id="female">
@@ -91,7 +91,7 @@
       </details>
       <!-- mood -->
       <details><summary>Mood<span class='material-icons'></span></summary>
-        <div>
+        <div class="subgenres">
           <input type="checkbox" name="sad" id="sad">
           <label for="sad">sad</label>
           <input type="checkbox" name="happy" id="happy">
@@ -104,7 +104,7 @@
       </details>
       <!-- themes -->
       <details><summary>Themes<span class='material-icons'></span></summary>
-        <div>
+        <div class="subgenres">
           <input type="checkbox" name="theme1" id="theme1">
           <label for="theme1">Theme 1</label>
           <input type="checkbox" name="theme2" id="theme2">

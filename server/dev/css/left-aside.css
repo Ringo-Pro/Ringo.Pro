@@ -118,4 +118,8 @@ input[type='number'] {
   z-index: 1;
   height: 427px;
   flex-wrap: nowrap !important;
+  justify-content: unset !important;
+}
+.filter_tempo {
+  height: 100px;
 }
