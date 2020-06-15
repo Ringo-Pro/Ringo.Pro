@@ -6,6 +6,13 @@
 
 Ringo Pro is a application for music supervisors. It makes looking for tracks and searching for music licenses easier. This project is a proof of concept prototype which illustrates the possibilities of this application.
 
+## Table of contents
+
+* ### [Working features]()
+* ### [Working features]()
+* ### [Installation]()
+
+
 ## Working featues
 
 * Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
@@ -46,61 +53,6 @@ SPOTIFY_CLIENT_ID=<YOUR_CLIENT_ID>
 SPOTIFY_CLIENT_SECRET=<YOUR CLIENT SECRET>
 REDIRECT_URI=<YOUR_REDIRECT_URI>
 ```
-
-### 3. Run the app
-
-```zsh
-npm start
-```
-
-or run the app in development mode
-
-```zsh
-npm run start:dev
-```
-
-## Table of contents
-
-- [NPM Scripts](#npm-scripts)
-- [Dependencies](#dependencies)
-- [API](#api)
-- [Credits](#Credits)
-- [Wishlist](#Whishlist)
-- [Sources](#Sources)
-
-## NPM Scripts
-
-- `npm run prestart` = Build CSS before starting
-- `npm run start` = Start the app
-- `npm run dev` = Start the app with Nodemon
-- `npm run start:dev` = Start the app in development mode (watch + dev)
-- `npm run build:css` = Build CSS
-- `npm run build:js` = Build ES
-- `npm run build:img` = Build IMG
-- `npm run build` = Build CSS + ES + IMG
-- `npm run watch` = Watch CSS + ES Files
-- `npm run deploy` = Deploy to Heroku
-- `npm run logs` = Show Heroku logs
-
-## Dependencies
-
-- [NodeJS](https://nodejs.org/en/)
-- [Express](https://www.npmjs.com/package/express)
-  - [Body Parser](https://www.npmjs.com/package/body-parser)
-  - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
-- [Cors](https://www.npmjs.com/package/cors)
-- [DotENV](https://www.npmjs.com/package/dotenv)
-- [EJS](https://www.npmjs.com/package/ejs)
-- [Gulp](https://www.npmjs.com/package/gulp)
-  - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-  - [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
-  - [Gulp Concat](https://www.npmjs.com/package/gulp-concat)
-  - [Gulp Imagemin](npmjs.com/package/gulp-imagemin)
-  - [Gulp Terser](https://www.npmjs.com/package/gulp-terser)
-- [Node Fetch](https://www.npmjs.com/package/node-fetch)
-- [Query String](https://www.npmjs.com/package/query-string)
-- [Url](https://www.npmjs.com/package/url)
-- [Nodemon](npmjs.com/package/nodemon)
 
 ## API
 
@@ -307,6 +259,52 @@ player.addListener('player_state_changed', state => {
         })
     })
 ```
+
+### 3. Run the app
+
+```zsh
+npm start
+```
+
+or run the app in development mode
+
+```zsh
+npm run start:dev
+```
+
+## NPM Scripts
+
+- `npm run prestart` = Build CSS before starting
+- `npm run start` = Start the app
+- `npm run dev` = Start the app with Nodemon
+- `npm run start:dev` = Start the app in development mode (watch + dev)
+- `npm run build:css` = Build CSS
+- `npm run build:js` = Build ES
+- `npm run build:img` = Build IMG
+- `npm run build` = Build CSS + ES + IMG
+- `npm run watch` = Watch CSS + ES Files
+- `npm run deploy` = Deploy to Heroku
+- `npm run logs` = Show Heroku logs
+
+## Dependencies
+
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://www.npmjs.com/package/express)
+  - [Body Parser](https://www.npmjs.com/package/body-parser)
+  - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
+- [Cors](https://www.npmjs.com/package/cors)
+- [DotENV](https://www.npmjs.com/package/dotenv)
+- [EJS](https://www.npmjs.com/package/ejs)
+- [Gulp](https://www.npmjs.com/package/gulp)
+  - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+  - [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
+  - [Gulp Concat](https://www.npmjs.com/package/gulp-concat)
+  - [Gulp Imagemin](npmjs.com/package/gulp-imagemin)
+  - [Gulp Terser](https://www.npmjs.com/package/gulp-terser)
+- [Node Fetch](https://www.npmjs.com/package/node-fetch)
+- [Query String](https://www.npmjs.com/package/query-string)
+- [Url](https://www.npmjs.com/package/url)
+- [Nodemon](npmjs.com/package/nodemon)
 
 
 ## Acessibility
