@@ -63,7 +63,7 @@ window.onSpotifyWebPlaybackSDKReady = () => {
     
 
 
-    let currState = {}
+let currState = {}
 player.addListener('player_state_changed', state => {
   currState.paused = state.paused;
   currState.position = state.position;
@@ -138,7 +138,7 @@ setInterval(() => {
     })
 
     trackProgression.addEventListener('mouseup', function(){
-        console.log('yeet: ', this.value)
+        // console.log('yeet: ', this.value)
         player.seek(this.value).then(() => {
             console.log('Changed position!');
         })
