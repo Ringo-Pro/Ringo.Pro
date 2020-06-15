@@ -11,7 +11,6 @@ form.addEventListener('click', function (event) {
 searchBar.addEventListener(
   'input',
   debounce((event) => {
-    console.log('hallo');
     const userInput = event.target.value;
 
     const url = document
