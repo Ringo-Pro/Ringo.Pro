@@ -1,11 +1,12 @@
 .project-page{
     background: var(--background-color);
     height: 100%;
-    width: 81%;
+    width: 79.5%;
     position: absolute;
     right: 4rem;
     display: none;
     overflow: auto;
+    padding: 15px;
 }
 
 .project-title{
