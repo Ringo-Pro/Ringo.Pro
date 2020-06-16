@@ -16,7 +16,7 @@
   height: 45vh;
 }
 
-.draggableTrack {
+.sidebar2 li, .draggableTrack {
   height: 4rem;
   background: var(--track-background);
   padding: 0.1rem;

@@ -1,24 +1,13 @@
 <section class="project-page">
     <h1>Project page</h1>
+
+
     <% if (typeof trackData === 'undefined') { %>
         <ul class="project-list">
             <li>No recent project</li>
         </ul>
-    <% } else if (typeof trackData !== 'undefined'){%>
-    <h2>Results for: <%= userInput %></h2>
-    
-    
-    <% trackData.forEach(track => { %>
-        
-        <li class="draggableTrack" draggable="true"> 
-            <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt=""> <%= track.name %> - <%= track.artists[0].name %> popularity: <%= track.popularity %> <%= millisToMinutesAndSeconds(track.duration_ms) %> <a href=<%= `/track/:${track.id}/:${token}` %>>Details</a>
-        </li> 
-        
-    <% }) %>
-    
-    
-    
-    <!-- </div> -->
-    
     <% } %>
+ 
+    
+
 </section>

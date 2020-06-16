@@ -129,7 +129,7 @@ async function callback(req, res) {
       `https://api.spotify.com/v1/me/playlists`,
       options
     );
-    console.log(userData);
+    // console.log(userData);
     console.log(userPlaylists);
 
     res.render('logged-in', {
@@ -234,13 +234,13 @@ async function projectsRoute(req, res) {
     options
   );
 
-  console.log(playlistTrackList)
+//   console.log(playlistTrackList)
   
   const trackList = playlistTrackList.items.map((track) => {
     return track.track;
   });
 
-  console.log(trackList);
+  console.log(playlistTrackList.href);
 
   res.render(__dirname + '/view/components/result-list.ejs', {
     trackData: trackList,
