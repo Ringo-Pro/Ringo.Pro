@@ -16,7 +16,7 @@
   height: 45vh;
 }
 
-.sidebar2 li {
+.draggableTrack {
   height: 4rem;
   background: var(--track-background);
   padding: 0.1rem;
@@ -29,18 +29,18 @@
   font-size: 1rem;
 }
 
-.sidebar2 li a {
+.draggableTrack a {
   color: white;
 }
-.sidebar2 li a:link {
+.draggableTrack a:link {
   text-decoration: none;
 }
 
-.sidebar2 li a:visited {
+.draggableTrack a:visited {
   text-decoration: none;
 }
 
-.sidebar2 li div {
+.draggableTrack div {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -49,14 +49,14 @@
   justify-content: space-around;
 }
 
-.sidebar2 li div p:first-of-type {
+.draggableTrack div p:first-of-type {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 10rem;
 }
 
-.sidebar2 li div p:last-of-type {
+.draggableTrack div p:last-of-type {
   font-size: 0.89rem;
   color: var(--artist-name);
   text-overflow: ellipsis;

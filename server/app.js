@@ -242,7 +242,7 @@ async function projectsRoute(req, res) {
 
   console.log(trackList);
 
-  res.render(__dirname + '/view/components/project-page.ejs', {
+  res.render(__dirname + '/view/components/result-list.ejs', {
     trackData: trackList,
     token: req.query.token,
   });

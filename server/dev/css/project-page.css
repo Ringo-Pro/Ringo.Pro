@@ -1,8 +1,7 @@
 .project-page{
-    left: 0;
-    /* margin-left: 0; */
     background: var(--background-color);
     height: 100%;
-    width: 100%;
-    position: fixed;
+    width: 81%;
+    position: absolute;
+    right: 4rem;
 }
