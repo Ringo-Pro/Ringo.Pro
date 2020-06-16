@@ -13,7 +13,7 @@
 
   overflow-y: scroll;
   overflow: auto;
-  height: 45vh;
+  height: 100%;
 }
 
 .sidebar2 li, .draggableTrack {
@@ -143,5 +143,5 @@
 .drag{
   position: absolute;
   right: 3.7rem;
-  z-index: 94;
+  z-index: 1;
 }
