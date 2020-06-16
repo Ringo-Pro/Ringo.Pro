@@ -37,17 +37,14 @@ function fetchOnInput(input, formID) {
       const userInput = event.target.value;
       const url = document.getElementById(formID).getAttribute('action');
       history.replaceState({}, '', `?searchValue=${userInput}&token=${token}`);
-
       let areThereChips = document.querySelectorAll('.chips');
       if (areThereChips.length >= 1) {
         areThereChips.forEach((item) => item.remove());
       }
       const newEl = document.createElement('span');
-      newEl.innerText = userInput;
+      newEl.innerHTML = `${userInput} <span class="material-icons"> clear </span>`;
       newEl.setAttribute('class', 'chips');
       activeFiltersChips.append(newEl);
-
-      console.log(userInput);
       fetch(`${url}?query=${userInput}&async=true&token=${token}`)
         .then((res) => res.text())
         .then((html) => {
