@@ -31,7 +31,17 @@ const observer = new MutationObserver(function(mutations) {
                     fetch(url + '?query=' + trackId + '&async=true' + '&token=' + token)
                         .then(res => res.text())
                         .then(html => {
-                            document.querySelector('.track-information').innerHTML = html
+                            const trackInfo = document.querySelector('.track-information')
+                            
+                            
+                            
+                            trackInfo.innerHTML = html
+                            const closeButton = document.querySelector('.close-button')
+                            console.log(closeButton)
+                            closeButton.addEventListener('click', () => {
+                                trackInfo.style.display = 'none'
+                            })
+                            
                         })
 
                 })
