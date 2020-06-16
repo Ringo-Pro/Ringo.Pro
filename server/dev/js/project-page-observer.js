@@ -1,25 +1,16 @@
-// const nav = document.querySelector('.main-nav')
 
-// console.log(nav.children)
-
-// Array.from(nav.children).forEach(childElement => {
-//     console.log(childElement.childNodes[1])
-// });
-
-
-
-
-const observer = new MutationObserver(function(mutations) {
+const projectObserver = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) { 
 
         
 
         if(mutation){
+            console.log(mutation)
             const anchorList = document.querySelectorAll('.track-info-link')
             // console.log('alalala', anchorList)
             anchorList.forEach(anchor => {
 
-                console.log('jaja', anchor)
+                // console.log('jaja', anchor)
 
                 anchor.addEventListener('click', function(event){
                     event.preventDefault()
@@ -33,10 +24,8 @@ const observer = new MutationObserver(function(mutations) {
                         .then(html => {
                             const trackInfo = document.querySelector('.track-information')
                             
-                            
-                            
                             trackInfo.innerHTML = html
-                            const closeButton = document.querySelector('.close-button')
+                            const closeButton = document.querySelectorAll('.close-button')[1]
                             console.log(closeButton)
                             closeButton.addEventListener('click', () => {
                                 trackInfo.style.display = 'none'
@@ -58,11 +47,11 @@ const observer = new MutationObserver(function(mutations) {
 
 });
 
-const results = document.querySelector('.search-results')
-
+const projectPage = document.querySelector('.project-page')
+console.log(projectPage)
 
         
-observer.observe(results, {
+projectObserver.observe(projectPage, {
     childList: true,
     attributes: true,
     characterData: true,
