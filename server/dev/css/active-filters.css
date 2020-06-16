@@ -74,7 +74,7 @@ round-slider + h1 {
   display: flex;
   align-items: center;
 }
-.chips + span {
+.chips > span {
   font-size: medium;
   padding-left: 0.3rem;
 }
