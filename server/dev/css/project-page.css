@@ -5,4 +5,17 @@
     position: absolute;
     right: 4rem;
     display: none;
+    overflow: auto;
+}
+
+.project-title{
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.playlist-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }

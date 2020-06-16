@@ -12,11 +12,11 @@ link.addEventListener('click', function(event){
 
     console.log(url)
 
-    fetch(url + '?query=' + link.id + '&async=true' + '&token=' + token)
+    fetch(url + '?query=' + link.id + '&async=true' + '&token=' + token + '&id=' + link.id)
     .then(res => res.text())
     .then(html => {
         // console.log(html)
-        document.querySelector('.project-list').innerHTML = html
+        document.querySelector('.project-page').innerHTML = html
         section.style.display = 'block'
         
         // resultComponents.forEach(component => {
