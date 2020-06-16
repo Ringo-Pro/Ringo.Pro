@@ -36,11 +36,15 @@ const observer = new MutationObserver(function(mutations) {
                             
                             
                             trackInfo.innerHTML = html
-                            const closeButton = document.querySelector('.close-button')
+                            const closeButton = document.querySelectorAll('.close-button')
                             console.log(closeButton)
-                            closeButton.addEventListener('click', () => {
+                            closeButton[0].addEventListener('click', () => {
                                 trackInfo.style.display = 'none'
                             })
+                            closeButton[1].addEventListener('click', () => {
+                                trackInfo.style.display = 'none'
+                            })
+
                             
                         })
 
@@ -59,10 +63,16 @@ const observer = new MutationObserver(function(mutations) {
 });
 
 const results = document.querySelector('.search-results')
-
+const projectPage = document.querySelector('.project-page')
 
         
 observer.observe(results, {
+    childList: true,
+    attributes: true,
+    characterData: true,
+
+})
+observer.observe(projectPage, {
     childList: true,
     attributes: true,
     characterData: true,

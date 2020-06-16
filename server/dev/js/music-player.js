@@ -210,11 +210,21 @@ setInterval(() => {
         })
         
         const results = document.querySelectorAll('.search-results')
+        const projectPage = document.querySelector('.project-page')
+
+        console.log('aaaa', projectPage)
         
         
         console.log(results[0])
         
         observer.observe(results[0], {
+            childList: true,
+            attributes: true,
+            characterData: true,
+        
+        })
+
+        observer.observe(projectPage, {
             childList: true,
             attributes: true,
             characterData: true,
