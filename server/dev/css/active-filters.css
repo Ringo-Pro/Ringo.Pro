@@ -1,0 +1,65 @@
+.active_filters {
+  color: white;
+  background: var(--track-background);
+  position: relative;
+}
+#active-filters {
+  position: absolute;
+  left: -100vw;
+}
+.active_filters > label {
+  background: var(--track-background);
+  display: flex;
+  align-items: center;
+  padding: 4px 15px;
+  cursor: pointer;
+}
+.active_filters > label > span {
+  padding-right: 5px;
+}
+.active_filters > label > p {
+  padding-left: 5px;
+}
+.filters_overlay {
+  background: var(--background-color);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  transition: all 2s ease-in-out;
+  z-index: 2;
+  top: -100vh;
+}
+#active-filters:checked + .filters_overlay {
+  top: 78px;
+}
+/* ------- */
+.active_filters form {
+  background: var(--track-background);
+  height: 78%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px;
+}
+.active_filters form fieldset {
+  display: flex;
+  padding-right: 2rem;
+}
+.active_filters form fieldset label {
+  text-transform: capitalize;
+  padding-bottom: 2rem;
+  font-weight: 500;
+}
+.active_filters form fieldset input {
+  display: inline-block;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+}
+.slider-fieldset {
+  width: 7rem;
+}
+round-slider + h1 {
+  text-align: center;
+  padding-top: 0.3rem;
+}

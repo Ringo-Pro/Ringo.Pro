@@ -16,6 +16,7 @@ const jsFiles = [
     './server/dev/css/*.css',
     './server/dev/css/themes/*.css',
     '!./server/dev/css/sidebar.css',
+    '!./server/dev/css/left-aside.css',
   ];
 
 function cssReset() {

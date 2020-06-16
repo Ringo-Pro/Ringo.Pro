@@ -10,10 +10,10 @@
 
         <input type="hidden" name="token" value="<%= token %>">
         <input type="hidden" name="data" value="<%= JSON.stringify(data) %>">
-        <input type="radio" name="searchOption" id="song" value="song" checked>
-        <label for="song">Song</label>
-        <input type="radio" name="searchOption" value="projecten" id="projecten">
-        <label for="projecten">Projects</label>
+        <input type="radio" class="d-none" name="searchOption" id="song" value="song" checked>
+        <label for="song" class="d-none">Song</label>
+        <input type="radio" class="d-none" name="searchOption" value="projecten" id="projecten">
+        <label class="d-none" for="projecten">Projects</label>
       </form>
     </div>
     <div class="user">

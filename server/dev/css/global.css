@@ -19,6 +19,7 @@ h3 {
 }
 header {
   color: var(--primary-color);
+  z-index: 3;
 }
 .material-icons {
   color: #f2f2f2;
@@ -31,7 +32,7 @@ header svg {
 
 /* utility classes */
 .d-none {
-  display: none;
+  display: none !important;
 }
 
 /* develop classes */
@@ -40,4 +41,8 @@ header svg {
   width: 20px;
   background: green;
   display: block;
+}
+input[type='checkbox'] {
+  position: absolute;
+  left: -100vw;
 }
