@@ -234,8 +234,8 @@ async function projectsRoute(req, res) {
     options
   );
 
-  console.log(playlistTrackList)
-  
+  console.log(playlistTrackList);
+
   const trackList = playlistTrackList.items.map((track) => {
     return track.track;
   });

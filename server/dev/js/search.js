@@ -1,7 +1,5 @@
 // import { play } from "./modules/player.js";
 
-const { default: fetch } = require('node-fetch');
-
 const searchBar = document.getElementById('search');
 const form = document.getElementById('quickSearchForm');
 const filtersForm = document.getElementById('filtersForm');
