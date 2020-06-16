@@ -1,10 +1,16 @@
 
-<% if (!trackData) { %>
+<% if (!trackData && !playlistData) { %>
     <p>no results</p>
 <% } else {%>
 
 <!-- <ul> -->
+<div class="playlist-info">
+    <span class="material-icons close-button">arrow_back</span>
+    <h1 class="project-title"><%= playlistData.name %></h1>
+</div>
 
+<section class="sidebar2">
+<ul class="project-list">
 <% trackData.forEach(track => { %>
 
     <li class="draggableTrack" draggable="true" > 
@@ -14,7 +20,10 @@
     </li> 
     
 <% }) %>
+</ul>
 
+
+</section>
 <!-- </ul> -->
 
 <% } %>

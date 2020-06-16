@@ -34,7 +34,7 @@
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-content {
-  max-width: 18rem;
+  max-width: 100%;
   padding: 15px;
 }
 

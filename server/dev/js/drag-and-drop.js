@@ -2,8 +2,10 @@ if(window.MutationObserver){
 
 const observer = new MutationObserver(function(mutations) {
 
-    mutations.forEach(function(mutation) {
+mutations.forEach(function(mutation) {
       if(mutation){
+
+        // console.log(mutation)
 
 const tracks = document.querySelectorAll('.draggableTrack')
 const target = document.querySelector('.target-drop')
@@ -70,10 +72,17 @@ target.addEventListener("drop", function(event) {
   });
 
 const results = document.querySelectorAll('.search-results')
+const projectPage = document.querySelector('.project-page')
 
 // console.log(results)
 
 observer.observe(results[0], {
+    childList: true,
+    attributes: true,
+    characterData: true,
+
+})
+observer.observe(projectPage, {
     childList: true,
     attributes: true,
     characterData: true,

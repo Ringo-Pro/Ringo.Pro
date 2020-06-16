@@ -1,6 +1,6 @@
 .sidebar2 {
   /* width: 60%; */
-  width: 22rem;
+  width: 73%;
   /* padding: 8px; */
   background: var(--background-color);
   /* height: calc(100% - (4em + 8px)); */
@@ -13,10 +13,10 @@
 
   overflow-y: scroll;
   overflow: auto;
-  height: 45vh;
+  height: 100%;
 }
 
-.sidebar2 li {
+.sidebar2 li, .draggableTrack {
   height: 4rem;
   background: var(--track-background);
   padding: 0.1rem;
@@ -29,18 +29,18 @@
   font-size: 1rem;
 }
 
-.sidebar2 li a {
+.draggableTrack a {
   color: white;
 }
-.sidebar2 li a:link {
+.draggableTrack a:link {
   text-decoration: none;
 }
 
-.sidebar2 li a:visited {
+.draggableTrack a:visited {
   text-decoration: none;
 }
 
-.sidebar2 li div {
+.draggableTrack div {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -49,14 +49,14 @@
   justify-content: space-around;
 }
 
-.sidebar2 li div p:first-of-type {
+.draggableTrack div p:first-of-type {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   width: 10rem;
 }
 
-.sidebar2 li div p:last-of-type {
+.draggableTrack div p:last-of-type {
   font-size: 0.89rem;
   color: var(--artist-name);
   text-overflow: ellipsis;
@@ -97,13 +97,14 @@
 }
 
 .playLists{
-    /* display: flex;
-    flex-direction: row; */
-    display: grid;
+  width: 80.5%;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 1px 1px;
-    grid-template-areas: "playlist1 playlist2 playlist3" "playlist1 playlist2 playlist3" "drag drag drag";
+    grid-template-areas: "playlist1 playlist2 playlist3" "playlist1 playlist2 playlist3" "drag drag drag"; */
 }
 /* 
 .playLists aside{
@@ -113,7 +114,7 @@
 .playlist-title{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: var(--artist-name);
 }
 
@@ -135,6 +136,12 @@
 /* .drag { grid-area: drag; } */
 
 .playLists{
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.drag{
+  position: absolute;
+  right: 3.7rem;
+  z-index: 1;
 }

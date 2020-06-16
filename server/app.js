@@ -129,7 +129,7 @@ async function callback(req, res) {
       `https://api.spotify.com/v1/me/playlists`,
       options
     );
-    console.log(userData);
+    // console.log(userData);
     console.log(userPlaylists);
 
     res.render('logged-in', {
@@ -221,30 +221,34 @@ async function searchResultsRoute(req, res) {
 }
 
 async function projectsRoute(req, res) {
-  console.log('Projects: ', req.query);
+  // console.log('Projects: ', req.query);
 
   let options = {
     // url: `https://api.spotify.com/v1/search?q=${artist}&type=track%2Cartist&market=US&limit=10&offset=5`,
     method: 'GET',
     headers: { Authorization: 'Bearer ' + req.query.token },
   };
-
+  
+  const playlist = await getDataFromSpotfy(
+    `https://api.spotify.com/v1/playlists/${req.query.id}`,
+    options
+  );
   const playlistTrackList = await getDataFromSpotfy(
     `https://api.spotify.com/v1/playlists/${req.query.query}/tracks`,
     options
   );
 
-  console.log(playlistTrackList);
 
   const trackList = playlistTrackList.items.map((track) => {
     return track.track;
   });
 
-  console.log(trackList);
+  // console.log(playlistTrackList.href);
 
-  res.render(__dirname + '/view/components/result-list.ejs', {
+  res.render(__dirname + '/view/components/project.ejs', {
     trackData: trackList,
     token: req.query.token,
+    playlistData: playlist,
   });
 }
 

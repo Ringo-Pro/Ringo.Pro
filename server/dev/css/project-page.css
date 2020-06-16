@@ -1,0 +1,26 @@
+.project-page{
+    background: var(--background-color);
+    height: 100%;
+    width: 79.5%;
+    position: absolute;
+    right: 4rem;
+    display: none;
+    overflow: auto;
+    padding: 15px;
+}
+
+.project-title{
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.playlist-info{
+    display: flex;
+    justify-content: start;
+    align-items: baseline;
+}
+
+.close-button:hover{
+    cursor: pointer;
+}

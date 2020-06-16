@@ -12,14 +12,16 @@
 
     <%# include( '../components/project-aside.ejs') %>
     <%- include('../components/sidebar2.ejs')%>
-    <%- include('../components/sidebar5.ejs')%>
+    <%# include('../components/sidebar5.ejs')%>
     <%- include('../components/sidebar4.ejs')%>
     
-    <%- include('../components/sidebar3.ejs', projects)%>
-
-    </section>
     
 
+    </section>
+
+    <%- include('../components/sidebar3.ejs', projects)%>
+    
+    <%- include('../components/project-page.ejs', projects)%>
 
 
 

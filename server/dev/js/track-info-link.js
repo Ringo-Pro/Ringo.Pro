@@ -31,7 +31,21 @@ const observer = new MutationObserver(function(mutations) {
                     fetch(url + '?query=' + trackId + '&async=true' + '&token=' + token)
                         .then(res => res.text())
                         .then(html => {
-                            document.querySelector('.track-information').innerHTML = html
+                            const trackInfo = document.querySelector('.track-information')
+                            
+                            
+                            
+                            trackInfo.innerHTML = html
+                            const closeButton = document.querySelectorAll('.close-button')
+                            console.log(closeButton)
+                            closeButton[0].addEventListener('click', () => {
+                                trackInfo.style.display = 'none'
+                            })
+                            closeButton[1].addEventListener('click', () => {
+                                trackInfo.style.display = 'none'
+                            })
+
+                            
                         })
 
                 })
@@ -49,9 +63,16 @@ const observer = new MutationObserver(function(mutations) {
 });
 
 const results = document.querySelector('.search-results')
-console.log('eeeeee', results)
+const projectPage = document.querySelector('.project-page')
+
         
 observer.observe(results, {
+    childList: true,
+    attributes: true,
+    characterData: true,
+
+})
+observer.observe(projectPage, {
     childList: true,
     attributes: true,
     characterData: true,
