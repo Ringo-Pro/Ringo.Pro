@@ -15,8 +15,8 @@ link.addEventListener('click', function(event){
     .then(res => res.text())
     .then(html => {
         // console.log(html)
-        document.querySelector('.project-list').innerHTML = html
-
+        document.querySelector('.project-page').innerHTML = html
+        
         // resultComponents.forEach(component => {
         //     component.innerHTML = html
         // })
