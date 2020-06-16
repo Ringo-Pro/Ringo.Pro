@@ -1,0 +1,27 @@
+/* projects */
+.aside-projects {
+  width: 12rem;
+  border-right: var(--secondary-color) solid 0.5px;
+}
+.aside-projects ul li {
+  color: #add8e6;
+  padding: 4px 15px 4px 15px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 86%;
+}
+.aside-projects ul li a {
+  font-size: smaller;
+  font-weight: 700;
+  letter-spacing: 0.1px;
+  color: var(--artist-name);
+}
+
+.aside-projects ul li a:link {
+  text-decoration: none;
+}
+
+.aside-projects ul li a:hover {
+  color: var(--secondary-color);
+}

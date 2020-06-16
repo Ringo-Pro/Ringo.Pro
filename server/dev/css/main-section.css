@@ -30,7 +30,7 @@ main > section label {
   position: relative;
   align-items: center;
   justify-content: center;
-  height: 87%;
+  height: 100%;
   cursor: pointer;
   z-index: 1;
 }
