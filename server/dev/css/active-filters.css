@@ -30,7 +30,7 @@
   top: -100vh;
 }
 #active-filters:checked + .filters_overlay {
-  top: 92px;
+  top: 84px;
 }
 /* ------- */
 .active_filters form {
