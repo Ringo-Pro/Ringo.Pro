@@ -12,7 +12,7 @@ main {
 }
 main > section {
   background: rgba(106, 134, 202, 0.15);
-  height: 101%;
+  height: 94.5%;
   width: 4%;
   color: white;
   overflow: hidden;
@@ -30,7 +30,7 @@ main > section label {
   position: relative;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 97.5%;
   cursor: pointer;
   z-index: 3;
 }
@@ -48,7 +48,7 @@ main > section label div {
   position: fixed;
   transition: all 2s ease-in-out;
   left: 100vw;
-  top: 113px;
+  top: 49px;
   display: flex;
   justify-content: space-around;
 }
@@ -61,7 +61,7 @@ main > section label div {
 
 #video_overlay_btn:checked + .video_overlay {
   left: 0;
-  top: 113px;
+  top: 49px;
 }
 .controls {
   z-index: 2 !important;
