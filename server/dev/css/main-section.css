@@ -6,7 +6,7 @@
 }
 
 main {
-  width: 34%;
+  /* width: 34%; */
   display: flex;
   justify-content: flex-end;
 }

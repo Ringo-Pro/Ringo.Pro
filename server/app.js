@@ -86,7 +86,12 @@ async function callback(req, res) {
   let storedState = req.cookies ? req.cookies[stateKey] : null;
 
   if (state === null || state !== storedState) {
-    res.redirect('/');
+    res.redirect(
+      '/' +
+        querystring.stringify({
+          error: 'state_mismatch',
+        })
+    );
   } else {
     res.clearCookie(stateKey);
 
