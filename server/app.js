@@ -169,6 +169,7 @@ async function callback(req, res) {
 async function searchResultsRoute(req, res) {
   let artist = req.query.searchValue;
   let access_token = req.query.token;
+  console.log('DEZEEEEE');
   console.log(req.query);
   //   let userData = JSON.parse(req.query.data);
 
