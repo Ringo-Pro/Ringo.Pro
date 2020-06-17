@@ -169,7 +169,7 @@ async function callback(req, res) {
 async function searchResultsRoute(req, res) {
   let artist = req.query.searchValue;
   let access_token = req.query.token;
-  console.log('DEZEEEEE');
+  // console.log('DEZEEEEE');
   console.log(req.query);
   //   let userData = JSON.parse(req.query.data);
 
@@ -199,15 +199,18 @@ async function searchResultsRoute(req, res) {
         return Promise.all(recommended)
           .then(tracks => {
             const recommendedTracks = tracks.map(track => track.tracks[0])
+            console.log('recommendedTracks: ', recommendedTracks)
             return recommendedTracks
           })
       })
-      console.log(await recommendations)
+    const recs = await recommendations
+
+    const filteredRecommendations = recs.filter(track => track !== undefined)
 
     res.render(__dirname + '/view/components/result-list.ejs', {
       trackData: searchResults.tracks.items,
       token: access_token,
-      recommendations: await recommendations
+      recommendations: filteredRecommendations
     });
   } else {
     fetch(
