@@ -1,4 +1,7 @@
 # Ringo.Pro
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
 
@@ -357,3 +360,22 @@ trackProgression.addEventListener('mouseup', function () {
 - 📖 [Novel audio features for music emotion recognition - published March 2018](https://www.researchgate.net/publication/324093990_Novel_audio_features_for_music_emotion_recognition)
 - 📖 [How JavaScript works: tracking changes in the DOM using MutationObserver - Alexander Zlatkov - Medium](https://blog.sessionstack.com/how-javascript-works-tracking-changes-in-the-dom-using-mutationobserver-86adc7446401)
 - 📖 [Quick Reminder that Details/Summary is the Easiest Way Ever to Make an Accordion - Chris Coyier - CSS-Tricks](https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://www.martendebruijn.nl"><img src="https://avatars1.githubusercontent.com/u/49749829?v=4" width="100px;" alt=""/><br /><sub><b>Marten de Bruijn</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/commits?author=martendebruijn" title="Code">💻</a> <a href="#design-martendebruijn" title="Design">🎨</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
