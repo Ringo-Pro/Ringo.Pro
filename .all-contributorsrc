@@ -14,6 +14,16 @@
         "code",
         "design"
       ]
+    },
+    {
+      "login": "CountNick",
+      "name": "Nick",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/47485018?v=4",
+      "profile": "https://github.com/CountNick",
+      "contributions": [
+        "code",
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
