@@ -333,6 +333,11 @@ trackProgression.addEventListener('mouseup', function () {
 - [ ] Make data visualisations of track stats
 - [ ] Better filtering
 
+## Contributers
+
+### [Marten de Bruijn]()
+### [Nick meijer]()
+
 ## Sources
 
 📖 Artikel / Documentation **|** ⚙️ Code **|** 📹 Video **|** 🛠 Tools
