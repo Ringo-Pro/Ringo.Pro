@@ -18,20 +18,19 @@ Ringo Pro is a application for music supervisors. It makes looking for tracks an
 
 ## Working featues
 
-* Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
-![project page gif](https://user-images.githubusercontent.com/47485018/84900352-42cecf00-b0aa-11ea-8c17-139f706f7946.gif)
-* Search
-![search](https://user-images.githubusercontent.com/47485018/84902057-98a47680-b0ac-11ea-940e-cd2bc88fa7b4.gif)
-* Detailed information about tracks
-![track-information](https://user-images.githubusercontent.com/47485018/84898458-92f86200-b0a7-11ea-977c-4536b71880f6.gif)
-* Draggable search results to temporarily save chosen tracks
-![search results](https://user-images.githubusercontent.com/47485018/84889668-81a85900-b099-11ea-9ff1-7758746e668f.gif)
-* Music player
-  * Music can be played and paused using the webplayer
-  * It's possible to search in a track by scrubbing iver the track timeline
-  * The volume of the track can be adjusted
-![music-player](https://user-images.githubusercontent.com/47485018/84899988-b9b79800-b0a9-11ea-9d93-0320f86a5401.gif)
-
+- Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
+  ![project page gif](https://user-images.githubusercontent.com/47485018/84900352-42cecf00-b0aa-11ea-8c17-139f706f7946.gif)
+- Search
+  ![search](https://user-images.githubusercontent.com/47485018/84902057-98a47680-b0ac-11ea-940e-cd2bc88fa7b4.gif)
+- Detailed information about tracks
+  ![track-information](https://user-images.githubusercontent.com/47485018/84898458-92f86200-b0a7-11ea-977c-4536b71880f6.gif)
+- Draggable search results to temporarily save chosen tracks
+  ![search results](https://user-images.githubusercontent.com/47485018/84889668-81a85900-b099-11ea-9ff1-7758746e668f.gif)
+- Music player
+  - Music can be played and paused using the webplayer
+  - It's possible to search in a track by scrubbing iver the track timeline
+  - The volume of the track can be adjusted
+    ![music-player](https://user-images.githubusercontent.com/47485018/84899988-b9b79800-b0a9-11ea-9d93-0320f86a5401.gif)
 
 ## Installation
 
@@ -112,7 +111,7 @@ npm run start:dev
 The Spotify api makes use of a oAuth flow. In order to get data from the Spotify endpoints you have to go through the basice flow.
 The endpoints used in this prototype:
 
-- https://api.spotify.com/v1/me - gets the current users Spotify profile
+<details><summary>https://api.spotify.com/v1/me - gets the current users Spotify profile</summary>
 
 ```js
 //request:
@@ -144,7 +143,9 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
 }
 ```
 
-- https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists
+</details>
+
+<details><summary>https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists</summary>
 
 ```js
 //request:
@@ -220,9 +221,15 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
 }
 ```
 
-- https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists
+</details>
 
-* https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track
+<details><summary>https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists</summary>
+
+</details>
+
+<details><summary>https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track</summary>
+
+</details>
 
 ### Spotify web playback SDK
 
