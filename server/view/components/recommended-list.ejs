@@ -1,26 +1,21 @@
 
-<% if (!recommended) { %>
+<% if (!trackData) { %>
     <p>no results</p>
 <% } else {%>
 
+<!-- <ul> -->
+<h4 class="playlist-title">recommendations</h4>
+<% recommendations.forEach(track => { %>
 
-<% recommended.forEach(track => { %>
-
-
-    <a href=<%= `/track/:${track.id}/:${token}` %>>
-    <section class = "track-section">
-
-        <h3><%= track.name %> by <%= track.artist %></h3>
-        
-        <h4>popularity: <%= track.popularity %></h4>
-        <h4>runtime: <%= millisToMinutesAndSeconds(track.duration)  %> </h4>
+    <li class="draggableTrack" draggable="true" > 
+        <span class="material-icons">drag_indicator</span>
+        <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt="album-art" width="64px" height="64px"><div> <p><%= track.name %></p> <p><%= track.artists[0].name %></p></div> <a id="<%= track.id%>" class="track-info-link" href=<%= `/track/:${track.id}/:${token}` %>>
+        <span class="material-icons info">info</span></a>
+    </li> 
     
-        <iframe src= <%= `https://open.spotify.com/embed/track/${track.id}` %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-    </section>
-    </a>
-
 <% }) %>
+
+<!-- </ul> -->
 
 <% } %>
 

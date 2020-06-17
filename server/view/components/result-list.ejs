@@ -15,7 +15,20 @@
     
 <% }) %>
 
-<!-- </ul> -->
+<% } %>
+
+<% if (!recommendations) { %>
+    <p>no recs</p>
+<% } else {%>
+    <% recommendations.forEach(track => { %>
+
+        <li class="draggableTrack" draggable="true" > 
+            <span class="material-icons">drag_indicator</span>
+            <input class="playButton" id="<%= track.uri %>" type="image" src="<%= track.album.images[2].url %>" alt="album-art" width="64px" height="64px"><div> <p><%= track.name %></p> <p><%= track.artists[0].name %></p></div> <a id="<%= track.id%>" class="track-info-link" href=<%= `/track/:${track.id}/:${token}` %>>
+            <span class="material-icons info">info</span></a>
+        </li> 
+        
+    <% }) %>
 
 <% } %>
 
