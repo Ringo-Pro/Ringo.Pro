@@ -3,59 +3,64 @@
 const searchBar = document.getElementById('search');
 const form = document.getElementById('quickSearchForm');
 const filtersForm = document.getElementById('filtersForm');
-const genreInput = document.getElementById('genre');
+const genreInput = document.getElementById('genre'),
+  instrumentInput = document.getElementById('instrument'),
+  vocalsInput = document.getElementById('vocal'),
+  keyInput = document.getElementById('key'),
+  langInput = document.getElementById('lang'),
+  moodInput = document.getElementById('mood'),
+  themesInput = document.getElementById('themes'),
+  countryInput = document.getElementById('country'),
+  yearInput = document.getElementById('year');
+const activeFiltersChips = document.getElementById('activeFilterChips');
+const filters = [
+  { input: searchBar, form: 'quickSearchForm' },
+  { input: genreInput, form: 'filtersForm' },
+  { input: instrumentInput, form: 'filtersForm' },
+  { input: vocalsInput, form: 'filtersForm' },
+  { input: keyInput, form: 'filtersForm' },
+  { input: langInput, form: 'filtersForm' },
+  { input: moodInput, form: 'filtersForm' },
+  { input: themesInput, form: 'filtersForm' },
+  { input: countryInput, form: 'filtersForm' },
+  { input: yearInput, form: 'filtersForm' },
+];
 
 form.addEventListener('click', function (event) {
   event.preventDefault();
 });
 
-searchBar.addEventListener(
-  'input',
-  debounce((event) => {
-    const userInput = event.target.value;
 
-    const url = document
-      .getElementById('quickSearchForm')
-      .getAttribute('action');
 
-    history.replaceState(
-      {},
-      '',
-      '?searchValue=' + userInput + '&token=' + token
-    );
-    
-    fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token)
-      .then((res) => res.text())
-      .then((html) => {
-        const resultComponents = document.querySelectorAll('.search-results');
-
-        resultComponents.forEach((component) => {
-          component.innerHTML = html;
+function fetchOnInput(input, formID) {
+  input.addEventListener(
+    'input',
+    debounce((event) => {
+      const userInput = event.target.value;
+      const url = document.getElementById(formID).getAttribute('action');
+      history.replaceState({}, '', `?searchValue=${userInput}&token=${token}`);
+      let areThereChips = document.querySelectorAll('.chips');
+      if (areThereChips.length >= 1) {
+        areThereChips.forEach((item) => item.remove());
+      }
+      const newEl = document.createElement('span');
+      newEl.innerHTML = `${userInput} <span class="material-icons"> clear </span>`;
+      newEl.setAttribute('class', 'chips');
+      activeFiltersChips.append(newEl);
+      fetch(`${url}?query=${userInput}&async=true&token=${token}`)
+        .then((res) => res.text())
+        .then((html) => {
+          const resultComponents = document.querySelectorAll('.search-results');
+          resultComponents.forEach((component) => {
+            component.innerHTML = html;
+          });
         });
-      });
-  })
-);
-// genreInput.addEventListener(
-//   'input',
-//   debounce((event) => {
-//     const userInput = event.target.value;
-//     const url = document.getElementById('genre').getAttribute('action');
-//     history.replaceState(
-//       {},
-//       '',
-//       '?searchValue=' + userInput + '&token=' + token
-//     );
-//     fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token)
-//       .then((res) => res.text())
-//       .then((html) => {
-//         const resultComponents = document.querySelectorAll('.search-results');
-
-//         resultComponents.forEach((component) => {
-//           component.innerHTML = html;
-//         });
-//       });
-//   })
-// );
+    })
+  );
+}
+filters.forEach((item) => {
+  fetchOnInput(item.input, item.form);
+});
 
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for

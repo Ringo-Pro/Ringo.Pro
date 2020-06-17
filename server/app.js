@@ -169,6 +169,7 @@ async function callback(req, res) {
 async function searchResultsRoute(req, res) {
   let artist = req.query.searchValue;
   let access_token = req.query.token;
+  // console.log('DEZEEEEE');
   console.log(req.query);
   //   let userData = JSON.parse(req.query.data);
 
@@ -198,14 +199,18 @@ async function searchResultsRoute(req, res) {
     })
     console.log(featuresWithMood[0])
     
+
     const recommended = await getDataFromSpotfy(`https://api.spotify.com/v1/recommendations?limit=${10}&market=US&min_energy=${featuresWithMood[0].values.energyValues.min}&max_energy=${featuresWithMood[0].values.energyValues.max}&min_valence=${featuresWithMood[0].values.valenceValues.min}&max_valence=${featuresWithMood[0].values.valenceValues.max}&min_danceability=${featuresWithMood[0].values.danceabilityValues.min}&max_danceability=${featuresWithMood[0].values.danceabilityValues.max}&seed_tracks=${featuresWithMood[0].id}`, options)
 
     console.log(recommended)
 
+
     res.render(__dirname + '/view/components/result-list.ejs', {
       trackData: searchResults.tracks.items,
       token: access_token,
+
       recommendations: recommended.tracks
+
     });
   } else {
     fetch(
