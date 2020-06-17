@@ -18,14 +18,20 @@ Ringo Pro is a application for music supervisors. It makes looking for tracks an
 
 ## Working featues
 
-- Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
-- Search/filter function
-- Detailed information about tracks
-- Draggable search results to temporarily save chosen tracks
-- Music player
-  - Music can be played and paused using the webplayer
-  - It's possible to search in a track by scrubbing iver the track timeline
-  - The volume of the track can be adjusted
+* Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
+![project page gif](https://user-images.githubusercontent.com/47485018/84900352-42cecf00-b0aa-11ea-8c17-139f706f7946.gif)
+* Search
+![search](https://user-images.githubusercontent.com/47485018/84902057-98a47680-b0ac-11ea-940e-cd2bc88fa7b4.gif)
+* Detailed information about tracks
+![track-information](https://user-images.githubusercontent.com/47485018/84898458-92f86200-b0a7-11ea-977c-4536b71880f6.gif)
+* Draggable search results to temporarily save chosen tracks
+![search results](https://user-images.githubusercontent.com/47485018/84889668-81a85900-b099-11ea-9ff1-7758746e668f.gif)
+* Music player
+  * Music can be played and paused using the webplayer
+  * It's possible to search in a track by scrubbing iver the track timeline
+  * The volume of the track can be adjusted
+![music-player](https://user-images.githubusercontent.com/47485018/84899988-b9b79800-b0a9-11ea-9d93-0320f86a5401.gif)
+
 
 ## Installation
 
