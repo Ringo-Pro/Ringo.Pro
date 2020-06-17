@@ -206,6 +206,7 @@ async function searchResultsRoute(req, res) {
     res.render(__dirname + '/view/components/result-list.ejs', {
       trackData: searchResults.tracks.items,
       token: access_token,
+      recommendations: await recommendations
     });
   } else {
     fetch(
