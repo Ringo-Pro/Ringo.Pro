@@ -23,7 +23,7 @@ searchBar.addEventListener(
       '',
       '?searchValue=' + userInput + '&token=' + token
     );
-
+    
     fetch(url + '?query=' + userInput + '&async=true' + '&token=' + token)
       .then((res) => res.text())
       .then((html) => {
