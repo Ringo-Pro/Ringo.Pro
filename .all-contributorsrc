@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "martendebruijn",
+      "name": "Marten de Bruijn",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49749829?v=4",
+      "profile": "http://www.martendebruijn.nl",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Ringo.Pro",
+  "projectOwner": "Ringo-Pro",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
