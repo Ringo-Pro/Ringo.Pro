@@ -10,7 +10,8 @@ const router = require('./routes/router.js'),
   fetch = require('node-fetch'),
   cors = require('cors'),
   querystring = require('querystring'),
-  cookieParser = require('cookie-parser');
+  cookieParser = require('cookie-parser')
+  compression = require('compression');
 const { URLSearchParams } = require('url');
 
 async function getDataFromSpotfy(url, opt) {
@@ -65,6 +66,7 @@ let stateKey = 'spotify_auth_state';
 app
   .use(express.static(path.join(__dirname, 'static')))
   .use(bodyParser.urlencoded({ extended: true }))
+  .use(compression())
   .use(cors())
   .use(cookieParser())
   .set('views', __dirname + '/view/pages')
