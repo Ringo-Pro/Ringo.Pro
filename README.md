@@ -1,4 +1,7 @@
 # Ringo.Pro
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
 
@@ -18,20 +21,19 @@ Ringo Pro is a application for music supervisors. It makes looking for tracks an
 
 ## Working featues
 
-* Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
-![project page gif](https://user-images.githubusercontent.com/47485018/84900352-42cecf00-b0aa-11ea-8c17-139f706f7946.gif)
-* Search
-![search](https://user-images.githubusercontent.com/47485018/84902057-98a47680-b0ac-11ea-940e-cd2bc88fa7b4.gif)
-* Detailed information about tracks
-![track-information](https://user-images.githubusercontent.com/47485018/84898458-92f86200-b0a7-11ea-977c-4536b71880f6.gif)
-* Draggable search results to temporarily save chosen tracks
-![search results](https://user-images.githubusercontent.com/47485018/84889668-81a85900-b099-11ea-9ff1-7758746e668f.gif)
-* Music player
-  * Music can be played and paused using the webplayer
-  * It's possible to search in a track by scrubbing iver the track timeline
-  * The volume of the track can be adjusted
-![music-player](https://user-images.githubusercontent.com/47485018/84899988-b9b79800-b0a9-11ea-9d93-0320f86a5401.gif)
-
+- Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
+  ![project page gif](https://user-images.githubusercontent.com/47485018/84900352-42cecf00-b0aa-11ea-8c17-139f706f7946.gif)
+- Search
+  ![search](https://user-images.githubusercontent.com/47485018/84902057-98a47680-b0ac-11ea-940e-cd2bc88fa7b4.gif)
+- Detailed information about tracks
+  ![track-information](https://user-images.githubusercontent.com/47485018/84898458-92f86200-b0a7-11ea-977c-4536b71880f6.gif)
+- Draggable search results to temporarily save chosen tracks
+  ![search results](https://user-images.githubusercontent.com/47485018/84889668-81a85900-b099-11ea-9ff1-7758746e668f.gif)
+- Music player
+  - Music can be played and paused using the webplayer
+  - It's possible to search in a track by scrubbing iver the track timeline
+  - The volume of the track can be adjusted
+    ![music-player](https://user-images.githubusercontent.com/47485018/84899988-b9b79800-b0a9-11ea-9d93-0320f86a5401.gif)
 
 ## Installation
 
@@ -112,7 +114,7 @@ npm run start:dev
 The Spotify api makes use of a oAuth flow. In order to get data from the Spotify endpoints you have to go through the basice flow.
 The endpoints used in this prototype:
 
-- https://api.spotify.com/v1/me - gets the current users Spotify profile
+<details><summary>https://api.spotify.com/v1/me - gets the current users Spotify profile</summary>
 
 ```js
 //request:
@@ -144,7 +146,9 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
 }
 ```
 
-- https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists
+</details>
+
+<details><summary>https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists</summary>
 
 ```js
 //request:
@@ -220,15 +224,17 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
 }
 ```
 
+</details>
+
 - https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists
 
-* https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track
+- https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track
 
 ### Spotify web playback SDK
 
 In order to make a custom music player Spotify made something called the web playback SDK. This is a library which you can easily use to plat spotify tracks whithin your own web application. We made use of the following events:
 
-- Initialise the player:
+<details><summary>Initialise the player:</summary>
 
 ```js
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -273,7 +279,9 @@ player.getCurrentState().then((state) => {
 });
 ```
 
-- Player state changed:
+</details>
+
+<details><summary>Player state changed:</summary>
 
 ```js
 let currState = {};
@@ -286,7 +294,9 @@ player.addListener('player_state_changed', (state) => {
 });
 ```
 
-- Changing volume:
+</details>
+
+<details><summary>Changing volume:</summary>
 
 ```js
 volume.addEventListener('mouseup', function () {
@@ -296,7 +306,9 @@ volume.addEventListener('mouseup', function () {
 });
 ```
 
-- Play and pause toggling:
+</details>
+
+<details><summary>Play and pause toggling:</summary>
 
 ```js
 pauseButton.addEventListener('click', (event) => {
@@ -304,7 +316,9 @@ pauseButton.addEventListener('click', (event) => {
 });
 ```
 
-- Seeking in a track:
+</details>
+
+<details><summary>Seeking in a track:</summary>
 
 ```js
 trackProgression.addEventListener('mouseup', function () {
@@ -314,6 +328,8 @@ trackProgression.addEventListener('mouseup', function () {
   });
 });
 ```
+
+</details>
 
 ## Credits
 
@@ -349,3 +365,24 @@ trackProgression.addEventListener('mouseup', function () {
 - 📖 [Novel audio features for music emotion recognition - published March 2018](https://www.researchgate.net/publication/324093990_Novel_audio_features_for_music_emotion_recognition)
 - 📖 [How JavaScript works: tracking changes in the DOM using MutationObserver - Alexander Zlatkov - Medium](https://blog.sessionstack.com/how-javascript-works-tracking-changes-in-the-dom-using-mutationobserver-86adc7446401)
 - 📖 [Quick Reminder that Details/Summary is the Easiest Way Ever to Make an Accordion - Chris Coyier - CSS-Tricks](https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://www.martendebruijn.nl"><img src="https://avatars1.githubusercontent.com/u/49749829?v=4" width="100px;" alt=""/><br /><sub><b>Marten de Bruijn</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/commits?author=martendebruijn" title="Code">💻</a> <a href="#design-martendebruijn" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/CountNick"><img src="https://avatars2.githubusercontent.com/u/47485018?v=4" width="100px;" alt=""/><br /><sub><b>Nick</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/commits?author=CountNick" title="Code">💻</a> <a href="#design-CountNick" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/ilovemayhem"><img src="https://avatars0.githubusercontent.com/u/65910608?v=4" width="100px;" alt=""/><br /><sub><b>ilovemayhem</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/pulls?q=is%3Apr+reviewed-by%3Ailovemayhem" title="Reviewed Pull Requests">👀</a> <a href="#question-ilovemayhem" title="Answering Questions">💬</a> <a href="#projectManagement-ilovemayhem" title="Project Management">📆</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
