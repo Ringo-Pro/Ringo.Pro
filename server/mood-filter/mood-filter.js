@@ -263,11 +263,7 @@ function getMood(song) {
   const highest = Object.keys(total).filter((x) => {
     return total[x] == Math.max.apply(null, Object.values(total));
   });
-  if (highest.length > 1) {
-    return 'No mood detected...';
-  } else {
-    return highest;
-  }
+  highest.length > 1 ? 'No mood detected...' : highest;
 }
 function addMood(song) {
   const mood = getMood(song);

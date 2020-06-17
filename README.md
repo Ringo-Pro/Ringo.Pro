@@ -1,6 +1,6 @@
 # Ringo.Pro
 
-<!-- ![Screenshot van de applicatie]() -->
+![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
 
 ## Introduction
 
@@ -8,27 +8,24 @@ Ringo Pro is a application for music supervisors. It makes looking for tracks an
 
 ## Table of contents
 
-* ### [Working features]()
-* ### [Working features]()
-* ### [Installation]()
-
+- [Working features](#working-features)
+- [Installation](#installation)
+- [NPM Scripts](#npm-scripts)
+- [Dependencies](#dependencies)
+- [API](#api)
+- [Credits](#credits)
+- [Sources](#sources)
 
 ## Working featues
 
-* Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
-* Search/filter function
-* Detailed information about tracks
-* Draggable search results to temporarily save chosen tracks
-* Music player
-    * Music can be played and paused using the webplayer
-    * It's possible to search in a track by scrubbing iver the track timeline
-    * The volume of the track can be adjusted
-
-**Wishlist**
-
-* Make a new playlist with chosen tracks
-* Show track lyrics in information screen
-* Make data visualisations of track stats
+- Projects(Spotify playlists for now) in the left side bar which are clickable, and will show tracks in the playlist
+- Search/filter function
+- Detailed information about tracks
+- Draggable search results to temporarily save chosen tracks
+- Music player
+  - Music can be played and paused using the webplayer
+  - It's possible to search in a track by scrubbing iver the track timeline
+  - The volume of the track can be adjusted
 
 ## Installation
 
@@ -54,16 +51,63 @@ SPOTIFY_CLIENT_SECRET=<YOUR CLIENT SECRET>
 REDIRECT_URI=<YOUR_REDIRECT_URI>
 ```
 
+### 3. Run the app
+
+```zsh
+npm start
+```
+
+or run the app in development mode
+
+```zsh
+npm run start:dev
+```
+
+## NPM Scripts
+
+- `npm run prestart` = Build CSS before starting
+- `npm run start` = Start the app
+- `npm run dev` = Start the app with Nodemon
+- `npm run start:dev` = Start the app in development mode (watch + dev)
+- `npm run build:css` = Build CSS
+- `npm run build:js` = Build ES
+- `npm run build:img` = Build IMG
+- `npm run build` = Build CSS + ES + IMG
+- `npm run watch` = Watch CSS + ES Files
+- `npm run deploy` = Deploy to Heroku
+- `npm run logs` = Show Heroku logs
+
+## Dependencies
+
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://www.npmjs.com/package/express)
+  - [Body Parser](https://www.npmjs.com/package/body-parser)
+  - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
+- [Cors](https://www.npmjs.com/package/cors)
+- [DotENV](https://www.npmjs.com/package/dotenv)
+- [EJS](https://www.npmjs.com/package/ejs)
+- [Gulp](https://www.npmjs.com/package/gulp)
+  - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+  - [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
+  - [Gulp Concat](https://www.npmjs.com/package/gulp-concat)
+  - [Gulp Imagemin](npmjs.com/package/gulp-imagemin)
+  - [Gulp Terser](https://www.npmjs.com/package/gulp-terser)
+- [Node Fetch](https://www.npmjs.com/package/node-fetch)
+- [Query String](https://www.npmjs.com/package/query-string)
+- [Url](https://www.npmjs.com/package/url)
+- [Nodemon](npmjs.com/package/nodemon)
+
 ## API
 
 ### Spotify API
 
 [Documentation](https://developer.spotify.com/documentation/web-api/)
 
-The Spotify api makes use of a oAuth flow. In order to get data from the Spotify endpoints you have to go through the basice flow. 
+The Spotify api makes use of a oAuth flow. In order to get data from the Spotify endpoints you have to go through the basice flow.
 The endpoints used in this prototype:
 
-* https://api.spotify.com/v1/me - gets the current users Spotify profile
+- https://api.spotify.com/v1/me - gets the current users Spotify profile
+
 ```js
 //request:
 await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
@@ -93,7 +137,9 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me`, options)
    "uri":"spotify:user:wizzler"
 }
 ```
-* https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists
+
+- https://api.spotify.com/v1/me/playlists - gets a list with the current users playlists
+
 ```js
 //request:
 await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
@@ -168,163 +214,100 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
 }
 ```
 
-* https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists
-
+- https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists
 
 * https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track
 
 ### Spotify web playback SDK
-In order to make a custom music player Spotify made something called the web playback SDK. This is a library which you can easily use to plat spotify tracks whithin your own  web application. We made use of the following events:
 
-* Initialise the player:
+In order to make a custom music player Spotify made something called the web playback SDK. This is a library which you can easily use to plat spotify tracks whithin your own web application. We made use of the following events:
+
+- Initialise the player:
+
 ```js
 window.onSpotifyWebPlaybackSDKReady = () => {
   // here is wehere all events related to the SDK live
 };
 ```
 
-* getCurrentState:
+- getCurrentState:
+
 ```js
-    player.getCurrentState().then(state => {
-        if(!state){
-            // nowPlaying.children[0].textContent = 'Click on a song!'
-            // console.error('User is not playing music through the Web Playback SDK')
-            console.log('User is not playing music through the Web Playback SDK')
-            fetch('https://api.spotify.com/v1/me/player', {
-                method: 'GET',
-                headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            }})
-                .then(res => res.json())
-                .then(body => {
-                    console.log(body)
-                    nowPlaying.children[0].textContent = body.item.name
-                    nowPlaying.children[1].textContent = body.item.artists[0].name
-                
-                    albumArt.src = body.item.album.images[2].url
-                })
-
-            return
-        }
-
-        let {
-            current_track,
-            next_tracks: [next_track]
-        } = state.track_window
-
-        console.log('Currently Playing', current_track);
-        console.log('Playing Next', next_track);
-
+player.getCurrentState().then((state) => {
+  if (!state) {
+    // nowPlaying.children[0].textContent = 'Click on a song!'
+    // console.error('User is not playing music through the Web Playback SDK')
+    console.log('User is not playing music through the Web Playback SDK');
+    fetch('https://api.spotify.com/v1/me/player', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
     })
-```
+      .then((res) => res.json())
+      .then((body) => {
+        console.log(body);
+        nowPlaying.children[0].textContent = body.item.name;
+        nowPlaying.children[1].textContent = body.item.artists[0].name;
 
-* Player state changed:
-```js
-let currState = {}
-player.addListener('player_state_changed', state => {
-  currState.paused = state.paused;
-  currState.position = state.position;
-  currState.duration = state.duration;
-  currState.updateTime = performance.now()
-  currState.current_track = state.track_window.current_track
+        albumArt.src = body.item.album.images[2].url;
+      });
+
+    return;
+  }
+
+  let {
+    current_track,
+    next_tracks: [next_track],
+  } = state.track_window;
+
+  console.log('Currently Playing', current_track);
+  console.log('Playing Next', next_track);
 });
 ```
 
-* Changing volume:
-```js 
-    volume.addEventListener('mouseup', function(){
+- Player state changed:
 
-        player.setVolume(this.value).then(() => {
-            console.log('volume updated to: ', this.value)
-        })
-    })
-```
-
-* Play and pause toggling:
 ```js
-    pauseButton.addEventListener('click', (event) => {
-        player.togglePlay().then(() => {
-            
-        })
-    })
+let currState = {};
+player.addListener('player_state_changed', (state) => {
+  currState.paused = state.paused;
+  currState.position = state.position;
+  currState.duration = state.duration;
+  currState.updateTime = performance.now();
+  currState.current_track = state.track_window.current_track;
+});
 ```
 
-* Seeking in a track:
+- Changing volume:
+
 ```js
-    trackProgression.addEventListener('mouseup', function(){
-        // console.log('yeet: ', this.value)
-        player.seek(this.value).then(() => {
-            console.log('Changed position!');
-        })
-    })
+volume.addEventListener('mouseup', function () {
+  player.setVolume(this.value).then(() => {
+    console.log('volume updated to: ', this.value);
+  });
+});
 ```
 
-### 3. Run the app
+- Play and pause toggling:
 
-```zsh
-npm start
+```js
+pauseButton.addEventListener('click', (event) => {
+  player.togglePlay().then(() => {});
+});
 ```
 
-or run the app in development mode
+- Seeking in a track:
 
-```zsh
-npm run start:dev
+```js
+trackProgression.addEventListener('mouseup', function () {
+  // console.log('yeet: ', this.value)
+  player.seek(this.value).then(() => {
+    console.log('Changed position!');
+  });
+});
 ```
-
-## NPM Scripts
-
-- `npm run prestart` = Build CSS before starting
-- `npm run start` = Start the app
-- `npm run dev` = Start the app with Nodemon
-- `npm run start:dev` = Start the app in development mode (watch + dev)
-- `npm run build:css` = Build CSS
-- `npm run build:js` = Build ES
-- `npm run build:img` = Build IMG
-- `npm run build` = Build CSS + ES + IMG
-- `npm run watch` = Watch CSS + ES Files
-- `npm run deploy` = Deploy to Heroku
-- `npm run logs` = Show Heroku logs
-
-## Dependencies
-
-- [NodeJS](https://nodejs.org/en/)
-- [Express](https://www.npmjs.com/package/express)
-  - [Body Parser](https://www.npmjs.com/package/body-parser)
-  - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
-- [Cors](https://www.npmjs.com/package/cors)
-- [DotENV](https://www.npmjs.com/package/dotenv)
-- [EJS](https://www.npmjs.com/package/ejs)
-- [Gulp](https://www.npmjs.com/package/gulp)
-  - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-  - [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
-  - [Gulp Concat](https://www.npmjs.com/package/gulp-concat)
-  - [Gulp Imagemin](npmjs.com/package/gulp-imagemin)
-  - [Gulp Terser](https://www.npmjs.com/package/gulp-terser)
-- [Node Fetch](https://www.npmjs.com/package/node-fetch)
-- [Query String](https://www.npmjs.com/package/query-string)
-- [Url](https://www.npmjs.com/package/url)
-- [Nodemon](npmjs.com/package/nodemon)
-
-
-## Acessibility
-
-- alleen html (functional)
-- html + css
-- html + css + es
-- colors
-- keyboard acessibility
-- slow connection
-
-## Compatibility
-
-- input types check
-
-## Performance
-
-- PWA
-- minifying CSS ES IMG
-- serverside rendering / clientside hybrid
 
 ## Credits
 
@@ -339,6 +322,10 @@ npm run start:dev
 ## Wishlist
 
 - [ ] Cool visual graphs
+- [ ] Make a new playlist with chosen tracks
+- [ ] Show track lyrics in information screen
+- [ ] Make data visualisations of track stats
+- [ ] Better filtering
 
 ## Sources
 
@@ -347,3 +334,7 @@ npm run start:dev
 - 📖 [Spotify API Documentation](https://developer.spotify.com/documentation/web-api/)
 - 🛠 [RegEx Tool](https://regexr.com/)
 - 📖 [The fundamental music genre list - Dan Gravell - Blisshq.com](https://www.blisshq.com/music-library-management-blog/2011/01/25/fundamental-music-genre-list/)
+- 📖 [An Efficient Classification Algorithm for Music Mood Detection in Western and Hindi Music Using Audio Feature Extraction - published 2014](https://www.semanticscholar.org/paper/An-Efficient-Classification-Algorithm-for-Music-in-Bhat-Amith/864fe699dfd0e7696d532d03c6b99b5a5583c8c9)
+- 📖 [Novel audio features for music emotion recognition - published March 2018](https://www.researchgate.net/publication/324093990_Novel_audio_features_for_music_emotion_recognition)
+- 📖 [How JavaScript works: tracking changes in the DOM using MutationObserver - Alexander Zlatkov - Medium](https://blog.sessionstack.com/how-javascript-works-tracking-changes-in-the-dom-using-mutationobserver-86adc7446401)
+- 📖 [Quick Reminder that Details/Summary is the Easiest Way Ever to Make an Accordion - Chris Coyier - CSS-Tricks](https://css-tricks.com/quick-reminder-that-details-summary-is-the-easiest-way-ever-to-make-an-accordion/)
