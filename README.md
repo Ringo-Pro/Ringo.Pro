@@ -223,19 +223,15 @@ await getDataFromSpotfy(`https://api.spotify.com/v1/me/playlists`, options)
 
 </details>
 
-<details><summary>https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists</summary>
+- https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0 - used to search for tracks and artists
 
-</details>
-
-<details><summary>https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track</summary>
-
-</details>
+- https://api.spotify.com/v1/audio-features/${song.id} - used to get the features of a track
 
 ### Spotify web playback SDK
 
 In order to make a custom music player Spotify made something called the web playback SDK. This is a library which you can easily use to plat spotify tracks whithin your own web application. We made use of the following events:
 
-- Initialise the player:
+<details><summary>Initialise the player:</summary>
 
 ```js
 window.onSpotifyWebPlaybackSDKReady = () => {
@@ -280,7 +276,9 @@ player.getCurrentState().then((state) => {
 });
 ```
 
-- Player state changed:
+</details>
+
+<details><summary>Player state changed:</summary>
 
 ```js
 let currState = {};
@@ -293,7 +291,9 @@ player.addListener('player_state_changed', (state) => {
 });
 ```
 
-- Changing volume:
+</details>
+
+<details><summary>Changing volume:</summary>
 
 ```js
 volume.addEventListener('mouseup', function () {
@@ -303,7 +303,9 @@ volume.addEventListener('mouseup', function () {
 });
 ```
 
-- Play and pause toggling:
+</details>
+
+<details><summary>Play and pause toggling:</summary>
 
 ```js
 pauseButton.addEventListener('click', (event) => {
@@ -311,7 +313,9 @@ pauseButton.addEventListener('click', (event) => {
 });
 ```
 
-- Seeking in a track:
+</details>
+
+<details><summary>Seeking in a track:</summary>
 
 ```js
 trackProgression.addEventListener('mouseup', function () {
@@ -321,6 +325,8 @@ trackProgression.addEventListener('mouseup', function () {
   });
 });
 ```
+
+</details>
 
 ## Credits
 
