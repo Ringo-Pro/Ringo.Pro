@@ -202,30 +202,6 @@ async function searchResultsRoute(req, res) {
 
     console.log(recommended)
 
-    // const audioFeatures = searchResults.tracks.items.map(async(track) => {
-    //   return await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${track.id}`, options)
-    // })
-    
-    // const recommendations = Promise.all(audioFeatures)
-    //   .then(features => {
-    //     const recommended = features.map(async(track) => {
-    //       const trackWithMood = moodFilter.addMood(track)
-    //       // console.log(trackWithMood)
-    //       return await getDataFromSpotfy(`https://api.spotify.com/v1/recommendations?limit=${1}&market=US&min_energy=${trackWithMood.values.energyValues.min}&max_energy=${trackWithMood.values.energyValues.max}&min_valence=${trackWithMood.values.valenceValues.min}&max_valence=${trackWithMood.values.valenceValues.max}&min_danceability=${trackWithMood.values.danceabilityValues.min}&max_danceability=${trackWithMood.values.danceabilityValues.max}&seed_tracks=${trackWithMood.id}`, options)
-    //     })
-    //     return Promise.all(recommended)
-    //       .then(tracks => {
-    //         console.log(tracks)
-    //         const recommendedTracks = tracks.map(track => track.tracks[0])
-    //         console.log(recommendedTracks)
-    //         return recommendedTracks
-    //       })
-    //   })
-      
-    //   const recs = await recommendations
-
-    //   const filteredRecommendations = recs.filter(track => track !== undefined)
-    //   console.log(filteredRecommendations)
     res.render(__dirname + '/view/components/result-list.ejs', {
       trackData: searchResults.tracks.items,
       token: access_token,
