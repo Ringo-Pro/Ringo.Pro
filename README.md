@@ -1,6 +1,6 @@
 # Ringo.Pro
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
@@ -372,6 +372,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://www.martendebruijn.nl"><img src="https://avatars1.githubusercontent.com/u/49749829?v=4" width="100px;" alt=""/><br /><sub><b>Marten de Bruijn</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/commits?author=martendebruijn" title="Code">💻</a> <a href="#design-martendebruijn" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/CountNick"><img src="https://avatars2.githubusercontent.com/u/47485018?v=4" width="100px;" alt=""/><br /><sub><b>Nick</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/commits?author=CountNick" title="Code">💻</a> <a href="#design-CountNick" title="Design">🎨</a></td>
+    <td align="center"><a href="https://github.com/ilovemayhem"><img src="https://avatars0.githubusercontent.com/u/65910608?v=4" width="100px;" alt=""/><br /><sub><b>ilovemayhem</b></sub></a><br /><a href="https://github.com/Ringo-Pro/Ringo.Pro/pulls?q=is%3Apr+reviewed-by%3Ailovemayhem" title="Reviewed Pull Requests">👀</a> <a href="#question-ilovemayhem" title="Answering Questions">💬</a> <a href="#projectManagement-ilovemayhem" title="Project Management">📆</a></td>
   </tr>
 </table>
 
