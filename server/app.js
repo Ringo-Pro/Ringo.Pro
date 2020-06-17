@@ -201,12 +201,15 @@ async function searchResultsRoute(req, res) {
             return recommendedTracks
           })
       })
-      console.log(await recommendations)
+      
+      const recs = await recommendations
 
+      const filteredRecommendations = recs.filter(track => track !== undefined)
+      console.log(filteredRecommendations)
     res.render(__dirname + '/view/components/result-list.ejs', {
       trackData: searchResults.tracks.items,
       token: access_token,
-      recommendations: await recommendations
+      recommendations: filteredRecommendations
     });
   } else {
     fetch(
