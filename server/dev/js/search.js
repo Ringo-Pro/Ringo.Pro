@@ -30,6 +30,8 @@ form.addEventListener('click', function (event) {
   event.preventDefault();
 });
 
+
+
 function fetchOnInput(input, formID) {
   input.addEventListener(
     'input',

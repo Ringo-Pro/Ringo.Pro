@@ -184,33 +184,33 @@ async function searchResultsRoute(req, res) {
       `https://api.spotify.com/v1/search?q=${req.query.query}&type=track%2Cartist&limit=10&offset=0`,
       options
     );
-
-    const audioFeatures = searchResults.tracks.items.map(async(track) => {
-      return await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features/${track.id}`, options)
-    })
     
-    const recommendations = Promise.all(audioFeatures)
-      .then(features => {
-        const recommended = features.map(async(track) => {
-          const trackWithMood = moodFilter.addMood(track)
-          // console.log(trackWithMood)
-          return await getDataFromSpotfy(`https://api.spotify.com/v1/recommendations?limit=${1}&market=US&min_energy=${trackWithMood.values.energyValues.min}&max_energy=${trackWithMood.values.energyValues.max}&min_valence=${trackWithMood.values.valenceValues.min}&max_valence=${trackWithMood.values.valenceValues.max}&min_danceability=${trackWithMood.values.danceabilityValues.min}&max_danceability=${trackWithMood.values.danceabilityValues.max}&seed_tracks=${trackWithMood.id}`, options)
-        })
-        return Promise.all(recommended)
-          .then(tracks => {
-            const recommendedTracks = tracks.map(track => track.tracks[0])
-            console.log('recommendedTracks: ', recommendedTracks)
-            return recommendedTracks
-          })
-      })
-    const recs = await recommendations
+    const audioIdList = searchResults.tracks.items.map(track => track.id)
+    const formattedIdList = audioIdList.toString().replace(/,/g, '%2C')
 
-    const filteredRecommendations = recs.filter(track => track !== undefined)
+    console.log(formattedIdList)
+
+    const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features?ids=${formattedIdList}`, options)
+
+    console.log(audioFeatures)
+
+    const featuresWithMood = audioFeatures.audio_features.map((track) => {
+      return moodFilter.addMood(track)
+    })
+    console.log(featuresWithMood[0])
+    
+
+    const recommended = await getDataFromSpotfy(`https://api.spotify.com/v1/recommendations?limit=${10}&market=US&min_energy=${featuresWithMood[0].values.energyValues.min}&max_energy=${featuresWithMood[0].values.energyValues.max}&min_valence=${featuresWithMood[0].values.valenceValues.min}&max_valence=${featuresWithMood[0].values.valenceValues.max}&min_danceability=${featuresWithMood[0].values.danceabilityValues.min}&max_danceability=${featuresWithMood[0].values.danceabilityValues.max}&seed_tracks=${featuresWithMood[0].id}`, options)
+
+    console.log(recommended)
+
 
     res.render(__dirname + '/view/components/result-list.ejs', {
       trackData: searchResults.tracks.items,
       token: access_token,
-      recommendations: filteredRecommendations
+
+      recommendations: recommended.tracks
+
     });
   } else {
     fetch(
