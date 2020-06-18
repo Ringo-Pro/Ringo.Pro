@@ -86,17 +86,14 @@ async function callback(req, res) {
   let code = req.query.code || null;
   let state = req.query.state || null;
   let storedState = req.cookies ? req.cookies[stateKey] : null;
-
+  console.log('cookies: ', req.cookies[stateKey])
+  console.log('state: ', state)
+  console.log('storedState: ', storedState)
   if (state === null || state !== storedState) {
-    res.redirect(
-      '/' +
-        querystring.stringify({
-          error: 'state_mismatch',
-        })
-    );
+    res.redirect('/');
   } else {
     res.clearCookie(stateKey);
-
+    console.log('elssswe: ', req.cookies)
     let form = {
       code: code,
       redirect_uri: process.env.REDIRECT_URI,
@@ -116,6 +113,8 @@ async function callback(req, res) {
 
     let access_token = tokenObject.access_token;
     let refresh_token = tokenObject.refresh_token;
+
+    // res.cookie('acces_token', access_token, { maxAge: 3600000})
 
     let options = {
       headers: { Authorization: 'Bearer ' + access_token },
@@ -190,17 +189,14 @@ async function searchResultsRoute(req, res) {
     const audioIdList = searchResults.tracks.items.map(track => track.id)
     const formattedIdList = audioIdList.toString().replace(/,/g, '%2C')
 
-    console.log(formattedIdList)
+
 
     const audioFeatures = await getDataFromSpotfy(`https://api.spotify.com/v1/audio-features?ids=${formattedIdList}`, options)
-
-    console.log(audioFeatures)
 
     const featuresWithMood = audioFeatures.audio_features.map((track) => {
       return moodFilter.addMood(track)
     })
-    console.log(featuresWithMood[0])
-    
+
 
     const recommended = await getDataFromSpotfy(`https://api.spotify.com/v1/recommendations?limit=${10}&market=US&min_energy=${featuresWithMood[0].values.energyValues.min}&max_energy=${featuresWithMood[0].values.energyValues.max}&min_valence=${featuresWithMood[0].values.valenceValues.min}&max_valence=${featuresWithMood[0].values.valenceValues.max}&min_danceability=${featuresWithMood[0].values.danceabilityValues.min}&max_danceability=${featuresWithMood[0].values.danceabilityValues.max}&seed_tracks=${featuresWithMood[0].id}`, options)
 
