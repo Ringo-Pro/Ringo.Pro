@@ -5,7 +5,7 @@
     "background_color": "rgb(3,15,41)",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/callback",
     "icons": [
       {
         "src": "./img/icons/icon-72x72.png",
