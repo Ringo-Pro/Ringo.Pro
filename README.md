@@ -1,6 +1,9 @@
 # Ringo.Pro
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
@@ -91,6 +94,7 @@ npm run start:dev
 - [Express](https://www.npmjs.com/package/express)
   - [Body Parser](https://www.npmjs.com/package/body-parser)
   - [Cookie Parser](https://www.npmjs.com/package/cookie-parser)
+- [Compression](https://www.npmjs.com/package/compression)
 - [Cors](https://www.npmjs.com/package/cors)
 - [DotENV](https://www.npmjs.com/package/dotenv)
 - [EJS](https://www.npmjs.com/package/ejs)
@@ -352,6 +356,7 @@ trackProgression.addEventListener('mouseup', function () {
 ## Contributers
 
 ### [Marten de Bruijn]()
+
 ### [Nick meijer]()
 
 ## Sources
@@ -383,6 +388,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
