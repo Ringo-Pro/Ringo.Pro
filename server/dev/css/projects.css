@@ -23,5 +23,5 @@
 }
 
 .aside-projects ul li a:hover {
-  color: var(--secondary-color);
+  color: var(--primary-color);
 }
