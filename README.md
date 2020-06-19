@@ -13,7 +13,6 @@ Checkout a live demo of our project:
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
 
 ## Introduction
 
