@@ -2,7 +2,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+![Schermafbeelding 2020-06-19 om 11 28 10](https://user-images.githubusercontent.com/47485018/85118075-176df080-b220-11ea-9b34-19b38c8d6316.png)
 
 Checkout the design rationale on
 * [Gitbook](https://meijer-nick1.gitbook.io/meesterproef/)
@@ -350,11 +350,11 @@ trackProgression.addEventListener('mouseup', function () {
 
 ## Wishlist
 
-- [ ] Cool visual graphs
-- [ ] Make a new playlist with chosen tracks
-- [ ] Show track lyrics in information screen
-- [ ] Make data visualisations of track stats
-- [ ] Better filtering
+- Cool visual graphs
+- Make a new playlist with chosen tracks
+- Show track lyrics in information screen
+- Make data visualisations of track stats
+- Better filtering
 
 ## Contributers
 
