@@ -4,6 +4,10 @@
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 
+Checkout the design rationale on
+* [Gitbook](https://meijer-nick1.gitbook.io/meesterproef/)
+* [Project wiki](https://github.com/Ringo-Pro/Ringo.Pro/wiki)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
@@ -13,7 +17,6 @@
 Ringo Pro is a application for music supervisors. It makes looking for tracks and searching for music licenses easier. This project is a proof of concept prototype which illustrates the possibilities of this application.
 
 ## Table of contents
-
 - [Working features](#working-features)
 - [Installation](#installation)
 - [NPM Scripts](#npm-scripts)
