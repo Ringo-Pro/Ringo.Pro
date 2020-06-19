@@ -8,6 +8,9 @@ Checkout the design rationale on
 * [Gitbook](https://meijer-nick1.gitbook.io/meesterproef/)
 * [Project wiki](https://github.com/Ringo-Pro/Ringo.Pro/wiki)
 
+Checkout a live demo of our project:
+[Ringo.Pro live demo](https://ringo-pro.herokuapp.com/)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot van de applicatie](./readme_img/screenshot-ringo-dot-pro.png)
